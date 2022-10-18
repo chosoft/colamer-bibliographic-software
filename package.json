@@ -1,0 +1,23 @@
+{
+  "name": "colamer-bibliographic-software",
+  "version": "1.0.0",
+  "description": "This is the repository in wich the SemTI develop team will be working to carry out the bibliographic software. The intencion with this software is reduce the time and the task to share a book inside the library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chosoft/colamer-bibliographic-software.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chosoft/colamer-bibliographic-software/issues"
+  },
+  "homepage": "https://github.com/chosoft/colamer-bibliographic-software#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
