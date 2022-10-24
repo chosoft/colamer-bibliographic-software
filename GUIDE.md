@@ -37,3 +37,10 @@ Para poder llevar acabo un desarrollo conjunto cada una de las partes sera encar
   
 - Todos los cambios deben ser combinados a la rama develop
 - El commit debe ser un mensaje descriptivo, de preferencia en **Ingles** en donde se comenten los cambios y lo siguiente a desarrollar
+  
+# Archivo .env
+Este archivo se usara para poder cargar variables de entorno en nuestra aplicacion. El uso de este archivo sera de la siguiente forma. En el archivo **.env**
+
+``NOMBRE_VARIABLE=Valor``
+
+Este se cargara automaticamente a las variables de entorno de node.
