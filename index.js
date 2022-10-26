@@ -1,10 +1,10 @@
 const express = require('express')
 const server = express()
-const helmet = require('helmet')
+const { default:helmet } = require('helmet')
 const path = require('path')
 const router = require('./routes/router')
 const errorHandlerSetup = require('./utils/setups/error-handler-setup')
-const { port,env,sentry_dsn } = require('./configs/env')
+const { port,env } = require('./configs/env')
 const HELMET_CONFIG = require('./configs/helmet')
 
 server.set('views',path.join(__dirname,'views'))

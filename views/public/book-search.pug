@@ -1,0 +1,25 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Consulta de libros Biblioteca - Colegio Americano de Cali
+        link(rel="shortcut icon", href="assets/favicon.png", type="image/x-icon")
+    body
+        header
+            img(src="/assets/logo-colamer.svg", alt="Logo Colegio Americano de Cali")
+            h1 Consulta de libros Biblioteca
+        main
+            .search
+                .searchUtils
+                    input(type="search" placeholder="Ingresa tu busqueda")
+                    select#searchFilter()
+                        option(value="" disabled selected) Filtro
+                        optgroup(label="Filtros")
+                            option(value="title") Titulo
+                            option(value="author") Autor
+                            option(value="collection") Coleccion     
+                .resultsViews
+                    button.changeView#listStyle 
+                    button.changeView#tableStyle 
