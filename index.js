@@ -1,10 +1,14 @@
 const express = require('express')
 const server = express()
-const router = require('./routes/router')
 const helmet = require('helmet')
 const path = require('path')
-const { port } = require('./configs/env')
+const router = require('./routes/router')
+const errorHandlerSetup = require('./utils/setups/error-handler-setup')
+const { port,env,sentry_dsn } = require('./configs/env')
 const HELMET_CONFIG = require('./configs/helmet')
+
+server.set('views',path.join(__dirname,'views'))
+server.set('view engine','pug')
 
 server.use(express.static(path.join(__dirname,'public')))
 server.use(express.json())
@@ -13,7 +17,13 @@ server.use(helmet(HELMET_CONFIG))
 
 server.disable('x-powered-by')
 
-server.use(router)
+router(server)
+
+errorHandlerSetup(server)
+
 server.listen(port, () => {
-    console.log(`SERVER IS RUNNING http://localhost:${port}/`)
+    const STARTUP_MSG = `SERVER IS RUNNING http://localhost:${port}/`
+    if(env === 'development'){
+        console.log(STARTUP_MSG)
+    }
 })
