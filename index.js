@@ -7,6 +7,8 @@ const errorHandlerSetup = require('./utils/setups/error-handler-setup')
 const { port,env } = require('./configs/env')
 const HELMET_CONFIG = require('./configs/helmet')
 
+require('./db')
+
 server.set('views',path.join(__dirname,'views'))
 server.set('view engine','pug')
 

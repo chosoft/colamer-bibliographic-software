@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
-const { db_user,db_password,db_host } = require('./configs/env')
+const { db_user,db_password,db_host,db_name } = require('./configs/env')
 
-const URI = `mongodb+srv://${db_user}:${db_password}@${db_host}`
+const DB_OPTIONS = {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true,
+}
 
-mongoose.connect(URI)
+const URI = `mongodb+srv://${db_user}:${db_password}@${db_host}/${db_name}?retryWrites=true&w=majority`
+
+mongoose.connect(URI,DB_OPTIONS,() => {
+})
