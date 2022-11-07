@@ -1,11 +1,11 @@
 const errorDisplay = (err,req,res,next) => {
     const method = req.method
+    res.statusCode = 500
     if(method === 'GET'){
-        res.statusCode = 500
         res.render('defaults/500')
         next(err)
     }else{
-        res.send('Something went wrong please try later :c')
+        res.json({msg:'Something went wron please try later :C'})
         next(err)
     }
 }

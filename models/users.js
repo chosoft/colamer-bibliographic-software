@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
 const { Schema,model } = mongoose
 
+
 const USER_SCHEMA = new Schema({
     username:String,
     hash:String,
-    rol:{type:String,default:'user'},
     email:String,
+    rol:{type:String,default:'user'},
     timestamp:{type:Date, default: Date.now}
 })
 
@@ -19,4 +20,8 @@ const CreateUser = (userData) => {
             reject(e)
         }
     })
+}
+
+module.exports = {
+    CreateUser
 }
