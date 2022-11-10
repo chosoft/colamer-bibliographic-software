@@ -1,25 +1,26 @@
 const REQUIRED_FIELDS = {
     username: {
         type:"string",
-        regexr:/^[A-Za-z0-9_-]{3,20}/g
+        regex:/^[A-Za-z0-9_-]{3,20}/g
     },
     hash: {
         type:"string",
-        regexr:/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{10,30}$/g
+        regex:/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{10,30}$/g
     },
     email:{
         type:"string",
-        regexr:/s/g
+        regex:/\w{3,}@colamer.edu.co/g
     },
     rol: {
         type:"string",
-        regexr:/admin|developer|user|assitent/g
+        regex:/admin|developer|user|assitent/g
     }
 }
 const Create = (userData) => {
     return new Promise(async(resolve,reject) => {
         try {
             await dataChecker(userData)
+            await dataValidator(userData)
             resolve()
         } catch (err) {
             reject(err)
@@ -39,6 +40,7 @@ const dataChecker = (userData) => {
                 throw new Error(`New User data can't be empty or with missing fields`,{cause:'UserInput'})
             }
             for (const field in userData) {
+                console.log(field)
                 if(!REQUIRED_FIELDS.hasOwnProperty(field)){
                     throw new Error(`Unknow Field: ${field}`,{cause:'UserInput'})
                 }
@@ -57,8 +59,12 @@ const dataValidator = (userData) => {
     return new Promise(async(resolve,reject) => {
         try {
             for (const field in userData) {
-                const fieldRegex = REQUIRED_FIELDS[field].regexr
-                
+                const fieldRegex = REQUIRED_FIELDS[field].regex
+                const fieldValue = userData[field]
+                console.log(fieldRegex.test(fieldValue))
+                if(!fieldRegex.test(fieldValue)){
+                    throw new Error(`The value of ${field} is not Valid`,{cause:'UserInput'})
+                }
             }
             resolve()
         } catch (error) {
