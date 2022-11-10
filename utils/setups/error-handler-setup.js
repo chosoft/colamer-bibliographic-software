@@ -5,12 +5,8 @@ const errorDisplay = require('./../../middleware/errors/error-display')
 
 const { sentry_dsn } = require('./../../configs/env')
 const errorHandlerSetup = (server) => {
-    Sentry.init({ 
-        dsn:sentry_dsn,
-        integrations:[new Tracing.Integrations.Mongo({
-            useMongoose:true
-        })] 
-    })
+    Sentry.init({ dsn:sentry_dsn })
+    server.use(errorChecker)
     server.use(Sentry.Handlers.errorHandler())
     server.use(errorDisplay)
     server.use(errorLog)
