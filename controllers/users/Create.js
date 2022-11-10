@@ -1,19 +1,19 @@
 const REQUIRED_FIELDS = {
     username: {
         type:"string",
-        regexr:/s/
+        regexr:/^[A-Za-z0-9_-]{3,20}/g
     },
     hash: {
         type:"string",
-        regexr:/s/
+        regexr:/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{10,30}$/g
     },
     email:{
         type:"string",
-        regexr:/s/
+        regexr:/s/g
     },
     rol: {
         type:"string",
-        regexr:/s/
+        regexr:/admin|developer|user|assitent/g
     }
 }
 const Create = (userData) => {
@@ -54,7 +54,17 @@ const dataChecker = (userData) => {
 }
 
 const dataValidator = (userData) => {
-
+    return new Promise(async(resolve,reject) => {
+        try {
+            for (const field in userData) {
+                const fieldRegex = REQUIRED_FIELDS[field].regexr
+                
+            }
+            resolve()
+        } catch (error) {
+            reject(error)
+        }
+    })
 }
 
 module.exports = Create

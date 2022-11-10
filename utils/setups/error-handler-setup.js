@@ -1,5 +1,6 @@
 const Sentry = require('@sentry/node')
 const Tracing = require('@sentry/tracing')
+const errorChecker = require('./../../middleware/errors/error-checker')
 const errorLog = require('./../../middleware/errors/error-log')
 const errorDisplay = require('./../../middleware/errors/error-display')
 
