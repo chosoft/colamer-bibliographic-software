@@ -6,7 +6,7 @@ const DB_OPTIONS = {
     useUnifiedTopology: true,
 }
 
-const URI = `mongodb+srv://${db_user}:${db_password}@${db_host}/${db_name}?retryWrites=true&w=majority`
+const URI = `mongodb+srv://${db_user}:${db_password}@${db_host}${db_name}?retryWrites=true&w=majority`
 
 mongoose.connect(URI,DB_OPTIONS,() => {
 })
