@@ -5,9 +5,12 @@ const FIELDS_CONFIG = {
     passwordField:'password'
 }
 
+const loginUser = require('./../utils/auth/login-user')
+
 const userAuth = new LocalStrategy(FIELDS_CONFIG,async(email,password,cb) => {
     try {
-        
+        const userInfo = await loginUser(email,password)
+        cb(null,userInfo)
     } catch (error) {
         cb(null,false,error)
     }

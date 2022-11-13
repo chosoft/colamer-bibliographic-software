@@ -1,4 +1,4 @@
-const { CreateUser } = require('../../models/users')
+const { CreateUser,SearchUser } = require('../../models/users')
 const REQUIRED_FIELDS = {
     username: {
         type:"string",
@@ -22,6 +22,7 @@ const Create = (userData) => {
         try {
             await dataChecker(userData)
             await dataValidator(userData)
+            await searchRepeatUserData(userData)
             await CreateUser(userData)
             resolve()
         } catch (err) {
@@ -73,4 +74,22 @@ const dataValidator = (userData) => {
     })
 }
 
+const searchRepeatUserData = (userData) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            const { username,email } = userData
+            const searchByUsername = await SearchUser({username})
+            const searchByEmail = await SearchUser({email})
+            if(searchByEmail){
+                throw new Error(`The email ${email} is already taken, pls change it`, { cause:'UserInput' })
+            }
+            if(searchByUsername){
+                throw new Error(`The username ${username} is already taken, pls change it`, { cause:'UserInput' })
+            }
+            resolve()
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
 module.exports = Create

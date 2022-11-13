@@ -4,6 +4,8 @@ const flash = require('connect-flash')
 const SQLiteStore = require('connect-sqlite3')(session)
 const { secret,env } = require('../../configs/env')
 
+const userAuth = require('./../../utils/auth/login-user')
+
 const SESSION_CONFIG = {
     secret,
     cookie:{
@@ -18,8 +20,8 @@ const SESSION_CONFIG = {
     store:new SQLiteStore
 }
 
-const setup = (server) => {
+const passportSetup = (server) => {
     server.use(session(SESSION_CONFIG))
     server.use(flash())
-    
+    passport.use()
 }

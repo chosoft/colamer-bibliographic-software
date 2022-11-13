@@ -40,7 +40,7 @@ const SearchUser = (filter) => {
     return new Promise(async(resolve,reject) => {
         try {
             const userFound = await User.findOne(filter)
-            
+            resolve(userFound)
         } catch (error) {
             reject(error)
         }
@@ -48,5 +48,6 @@ const SearchUser = (filter) => {
 }
 
 module.exports = {
-    CreateUser
+    CreateUser,
+    SearchUser
 }
