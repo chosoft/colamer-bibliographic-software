@@ -4,6 +4,8 @@ const flash = require('connect-flash')
 const SQLiteStore = require('connect-sqlite3')(session)
 const { secret,env } = require('../../configs/env')
 
+const { SearchUser } = require('./../../models/users')
+
 const userAuth = require('./../../utils/auth/login-user')
 
 const SESSION_CONFIG = {
@@ -23,5 +25,20 @@ const SESSION_CONFIG = {
 const passportSetup = (server) => {
     server.use(session(SESSION_CONFIG))
     server.use(flash())
-    passport.use()
+    passport.use(userAuth)
+    passport.serializeUser((user,cb) => {
+        process.nextTick(async() => {
+            cb(null,user._id)
+        })
+    })
+    passport.deserializeUser((_id,cb) => {
+        process.nextTick(async() => {
+            const userInfo = await SearchUser({_id})
+            cb(null,userInfo)
+        })
+    })
+    server.use(passport.initialize())
+    server.use(passport.session())
 }
+
+module.exports = passportSetup

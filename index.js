@@ -6,6 +6,7 @@ const router = require('./routes/router')
 const errorHandlerSetup = require('./utils/setups/error-handler-setup')
 const { port,env } = require('./configs/env')
 const HELMET_CONFIG = require('./configs/helmet')
+const passportSetup = require('./utils/setups/passport-setup')
 
 require('./db')
 
@@ -18,6 +19,8 @@ server.use(express.urlencoded({ extended:true }))
 server.use(helmet(HELMET_CONFIG))
 
 server.disable('x-powered-by')
+
+passportSetup(server)
 
 router(server)
 

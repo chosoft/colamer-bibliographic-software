@@ -3,7 +3,10 @@ const router = express.Router()
 
 const Create = require('./../../controllers/users/Create')
 
-router.post('/',async(req,res,next) => {
+const userAuthentification = require('./../../middleware/auth/user-authentification')
+const rolAuthorization = require('./../../middleware/auth/rol-authorization')
+
+router.post('/',userAuthentification,rolAuthorization('admin'),async(req,res,next) => {
     try {
         const userData = req.body
         await Create(userData)
