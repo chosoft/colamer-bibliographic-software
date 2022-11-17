@@ -1,9 +1,34 @@
 const express = require('express')
 const server = express()
+const { default:helmet } = require('helmet')
+const path = require('path')
+const router = require('./routes/router')
+const errorHandlerSetup = require('./utils/setups/error-handler-setup')
+const { port,env } = require('./configs/env')
+const HELMET_CONFIG = require('./configs/helmet')
+const passportSetup = require('./utils/setups/passport-setup')
 
-const SERVER_PORT = 8080
+require('./db')
 
-server.listen(SERVER_PORT, () => {
-    console.log(`SERVER IS RUNNING http://localhost:8080/`)
+server.set('views',path.join(__dirname,'views'))
+server.set('view engine','pug')
+
+server.use(express.static(path.join(__dirname,'public')))
+server.use(express.json())
+server.use(express.urlencoded({ extended:true }))
+server.use(helmet(HELMET_CONFIG))
+
+server.disable('x-powered-by')
+
+passportSetup(server)
+
+router(server)
+
+errorHandlerSetup(server)
+
+server.listen(port, () => {
+    const STARTUP_MSG = `SERVER IS RUNNING http://localhost:${port}/`
+    if(env === 'development'){
+        console.log(STARTUP_MSG)
+    }
 })
-

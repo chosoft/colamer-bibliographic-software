@@ -1,0 +1,18 @@
+require('dotenv').config()
+
+const ENVIROMENT_CONFIG = {
+    port: process.env.PORT_NUMBER,
+    secret: process.env.SECRET,
+    env: process.env.ENV,
+    sentry_dsn:process.env.SENTRY_DSN,
+    db_user:process.env.DB_USER,
+    db_password:process.env.DB_PASSWORD,
+    db_host:process.env.DB_HOST,
+    db_name:process.env.DB_NAME,
+    db_book_user:process.env.DB_BOOK_USER,
+    db_book_password:process.env.DB_BOOK_PASSWORD,
+    db_book_name:process.env.DB_BOOK_NAME,
+    db_book_host:process.env.DB_BOOK_HOST
+}
+
+module.exports = ENVIROMENT_CONFIG

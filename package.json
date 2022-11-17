@@ -4,7 +4,8 @@
   "description": "This is the repository in wich the SemTI develop team will be working to carry out the bibliographic software. The intencion with this software is reduce the time and the task to share a book inside the library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js",
+    "prod": "pm2 index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,22 @@
   },
   "homepage": "https://github.com/chosoft/colamer-bibliographic-software#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "@sentry/node": "^7.16.0",
+    "@sentry/tracing": "^7.17.4",
+    "bcrypt": "^5.1.0",
+    "connect-flash": "^0.1.1",
+    "connect-sqlite3": "^0.9.13",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "helmet": "^6.0.0",
+    "mongoose": "^6.7.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pm2": "^5.2.2",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

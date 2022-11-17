@@ -37,3 +37,18 @@ Para poder llevar acabo un desarrollo conjunto cada una de las partes sera encar
   
 - Todos los cambios deben ser combinados a la rama develop
 - El commit debe ser un mensaje descriptivo, de preferencia en **Ingles** en donde se comenten los cambios y lo siguiente a desarrollar
+  
+# Archivo .env
+Este archivo se usara para poder cargar variables de entorno en nuestra aplicacion. El uso de este archivo sera de la siguiente forma. En el archivo **.env**
+
+``NOMBRE_VARIABLE=Valor``
+
+Este se cargara automaticamente a las variables de entorno de node.
+
+# Comandos del proyecto
+Dentro del package.json en el apartado de scripts, exiten unos comandos, cada uno de estos esta escrito para un entorno diferente.Estos comandos corren mediante la palabra reservada ``npm run <comando>``
+
+# Comandos de Git y Github
+Al ser un proyecto de caracter colaborativo se usa como repositorio en la nube el servicio de Github. Existen 4 comandos mas que necesarios para poder trabajar con el sistema de versiones GIT
+``git add .`` añade todos los archivos que hayan sufrido cambios dentro del proyecto.
+``git commit -am "Mensaje donde se relaten los cambios"``. Para poder subir todos los cambios al repositorio se usa ``git push origin nombre_rama``. Es importante recalcar que siempre que se quiera trabajar en el proyecto se debe ejecutar el comando ``git pull origin nombre_rama`` esto traera todos los cambios que se han realizado

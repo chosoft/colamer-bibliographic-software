@@ -1,0 +1,25 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Inicio de Sesion Biblioteca - Colegio Americano de Cali
+        link(rel="shortcut icon", href="assets/favicon.png", type="image/x-icon")
+    body
+        main
+            section.slice#formSlice
+                form.login(action="/login" method="POST")
+                    h3 Inicio de sesion
+                    label(for="email") Correo
+                    input#email(type="email", name="email" placeholder="tucorreo@colamer.edu.co")
+                    label(for="password") Contraseña
+                    input#password(type="password", name="password" placeholder="Contraseña secreta")
+                    input#btnSubmit(type="submit", value="Ingresar")
+                    a(href="/password-forget") ¿Olvidaste tu contraseña?
+                    if !errorList.length <= 0
+                        each error in errorList
+                            span=error
+            section.slice#bannerSlice
+                img(src="/assets/logo-colamer.svg", alt="Logo Colegio Americano de Cali")
+                h1 Proyecto productivo software gestion bibliografica
