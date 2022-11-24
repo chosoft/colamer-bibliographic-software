@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const passport = require('passport')
+
 router.get('/',(req,res,next) => {
     try {
         const errors = req.flash('error')
@@ -10,12 +12,10 @@ router.get('/',(req,res,next) => {
     }
 })
 
-router.post('/',(req,res,next) => {
-    try {
-        
-    } catch (error) {
-        next(error)
-    }
-})
+router.post('/password',passport.authenticate('local',{
+    successRedirect:'/borrowings',
+    failureRedirect: '/sign-in',
+    failureFlash:true
+}))
 
 module.exports = router

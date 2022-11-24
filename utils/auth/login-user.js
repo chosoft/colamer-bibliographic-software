@@ -2,7 +2,7 @@ const { SearchUser } = require('./../../models/users')
 
 const bcrypt = require('bcrypt')
 
-const loginUser = (email,password,rol) => {
+const loginUser = (email,password) => {
     return new Promise(async(resolve,reject) => {
         try {
             const userData = await SearchUser({email})

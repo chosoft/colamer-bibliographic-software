@@ -6,6 +6,7 @@ const Create = require('./../../controllers/users/Create')
 const userAuthentification = require('./../../middleware/auth/user-authentification')
 const rolAuthorization = require('./../../middleware/auth/rol-authorization')
 
+router.get('/',userAuthentification,rolAuthorization('admin'))
 router.post('/',userAuthentification,rolAuthorization('admin'),async(req,res,next) => {
     try {
         const userData = req.body
@@ -15,5 +16,6 @@ router.post('/',userAuthentification,rolAuthorization('admin'),async(req,res,nex
         next(error)
     }
 })
+
 
 module.exports = router
