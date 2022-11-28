@@ -1,8 +1,23 @@
 const { SearchUser } = require('./../../models/users')
 
+const LocalStrategy = require('passport-local')
+
 const bcrypt = require('bcrypt')
 
-const loginUser = (email,password) => {
+const FIELDS_CONFIG = {
+    usernameField:'email',
+    passwordField:'password'
+}
+
+const loginUserStrategy = new LocalStrategy(FIELDS_CONFIG,async(email,password,cb) => {
+    try {
+        
+    } catch (error) {
+        cb(error)
+    }
+})
+
+const loginUser = (email,password) => { 
     return new Promise(async(resolve,reject) => {
         try {
             const userData = await SearchUser({email})
