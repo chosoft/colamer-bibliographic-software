@@ -1,4 +1,4 @@
-const { SearchBook, UptadeBook } = require("../../../../../colamer-bibliographic-software/models/users")
+const { SearchBook, UptadeBook } = require("./../../models/books")
 
 const REQUIRED_FIELDS = {
     title: {
@@ -13,7 +13,7 @@ const REQUIRED_FIELDS = {
     barcode: {
         type:"String",
     },
-    collection: {
+    collectionType: {
         type:"String",
     },
     copies: {

@@ -1,4 +1,4 @@
-const { SearchBook, CreateBook } = require("../../../../../colamer-bibliographic-software/models/users")
+const { SearchBook, CreateBook } = require("./../../models/books")
 
 const REQUIRED_FIELDS = {
     title: {

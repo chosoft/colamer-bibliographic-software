@@ -6,7 +6,7 @@ const BOOK_SCHEMA = new Schema({
     author:String,
     signature:String,
     barcode:String,
-    collection:String,
+    collectionType:String,
     copies:Number,
     available:Boolean,
     img:String
