@@ -17,7 +17,7 @@ const REQUIRED_FIELDS = {
         type:"String",
     },
     copies: {
-        type:"Number",
+        type:"number",
     },
     available: {
         type:"Boolean",
@@ -59,6 +59,7 @@ const dataChecker = (bookData) => {
                     throw new Error(`The datatype of ${field} is ${typeof REQUIRED_FIELDS[field]}`,{cause:'UserInput'})
                 }
             }
+            resolve()
         } catch (err) {
             reject(err)
         }

@@ -1,4 +1,4 @@
-const { SearchBook, UptadeBook } = require("./../../models/books")
+const { UptadeBook } = require("../../models/books")
 
 const REQUIRED_FIELDS = {
     title: {
@@ -17,7 +17,7 @@ const REQUIRED_FIELDS = {
         type:"String",
     },
     copies: {
-        type:"Number",
+        type: Number,
     },
     available: {
         type:"Boolean",
@@ -54,10 +54,11 @@ const dataChecker = (bookData) => {
                 if(!REQUIRED_FIELDS.hasOwnProperty(field)){
                     throw new Error(`Unknow Field: ${field}`,{cause:'UserInput'})
                 }
-                if(!(typeof REQUIRED_FIELDS[field].type === typeof userData[field])){
+                if(!(typeof REQUIRED_FIELDS[field].type === typeof bookData[field])){
                     throw new Error(`The datatype of ${field} is ${typeof REQUIRED_FIELDS[field]}`,{cause:'UserInput'})
                 }
             }
+            resolve()
         } catch (err) {
             reject(err)
         }

@@ -49,4 +49,15 @@ const UptadeBook = (filter, bookData) => {
     })
 }
 
-module.exports = { CreateBook, SearchBook, UptadeBook }
+const DeleteBook = (filter) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            const bookDelete = await Book.deleteOne({filter: filter})
+            resolve(bookDelete)
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+module.exports = { CreateBook, SearchBook, UptadeBook, DeleteBook }
