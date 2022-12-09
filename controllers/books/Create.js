@@ -2,28 +2,28 @@ const { SearchBook, CreateBook } = require("./../../models/books")
 
 const REQUIRED_FIELDS = {
     title: {
-        type:"String",
+        type:"string",
     },
     author: {
-        type:"String",
+        type:"string",
     },
     signature: {
-        type:"String",
+        type:"string",
     },
     barcode: {
-        type:"String",
+        type:"string",
     },
     collection: {
-        type:"String",
+        type:"string",
     },
     copies: {
         type:"number",
     },
     available: {
-        type:"Boolean",
+        type:"boolean",
     },
     img: {
-        type:"String",
+        type:"string",
     }
 }
 
@@ -55,7 +55,8 @@ const dataChecker = (bookData) => {
                 if(!REQUIRED_FIELDS.hasOwnProperty(field)){
                     throw new Error(`Unknow Field: ${field}`,{cause:'UserInput'})
                 }
-                if(!(typeof REQUIRED_FIELDS[field].type === typeof userData[field])){
+                if(!(REQUIRED_FIELDS[field].type === typeof bookData[field])){
+                    console.log(typeof REQUIRED_FIELDS.type)
                     throw new Error(`The datatype of ${field} is ${typeof REQUIRED_FIELDS[field]}`,{cause:'UserInput'})
                 }
             }

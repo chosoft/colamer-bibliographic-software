@@ -11,28 +11,18 @@ const FIELDS_CONFIG = {
 
 const loginUserStrategy = new LocalStrategy(FIELDS_CONFIG,async(email,password,cb) => {
     try {
-        
+        const userData = await SearchUser({email})
+        if(!userData){
+            cb(null,false,{ message:`The email/password provided is not valid: ${email}` })
+        }
+        if(! await bcrypt.compare(password,userData.hash)){
+            cb(null,false,{ message:`The email/password provided is not valid: ${email}` })
+        }
+        delete userData.hash
+        cb(null,userData)
     } catch (error) {
         cb(error)
     }
 })
 
-const loginUser = (email,password) => { 
-    return new Promise(async(resolve,reject) => {
-        try {
-            const userData = await SearchUser({email})
-            if(!userData){
-                throw new Error(`The email/password provided is not valid: ${email}`, { cause:'UserInput' })
-            }
-            if(! await bcrypt.compare(password,userData.hash)){
-                throw new Error(`The email/password provided is not valid: ${email}`, { cause:'UserInput' })
-            }
-            delete userData.hash
-            resolve(userData)
-        } catch (e) {
-            reject(e)
-        }
-    })
-}
-
-module.exports = loginUser
+module.exports = loginUserStrategy

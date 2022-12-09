@@ -1,6 +1,7 @@
 const userAuthentification = async(req,res,next) => {
     try {
         const isAuth = req.isAuthenticated()
+        console.log(req.user)
         if(isAuth){
             next()
         }else{

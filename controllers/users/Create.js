@@ -46,7 +46,7 @@ const dataChecker = (userData) => {
                 if(!REQUIRED_FIELDS.hasOwnProperty(field)){
                     throw new Error(`Unknow Field: ${field}`,{cause:'UserInput'})
                 }
-                if(!(typeof REQUIRED_FIELDS[field].type === typeof userData[field])){
+                if(!(REQUIRED_FIELDS[field].type === typeof userData[field])){
                     throw new Error(`The datatype of ${field} is ${typeof REQUIRED_FIELDS[field]}`,{cause:'UserInput'})
                 }
             }

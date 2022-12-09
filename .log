@@ -1,0 +1,14 @@
+userData is not defined - 19:43 8-12-2022 
+ ReferenceError: userData is not defined
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\controllers\books\Create.js:58:68
+    at new Promise (<anonymous>)
+    at dataChecker (C:\Users\ACER\Projects\colamer-bibliographic-software\controllers\books\Create.js:44:12)
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\controllers\books\Create.js:33:19
+    at new Promise (<anonymous>)
+    at Create (C:\Users\ACER\Projects\colamer-bibliographic-software\controllers\books\Create.js:31:12)
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\routes\books\books.js:19:15
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\route.js:114:3) 
+
+ -------------------- 
