@@ -6,7 +6,7 @@ const { secret,env } = require('../../configs/env')
 
 const { SearchUser } = require('./../../models/users')
 
-const userAuth = require('./../../utils/auth/login-user')
+const userAuth = require('./../../auth/login-user')
 
 const SESSION_CONFIG = {
     secret,
@@ -26,14 +26,16 @@ const passportSetup = (server) => {
     server.use(session(SESSION_CONFIG))
     server.use(flash())
     passport.use(userAuth)
+
     passport.serializeUser((user,cb) => {
         process.nextTick(async() => {
             cb(null,user._id)
         })
     })
-    passport.deserializeUser((_id,cb) => {
+    passport.deserializeUser((id,cb) => {
         process.nextTick(async() => {
-            const userInfo = await SearchUser({_id})
+            console.log(id)
+            const userInfo = await SearchUser({_id:id})
             cb(null,userInfo)
         })
     })
