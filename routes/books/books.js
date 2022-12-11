@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const Create = require('../../controllers/books/Create');
-const Uptade = require('../../controllers/books/Uptade');
+const Update = require('../../controllers/books/Update');
 const Delete = require('../../controllers/books/Delete');
 
 router.get('/',(req,res,next) => {
@@ -23,19 +23,21 @@ router.post('/', async(req,res,next) => {
     }
 })
 
-router.put('/', async(req,res,next) => {
+router.put('/:filter', async(req,res,next) => {
     try {
         const bookData = req.body
-        await Uptade(bookData)
+        const { filter } = req.params
+        await Update(bookData, filter)
         res.json({msg: "Book Uptaded"})
     } catch (error) {
         next(error);
     }
 })
 
-router.delete('/', async(req,res,next) => {
+router.delete('/:filter', async(req,res,next) => {
     try {
-        await Delete()
+        const { filter } = req.params
+        await Delete(filter)
         res.json({msg: "Book Delete"})
     } catch (error) {
         next(error);
