@@ -5,7 +5,7 @@ const userAuthentification = require('../../middleware/auth/user-authentificatio
 
 router.get('/',userAuthentification,async(req,res,next) => {
     try {
-        res.render('private/borrowings')
+        res.render('private/borrowings',{user:req.user})
     } catch (error) {
         next(error)
     }

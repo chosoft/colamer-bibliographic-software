@@ -1,0 +1,28 @@
+Cannot read properties of undefined (reading 'username') - 18:10 11-12-2022 
+ TypeError: Cannot read properties of undefined (reading 'username')
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\routes\users\users.js:23:30
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:47:12) 
+
+ -------------------- 
+Cannot read properties of undefined (reading 'username') - 18:11 11-12-2022 
+ TypeError: Cannot read properties of undefined (reading 'username')
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\routes\users\users.js:23:30
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:47:12) 
+
+ -------------------- 

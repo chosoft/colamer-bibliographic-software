@@ -7,6 +7,7 @@ const userAuthentification = require('./../../middleware/auth/user-authentificat
 const rolAuthorization = require('./../../middleware/auth/rol-authorization')
 
 router.get('/',userAuthentification,rolAuthorization('admin'))
+
 router.post('/',userAuthentification,rolAuthorization('admin'),async(req,res,next) => {
     try {
         const userData = req.body
@@ -17,5 +18,32 @@ router.post('/',userAuthentification,rolAuthorization('admin'),async(req,res,nex
     }
 })
 
-
+router.put('/username', async(req,res,next ) => {
+    try {
+        console.log(req.user.username)
+    } catch (error) {
+        next(error)
+    }
+})
+router.put('/rol', async(req,res,next) => {
+    try {
+        
+    } catch (error) {
+        next(error)
+    }
+})
+router.put('/password', async(req,res,next) => {
+    try {
+        
+    } catch (error) {
+        next(error)
+    }
+})
+router.delete('/',async(req,res,next) => {
+    try {
+        
+    } catch (error) {
+        next(error)
+    }
+})
 module.exports = router

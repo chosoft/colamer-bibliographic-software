@@ -9,9 +9,8 @@ const { SearchUser } = require('./../../models/users')
 const userAuth = require('./../../auth/login-user')
 
 const SESSION_CONFIG = {
-    secret,
+    secret:secret,
     cookie:{
-        secure: env === 'develop' ? false:true,
         maxAge:10800000,
         httpOnly:true,
         expires: new Date(Date.now() + 10800000 * 5),
@@ -23,8 +22,11 @@ const SESSION_CONFIG = {
 }
 
 const passportSetup = (server) => {
+    //Session persistent 
     server.use(session(SESSION_CONFIG))
+    //Flash messages for auth errors
     server.use(flash())
+    //Passport Local Strategy
     passport.use(userAuth)
 
     passport.serializeUser((user,cb) => {
@@ -34,8 +36,7 @@ const passportSetup = (server) => {
     })
     passport.deserializeUser((id,cb) => {
         process.nextTick(async() => {
-            console.log(id)
-            const userInfo = await SearchUser({_id:id})
+            const userInfo = await SearchUser({_id:id},{username:1,email:1,rol:1})
             cb(null,userInfo)
         })
     })

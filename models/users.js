@@ -10,6 +10,14 @@ const USER_SCHEMA = new Schema({
     timestamp:{type:Date, default: Date.now}
 })
 
+const DEFAULT_PROJECTION = {
+    username:1,
+    hash:1,
+    email:1,
+    rol:1,
+    timestamp:1
+}
+
 const User = new model('user',USER_SCHEMA)
 
 const CreateUser = (userData) => {
@@ -36,10 +44,10 @@ const CreateUser = (userData) => {
     })
 }
 
-const SearchUser = (filter) => {
+const SearchUser = (filter,projection=DEFAULT_PROJECTION) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const userFound = await User.findOne(filter)
+            const userFound = await User.findOne(filter,projection)
             resolve(userFound)
         } catch (error) {
             reject(error)
