@@ -37,12 +37,12 @@ const SearchBook = (filter) => {
     })
 }
 
-const UptadeBook = (filter, bookData) => {
+const UpdateBook = (bookData, filter) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const { title, author, signature, barcode, collection, copies, available, img } = bookData
-            const bookUptade = await Book.uptadeone({filter: filter}, { $set: {title, author, signature, barcode, collection, copies, available, img}})
-            resolve (bookUptade)
+            const {title, author, signature, barcode, collection, copies, available, img} = bookData
+            const bookUpdate = await Book.updateOne({barcode: filter}, { $set: { title, author, signature, barcode, collection, copies, available, img }})
+            resolve (bookUpdate)
         } catch (error) {
             reject(error)
         }
@@ -52,7 +52,7 @@ const UptadeBook = (filter, bookData) => {
 const DeleteBook = (filter) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const bookDelete = await Book.deleteOne({filter: filter})
+            const bookDelete = await Book.deleteOne({barcode: filter})
             resolve(bookDelete)
         } catch (error) {
             reject(error)
@@ -60,4 +60,15 @@ const DeleteBook = (filter) => {
     })
 }
 
-module.exports = { CreateBook, SearchBook, UptadeBook, DeleteBook }
+const SearchDelete = (filter) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            const bookFound = await Book.findOne({barcode: filter})
+            resolve(bookFound)
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+module.exports = { CreateBook, SearchBook, UpdateBook, DeleteBook, SearchDelete }

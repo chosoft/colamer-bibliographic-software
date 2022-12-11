@@ -13,7 +13,7 @@ const REQUIRED_FIELDS = {
     barcode: {
         type:"string",
     },
-    collection: {
+    collectionType: {
         type:"string",
     },
     copies: {
@@ -70,14 +70,10 @@ const dataChecker = (bookData) => {
 const searchRepeatBookData = (bookData) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const { title, author } = bookData
+            const { title } = bookData
             const searchByTitle = await SearchBook({title})
-            const searchByAuthor = await SearchBook({author})
             if (searchByTitle) {
                 throw new Error(`The title ${title} is already taken, pls change it`, {cause:'UserInput'})
-            }
-            if (searchByAuthor) {
-                throw new Error(`The title ${author} is already taken, pls change it`, {cause:'UserInput'})
             }
             resolve()
         } catch (error) {
