@@ -2,13 +2,21 @@ const express = require('express')
 const router = express.Router()
 
 const Create = require('./../../controllers/users/Create')
+const UpdateUsername = require('./../../controllers/users/UpdateUsername')
 
 const userAuthentification = require('./../../middleware/auth/user-authentification')
-const rolAuthorization = require('./../../middleware/auth/rol-authorization')
 
-router.get('/',userAuthentification,rolAuthorization('admin'))
+router.use(userAuthentification('admin'))
 
-router.post('/',userAuthentification,rolAuthorization('admin'),async(req,res,next) => {
+router.get('/', async(req,res,next) => {
+    try {
+        res.render('private/users/index')
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.post('/',async(req,res,next) => {
     try {
         const userData = req.body
         await Create(userData)
@@ -20,7 +28,10 @@ router.post('/',userAuthentification,rolAuthorization('admin'),async(req,res,nex
 
 router.put('/username', async(req,res,next ) => {
     try {
-        console.log(req.user.username)
+        const { _id,username } = req.user
+        const { usernameToUpdate } = req.body
+        await UpdateUsername(usernameToUpdate,_id)
+        res.json({ msg: `The username ${username} has been changed for ${usernameToUpdate}`})
     } catch (error) {
         next(error)
     }

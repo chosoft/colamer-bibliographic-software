@@ -3,9 +3,11 @@ const router = express.Router()
 
 const userAuthentification = require('../../middleware/auth/user-authentification')
 
-router.get('/',userAuthentification,async(req,res,next) => {
+router.use(userAuthentification())
+
+router.get('/',async(req,res,next) => {
     try {
-        res.render('private/borrowings',{user:req.user})
+        res.render('private/borrowings/index',{user:req.user})
     } catch (error) {
         next(error)
     }

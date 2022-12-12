@@ -55,7 +55,19 @@ const SearchUser = (filter,projection=DEFAULT_PROJECTION) => {
     })
 }
 
+const UpdateUser = (filter,updateFields) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            await User.findOneAndUpdate(filter,updateFields)
+            resolve()
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
     CreateUser,
-    SearchUser
+    SearchUser,
+    UpdateUser
 }

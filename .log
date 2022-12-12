@@ -1,0 +1,14 @@
+UpdateUser is not a function - 0:10 12-12-2022 
+ TypeError: UpdateUser is not a function
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\controllers\users\UpdateUsername.js:9:19
+    at new Promise (<anonymous>)
+    at UpdateUsername (C:\Users\ACER\Projects\colamer-bibliographic-software\controllers\users\UpdateUsername.js:3:12)
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\routes\users\users.js:33:15
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\ACER\Projects\colamer-bibliographic-software\node_modules\express\lib\router\index.js:346:12) 
+
+ -------------------- 
