@@ -53,6 +53,10 @@ const DeleteBook = (filter) => {
     return new Promise(async(resolve,reject) => {
         try {
             const bookDelete = await Book.deleteOne({barcode: filter})
+            const { deletedCount } = bookDelete
+            if (deletedCount == 0) {
+                throw new Error(`The book can't be delete`, {cause:'UserInput'})
+            }
             resolve(bookDelete)
         } catch (error) {
             reject(error)
@@ -60,15 +64,4 @@ const DeleteBook = (filter) => {
     })
 }
 
-const SearchDelete = (filter) => {
-    return new Promise(async(resolve,reject) => {
-        try {
-            const bookFound = await Book.findOne({barcode: filter})
-            resolve(bookFound)
-        } catch (error) {
-            reject(error)
-        }
-    })
-}
-
-module.exports = { CreateBook, SearchBook, UpdateBook, DeleteBook, SearchDelete }
+module.exports = { CreateBook, SearchBook, UpdateBook, DeleteBook }
