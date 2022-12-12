@@ -3,6 +3,8 @@ const router = express.Router()
 
 const Create = require('./../../controllers/users/Create')
 const UpdateUsername = require('./../../controllers/users/UpdateUsername')
+const UpdateRol = require('./../../controllers/users/UpdateRol')
+const DeleteUser = require('./../../controllers/users/Delete')
 
 const userAuthentification = require('./../../middleware/auth/user-authentification')
 
@@ -25,7 +27,7 @@ router.post('/',async(req,res,next) => {
         next(error)
     }
 })
-
+//To update functions
 router.put('/username', async(req,res,next ) => {
     try {
         const { _id,username } = req.user
@@ -36,9 +38,12 @@ router.put('/username', async(req,res,next ) => {
         next(error)
     }
 })
+
 router.put('/rol', async(req,res,next) => {
     try {
-        
+        const { _id,rol } = req.body
+        await UpdateRol(_id,rol)
+        res.json({ msg:"The rol of the user has been changed" })
     } catch (error) {
         next(error)
     }
@@ -52,7 +57,14 @@ router.put('/password', async(req,res,next) => {
 })
 router.delete('/',async(req,res,next) => {
     try {
-        
+        const { _id:userReference } = req.body
+        const { _id:involvedReference } = req.user
+        if(userReference === involvedReference){
+            res.json({ msg:'You cannot delete you :C' })
+        }else{
+            await DeleteUser(userReference)
+            res.json({ msg:"User deleted" })
+        }
     } catch (error) {
         next(error)
     }

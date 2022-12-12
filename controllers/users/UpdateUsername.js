@@ -6,7 +6,7 @@ const UpdateUsername = (usernameToUpdate,_id) => {
             if(!usernameRegex.test(usernameToUpdate)){
                 throw new Error(`${usernameToUpdate} is a invalid username`)
             }
-            await UpdateUser({_id},{usernameToUpdate})
+            await UpdateUser({_id},{username:usernameToUpdate})
             resolve()
         } catch (error) {
             reject(error)

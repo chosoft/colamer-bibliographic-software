@@ -66,8 +66,20 @@ const UpdateUser = (filter,updateFields) => {
     })
 }
 
+const DeleteUser = (_id) => {
+    return new Promise(async (resolve,reject) => {
+        try {
+            await User.deleteOne({_id})
+            resolve()
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
     CreateUser,
     SearchUser,
-    UpdateUser
+    UpdateUser,
+    DeleteUser
 }
