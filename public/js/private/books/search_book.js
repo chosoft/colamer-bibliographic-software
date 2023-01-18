@@ -40,11 +40,11 @@ const createBooksHtml = (booksList) => {
         try {
             let allTemplates = ''
             for (const book of booksList) {
-                const { title,author,copies,avaible,code,img,collectionType} = book
+                const { title,author,copies,available,signature,img,collectionType,barcode} = book
                 const template = `<div class="bookResult">
                                     <div class="headerResult">
-                                        <div class="lorempic">
-                                            <img src="${img}" crossorigin=""></img>
+                                        <div class="img">
+                                            <img src="${img}">
                                         </div>
                                         <div class="infoContainer">
                                             <h3 class="book-result-title">${title}</h3>
@@ -53,8 +53,8 @@ const createBooksHtml = (booksList) => {
                                         </div>
                                     </div>
                                     <div class="footer">
-                                        <span class="code">${code}</span>
-                                        <span class="avaible">${avaible}</span>
+                                        <span class="signature">${signature}</span>
+                                        <span class="avaible">${available ? 'Disponible':'No Disponible'}</span>
                                         <span class="collectionType">${collectionType}</span>
                                     </div>
                                 </div>`
@@ -70,6 +70,7 @@ const createBooksHtml = (booksList) => {
 const innerFoundBooks = (booksList) => {
     return new Promise(async(resolve,reject) => {
         try {
+            console.log(booksList)
             const resultsContainer = document.querySelector('.results')
             const booksListTemplate = await createBooksHtml(booksList)
             resultsContainer.innerHTML = booksListTemplate

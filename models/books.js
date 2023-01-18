@@ -32,7 +32,7 @@ const SearchBooks = (filter,config,projection={hash:0}) => {
     return new Promise(async(resolve,reject) => {
         try {
             //Need to put the limit and skip functions
-            const foundBooks = await User.find(filter,projection).sort({_id:-1})
+            const foundBooks = await Book.find(filter,projection).sort({_id:-1})
             resolve(foundBooks)
         } catch (error) {
             reject(error)

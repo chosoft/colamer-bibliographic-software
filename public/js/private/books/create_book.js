@@ -69,10 +69,10 @@ saveBook.addEventListener('click', async(e) => {
         console.log(collectionType)
         // First go through the checker
         await emptyChecker(info)
-        console.log("Paso")
         // And for last one create the book
-        createBook(info)
-        
+        await createBook(info)
+        alert("El libro se ha creado correctamente")
+        window.location.reload()
     } catch (error) {
         console.log(error)
     }

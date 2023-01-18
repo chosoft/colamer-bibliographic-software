@@ -90,19 +90,6 @@ const dataChecker = (bookData) => {
                     throw new Error(`The datatype of ${field} is ${typeof REQUIRED_FIELDS[field]}`,{cause:'UserInput'})
                 }
             }
-            // This check if the field borrowed is greater than copies
-            if (borrowed > copies) {
-                // If so throw an error
-                throw new Error(`The number of books borrowed cannot be more than the number of copies`,{cause:'UserInput'})
-            }
-            // This check if the field borrowed is equal than copies
-            if (borrowed == copies) {
-                // If so check if the field avaible is in true
-                if(available) {
-                    // If so throw an error
-                    throw new Error(`Being the same number of books borrowed as the existing ones, the book cannot be available`,{cause:'UserInput'}) 
-                }   
-            }
             resolve()
         // If exist an error this catch it
         } catch (err) {

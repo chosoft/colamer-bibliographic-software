@@ -2,7 +2,7 @@
 //This is the function of the model that allows the app to retrieve a list of users
 //this function use the filters that the user set in the frontend
 //and query the user by a certain mode
-const {SearchBooks} = require('./../../models/books')
+const {SearchBooks} = require('../../models/books')
 //This function transform the object send by the user
 //and structure this into a object that the model can read
 const createSearchJSONObject = (params) => {

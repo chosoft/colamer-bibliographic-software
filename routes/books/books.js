@@ -4,6 +4,7 @@ const router = express.Router()
 const Create = require('../../controllers/books/Create');
 const Update = require('../../controllers/books/Update');
 const Delete = require('../../controllers/books/Delete');
+const Search = require('../../controllers/books/Search');
 
 const userAuthentification = require('./../../middleware/auth/user-authentification')
 
