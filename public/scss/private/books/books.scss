@@ -1,0 +1,92 @@
+@import '../../defaults/pallete';
+
+header {
+    #logo {
+        position: absolute;
+        height: 116.702880859375px;
+        width: 116.70281982421875px;
+        left: 1.63720703125px;
+        top: 1.65972900390625px;
+        border-radius: 0px;
+          
+
+    }
+    h1 {
+        font: $titleBigBold;
+        position: absolute;
+        width: 394px;
+        height: 68px;
+        left: 397px;
+        top: 107px;
+
+    }
+}
+
+main {
+    input {
+        position: absolute;
+        width: 1078px;
+        height: 68px;
+        left: 397px;
+        top: 243px;
+        background-color: #D9D9D9;
+        border: none;
+        padding: 20px;
+        font-family: Roboto;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: left;
+        outline: none;
+    }
+    #searchFilter {
+        position: absolute;
+        width: 241px;
+        height: 68px;
+        left: 1504px;
+        top: 243px;
+        padding: 20px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 29px;
+        color: #979797;
+    }
+
+    i {
+        font-size: 25px;
+    }
+
+    .changeView#listStyle {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        left: 397px;
+        top: 340px;
+        background: #D9D9D9;
+        border: none;
+    }
+    .changeView#tableStyle {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        left: 460px;
+        top: 340px;
+        background: #D9D9D9;
+        border: none;
+    }
+
+    .results {
+        h1 {
+            font: $titleMediumBold;
+            position: absolute;
+            width: 445px;
+            height: 71px;
+            left: 397px;
+            top: 424px;
+            color: #000000;
+        }
+    }
+}

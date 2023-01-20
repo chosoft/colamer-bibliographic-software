@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  background: #FAFAFA; }
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh; }
+  main .slice {
+    padding: 25px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    main .slice .login {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px; }
+      main .slice .login .loginTitle {
+        font: 700 35px "Poppins", sans-serif;
+        margin: 0 0 35px 0; }
+      main .slice .login .fields {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-bottom: 20px; }
+        main .slice .login .fields .field {
+          width: 100%;
+          padding: 10px;
+          border: 0;
+          background: #DADADA;
+          font: 400 16px "Roboto", sans-serif;
+          outline: none;
+          margin: 5px 0 15px 0; }
+        main .slice .login .fields label {
+          color: #4180E2;
+          font: 700 16px "Poppins", sans-serif; }
+        main .slice .login .fields #btnSubmit {
+          width: 100%;
+          font: 700 18px "Poppins", sans-serif;
+          border: 0;
+          background: #4180E2;
+          padding: 10px;
+          transition: all .3s ease;
+          cursor: pointer;
+          color: #FAFAFA; }
+          main .slice .login .fields #btnSubmit:hover {
+            transform: scale(1.05); }
+          main .slice .login .fields #btnSubmit:active {
+            transform: scale(0.95); }
+      main .slice .login .pwdForget {
+        width: 100%;
+        text-align: left;
+        font: 400 16px "Roboto", sans-serif;
+        color: #4180E2; }
+      main .slice .login .errorItem {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        font: 700 16px "Roboto", sans-serif;
+        color: #FAFAFA;
+        text-align: center;
+        background: rgba(250, 40, 40, 0.6); }
+
+/*# sourceMappingURL=sign-in.css.map */

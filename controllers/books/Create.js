@@ -24,8 +24,12 @@ const REQUIRED_FIELDS = {
     },
     img: {
         type:"string",
+    },
+    borrowed: {
+        type:"number",
     }
 }
+
 
 const Create = (bookData) => {
     return new Promise(async(resolve,reject) => {
@@ -46,10 +50,10 @@ const dataChecker = (bookData) => {
             const REQUIRED_FIELDS_LENGTH = Object.keys(REQUIRED_FIELDS).length
             const BOOKDATA_FIELDS_LENGTH = Object.keys(bookData).length
             if(REQUIRED_FIELDS_LENGTH > BOOKDATA_FIELDS_LENGTH) {
-                throw new Error(`New book data can't be with more fields than needed`)
+                throw new Error(`New book data can't be empty or with missing fields`)
             }
             if(REQUIRED_FIELDS < BOOKDATA_FIELDS_LENGTH) {
-                throw new Error(`New book data can't be empty or with missing fields`)
+                throw new Error(`New book data can't be with more fields than needed`)
             }
             for (const field in bookData) {
                 if(!REQUIRED_FIELDS.hasOwnProperty(field)){

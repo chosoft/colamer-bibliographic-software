@@ -9,7 +9,8 @@ const BOOK_SCHEMA = new Schema({
     collectionType:String,
     copies:Number,
     available:Boolean,
-    img:String
+    img:String,
+    borrowed:Number
 })
 
 const Book = new model('Books',BOOK_SCHEMA);

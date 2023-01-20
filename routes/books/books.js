@@ -7,11 +7,11 @@ const Delete = require('../../controllers/books/Delete');
 
 const userAuthentification = require('./../../middleware/auth/user-authentification')
 
-router.use(userAuthentification())
+
 
 router.get('/',(req,res,next) => {
     try {
-        res.render('private/books')
+        res.render('private/Books/management')
     } catch (error) {
         next(error)
     }
