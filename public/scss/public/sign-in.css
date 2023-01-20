@@ -73,5 +73,14 @@ main {
         color: #FAFAFA;
         text-align: center;
         background: rgba(250, 40, 40, 0.6); }
+  main #bannerSlice {
+    background: #4180E2; }
+    main #bannerSlice .logo img {
+      width: 150px; }
+    main #bannerSlice .creds {
+      font: 700 45px "Poppins", sans-serif;
+      width: 100%;
+      text-align: center;
+      color: #FAFAFA; }
 
 /*# sourceMappingURL=sign-in.css.map */

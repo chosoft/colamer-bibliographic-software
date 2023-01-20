@@ -7,7 +7,13 @@ router.use(userAuthentification())
 
 router.get('/',async(req,res,next) => {
     try {
-        res.render('private/borrowings/index',{user:req.user})
+        const RENDER_INFO = {
+            user:req.user,
+            page:{
+                name:"borrowings"
+            }
+        }
+        res.render('private/borrowings/index',RENDER_INFO)
     } catch (error) {
         next(error)
     }

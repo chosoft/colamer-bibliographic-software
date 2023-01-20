@@ -11,7 +11,10 @@ const userAuthentification = require('./../../middleware/auth/user-authentificat
 
 router.get('/',(req,res,next) => {
     try {
-        res.render('private/Books/management')
+        const RENDER_INFO = {
+            page:{name:'books'}
+        }
+        res.render('private/Books/management', RENDER_INFO)
     } catch (error) {
         next(error)
     }
