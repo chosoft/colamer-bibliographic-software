@@ -60,4 +60,19 @@ main{
             }
         }
     }
+    #bannerSlice{
+        background: $mainColor;
+        .logo{
+            img{
+                width: 150px;
+            }
+        }
+        .creds{
+            font: $titleBigBold;
+            width: 100%;
+            text-align: center;
+            color: $white;
+        }
+    }
+
 }
