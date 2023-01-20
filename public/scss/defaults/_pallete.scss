@@ -1,0 +1,67 @@
+//Colors Values
+$mainColor: #4180E2;
+$secondColor: #FFBA00;
+$inputsColor: #DADADA;
+$errorColor: #FA2828;
+$successColor: #40F400;
+$black: #161616;
+$white:#FAFAFA;
+//Titles Styles
+//Bold Titles
+$titleBigBold:700 45px 'Poppins', sans-serif  ;
+$titleMediumBold:700 35px  'Poppins',sans-serif;
+$titleSmallBold:700 25px 'Poppins', sans-serif;
+//Normal Titles
+$titleBigNormal:400 45px 'Poppins', sans-serif  ;
+$titleMediumNormal:400 35px 'Poppins',sans-serif  ;
+$titleSmallNormal:400 25px 'Poppins', sans-serif  ;
+//Light Titles
+$titleBigLight:200 45px 'Poppins', sans-serif  ;
+$titleMediumLight:200 35px 'Poppins',sans-serif  ;
+$titleSmallLight:200 25px 'Poppins', sans-serif  ;
+//Form Components Styles
+$btnTxt:700 18px 'Poppins',sans-serif  ;
+$labelTxt:700 16px 'Poppins', sans-serif  ;
+$bigInputs:400 25px 'Roboto', sans-serif  ;
+$normalInputs: 400 16px 'Roboto',sans-serif;
+$bigInputsBold:700 25px 'Roboto', sans-serif;
+//Texts Styles
+$text:400 16px 'Roboto', sans-serif  ;
+$textBold:700 16px 'Roboto', sans-serif  ;
+
+//Inputs Mixin
+@mixin d-input{
+    padding: 10px;
+    border: 0;
+    background: $inputsColor;
+    font: $normalInputs;
+    outline: none;
+    margin:5px 0 15px 0;
+}
+@mixin d-label{
+    color: $mainColor;
+    font: $labelTxt;
+}
+@mixin d-btn{
+    width: 100%;
+    font: $btnTxt;
+    border: 0;
+    background: $mainColor;
+    padding: 10px;
+    transition: all .3s ease;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.05);
+    }
+    &:active{
+        transform: scale(.95);
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: $white;
+}
