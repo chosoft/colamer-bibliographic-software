@@ -64,4 +64,104 @@ $textBold:700 16px 'Roboto', sans-serif  ;
 }
 body{
     background: $white;
+    display: flex;
+}
+
+
+aside{
+    width: 20vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 25px;
+    .logo{
+        img{
+            width: 125px;
+        }
+    }
+    nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+        width: 100%;
+        .m-item{
+            margin-bottom: 15px;
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-decoration: none;
+            justify-content: center;
+            cursor: pointer;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            i,span{
+                transition: all .3s ease;
+                text-decoration: none;
+                color: rgba($color: $black, $alpha:.4);
+                font: $btnTxt;
+            }
+            i{
+                margin-right: 5px;
+            }
+            &:hover{
+                i,span{
+                    color: $mainColor
+                }
+            }
+        }
+        .actualPage{
+            background: $mainColor;
+            &:hover{
+                i,span{
+                    color: $white;
+                }
+            }
+            i,span{
+                color: $white;
+            }
+        }
+    }
+    .exit{
+        width: 100%;
+        background: $errorColor;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all .3s ease;
+        i,span{
+            color: $white;
+        text-decoration: none;
+            font: $btnTxt;
+        }
+        i{
+            margin-right: 5px;
+        }
+        &:hover{
+            transform: scale(.95) translateX(-10px);
+        }
+    }
+}
+
+main{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    .pageHeader{
+        width: 100%;
+        h1{
+            font: $titleMediumBold
+        }
+    }
 }
