@@ -79,4 +79,22 @@ main {
             color: #000000;
         }
     }
+
+    .backPage {
+        position: absolute;
+        color: #4180E2;
+        top: 23cm;
+        left: 20cm;
+        background: none;
+        border: none;
+    }
+
+    .nextPage {
+        position: absolute;
+        color: #4180E2;
+        top: 23cm;
+        left: 23cm;
+        background: none;
+        border: none;
+    }
 }
