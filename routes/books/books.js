@@ -9,7 +9,7 @@ const userAuthentification = require('./../../middleware/auth/user-authentificat
 
 
 
-router.get('/',(req,res,next) => {
+router.get('/',userAuthentification(),(req,res,next) => {
     try {
         const RENDER_INFO = {
             page:{name:'books'}
