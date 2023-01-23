@@ -1,0 +1,16 @@
+main{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background: $successColor;
+    .pageHeader{
+        width: 100%;
+        h1{
+            font: $titleMediumBold
+        }
+    }
+}

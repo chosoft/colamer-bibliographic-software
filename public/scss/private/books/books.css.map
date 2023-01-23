@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAGI,YAAM;EACF,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;AAEhB,SAAG;EACC,UAAU,EAAE,OAAO;;AAKvB,aAAO;EACH,gBAAgB,EAAE,GAAG",
-"sources": ["books.scss"],
-"names": [],
-"file": "books.css"
-}

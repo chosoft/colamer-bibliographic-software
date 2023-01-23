@@ -67,7 +67,10 @@ body{
     display: flex;
 }
 
-
+.fakeAside{
+    width: 20vw;
+    height: 100vh;
+}
 aside{
     width: 20vw;
     height: 100vh;
@@ -76,6 +79,7 @@ aside{
     align-items: center;
     justify-content: space-around;
     padding: 25px;
+    position: fixed;
     .logo{
         img{
             width: 125px;
@@ -146,22 +150,6 @@ aside{
         }
         &:hover{
             transform: scale(.95) translateX(-10px);
-        }
-    }
-}
-
-main{
-    width: 80vw;
-    height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-    .pageHeader{
-        width: 100%;
-        h1{
-            font: $titleMediumBold
         }
     }
 }

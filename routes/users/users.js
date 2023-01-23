@@ -12,7 +12,13 @@ router.use(userAuthentification('admin'))
 
 router.get('/', async(req,res,next) => {
     try {
-        res.render('private/users/index')
+        const RENDER_INFO = {
+            user:req.user,
+            page:{
+                name:'users'
+            }
+        }
+        res.render('private/users/index',RENDER_INFO)
     } catch (error) {
         next(error)
     }
