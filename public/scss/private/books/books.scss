@@ -6,65 +6,60 @@ main {
         h1 {
             font: $titleMediumBold;
             position: absolute;
-            width: 394px;
-            height: 68px;
-            left: 360px;
-            top: 75px;
+            width: 24%;
+            left: 25%;
+            top: 8%;
     
         }
     }
-    input {
-        position: absolute;
-        width: 20cm;
-        height: 68px;
-        left: 360px;
-        top: 200px;
-        background-color: #D9D9D9;
-        border: none;
-        padding: 20px;
-        font-family: Roboto;
-        font-size: 25px;
-        font-weight: 700;
-        line-height: 29px;
-        letter-spacing: 0em;
-        text-align: left;
-        outline: none;
+    .searchUtils {
+        input {
+            position: absolute;
+            top: 20%;
+            left: 25%;
+            width: 46%;
+            height: 10.5%;
+            padding: 20px;
+            color: #979797;
+            background-color: #D9D9D9;
+            font-family: Roboto;
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 29px;
+            border: none;
+        }
     }
     #searchFilter {
         position: absolute;
-        width: 241px;
-        height: 68px;
-        left: 30cm;
-        top: 200px;
+        width: 15%;
+        height: 10.5%;
+        left: 73%;
+        top: 20%;
         padding: 20px;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 25px;
-        line-height: 29px;
+        font:700 25px 'Roboto';
         color: #979797;
-    }
-
-    i {
-        font-size: 25px;
+        background-color: #D9D9D9;
+        border: none;
     }
 
     .changeView#listStyle {
         position: absolute;
         width: 40px;
         height: 40px;
-        left: 360px;
-        top: 290px;
+        left: 25%;
+        top: 33%;
         background: #D9D9D9;
+        font-size: 25px;
         border: none;
     }
     .changeView#tableStyle {
         position: absolute;
         width: 40px;
         height: 40px;
-        left: 420px;
-        top: 290px;
+        left: 29.5%;
+        top: 33%;
         background: #D9D9D9;
+        font-size: 25px;
         border: none;
     }
 
@@ -74,8 +69,8 @@ main {
             position: absolute;
             width: 445px;
             height: 71px;
-            left: 360px;
-            top: 370px;
+            top: 41%;
+            left: 25%;
             color: #000000;
         }
     }
@@ -83,8 +78,8 @@ main {
     .backPage {
         position: absolute;
         color: #4180E2;
-        top: 23cm;
-        left: 20cm;
+        top: 92%;
+        left: 48%;
         background: none;
         border: none;
     }
@@ -92,9 +87,22 @@ main {
     .nextPage {
         position: absolute;
         color: #4180E2;
-        top: 23cm;
-        left: 23cm;
+        top: 92%;
+        left: 56%;
         background: none;
+        border: none;
+    }
+
+    .newBook {
+        position: absolute;
+        background-color: #4180E2;
+        color: #fff;
+        top: 86%;
+        left: 92%;
+        width: 4.5%;
+        height: 8%;
+        font-size: 50px;
+        justify-items: center;
         border: none;
     }
 }
