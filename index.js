@@ -27,7 +27,7 @@ router(server)
 errorHandlerSetup(server)
 
 server.listen(port, () => {
-    const STARTUP_MSG = `SERVER IS RUNNING http://localhost:${port}/`
+    const STARTUP_MSG = `SERVER IS RUNNING http://localhost:${port}/sign-in`
     if(env === 'development'){
         console.log(STARTUP_MSG)
     }
