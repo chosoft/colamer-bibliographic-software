@@ -49,6 +49,7 @@ const dataChecker = (bookData) => {
         try {
             const REQUIRED_FIELDS_LENGTH = Object.keys(REQUIRED_FIELDS).length
             const BOOKDATA_FIELDS_LENGTH = Object.keys(bookData).length
+            const { borrowed, copies, available } = bookData
             if(REQUIRED_FIELDS_LENGTH > BOOKDATA_FIELDS_LENGTH) {
                 throw new Error(`New book data can't be empty or with missing fields`)
             }
@@ -62,6 +63,14 @@ const dataChecker = (bookData) => {
                 if(!(REQUIRED_FIELDS[field].type === typeof bookData[field])){
                     console.log(typeof REQUIRED_FIELDS.type)
                     throw new Error(`The datatype of ${field} is ${typeof REQUIRED_FIELDS[field]}`,{cause:'UserInput'})
+                }
+            }
+            if (borrowed > copies) {
+                throw new Error(`The number of books borrowed cannot be more than the number of copies`,{cause:'UserInput'})
+            }
+            if (borrowed == copies) {
+                if(available == true) {
+                    throw new Error(`Being the same number of books borrowed as the existing ones, the book cannot be available`,{cause:'UserInput'}) 
                 }
             }
             resolve()
