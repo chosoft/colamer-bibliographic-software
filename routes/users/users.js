@@ -1,15 +1,16 @@
+//Express and Router function for the route working
 const express = require('express')
 const router = express.Router()
-
+//Controllers Functions of the different endpoints
 const Create = require('./../../controllers/users/Create')
 const UpdateUsername = require('./../../controllers/users/UpdateUsername')
 const UpdateRol = require('./../../controllers/users/UpdateRol')
 const DeleteUser = require('./../../controllers/users/Delete')
-
+//Auth middleware of all endpoints
 const userAuthentification = require('./../../middleware/auth/user-authentification')
 
 router.use(userAuthentification('admin'))
-
+//Get Route - This send the HTML page
 router.get('/', async(req,res,next) => {
     try {
         const RENDER_INFO = {

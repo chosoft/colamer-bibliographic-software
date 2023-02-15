@@ -1,3 +1,20 @@
 @import './../../defaults/pallete';
 @import './../../defaults/userlayout';
 
+.search{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .searchUtils{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        .userSearchbar{
+            @include d-input;
+            min-width: 50%;
+        }
+    }
+}
