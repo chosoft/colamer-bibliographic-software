@@ -26,7 +26,10 @@ const REQUIRED_FIELDS = {
         type:"string",
     },
     borrowed: {
-        type:"number"
+        type:"number",
+    },
+    code: {
+        type:"number",
     }
 }
 

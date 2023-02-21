@@ -1,0 +1,73 @@
+Being the same number of books borrowed as the existing ones, the book cannot be available - 13:52 21-2-2023 
+ Error: Being the same number of books borrowed as the existing ones, the book cannot be available
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:77:27
+    at new Promise (<anonymous>)
+    at dataChecker (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:51:12)
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:40:19
+    at new Promise (<anonymous>)
+    at Create (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:38:12)
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/routes/books/books.js:26:15
+    at Layer.handle [as handle_request] (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/express/lib/router/route.js:114:3) 
+
+ -------------------- 
+Being the same number of books borrowed as the existing ones, the book cannot be available - 13:53 21-2-2023 
+ Error: Being the same number of books borrowed as the existing ones, the book cannot be available
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:77:27
+    at new Promise (<anonymous>)
+    at dataChecker (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:51:12)
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:40:19
+    at new Promise (<anonymous>)
+    at Create (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:38:12)
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/routes/books/books.js:26:15
+    at Layer.handle [as handle_request] (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/express/lib/router/route.js:114:3) 
+
+ -------------------- 
+The title dasdxxxdasd is already taken, pls change it - 13:54 21-2-2023 
+ Error: The title dasdxxxdasd is already taken, pls change it
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:94:23
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+
+ -------------------- 
+The barcode string is already taken, pls change it - 13:55 21-2-2023 
+ Error: The barcode string is already taken, pls change it
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/controllers/books/Create.js:100:23
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+
+ -------------------- 
+Cast to Number failed for value "zxc" (type string) at path "code" for model "Books" - 13:58 21-2-2023 
+ CastError: Cast to Number failed for value "zxc" (type string) at path "code" for model "Books"
+    at model.Query.exec (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongoose/lib/query.js:4891:21)
+    at model.Query.Query.then (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongoose/lib/query.js:4990:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+
+ -------------------- 
+Cast to Number failed for value "zxc" (type string) at path "code" for model "Books" - 13:58 21-2-2023 
+ CastError: Cast to Number failed for value "zxc" (type string) at path "code" for model "Books"
+    at model.Query.exec (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongoose/lib/query.js:4891:21)
+    at model.Query.Query.then (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongoose/lib/query.js:4990:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+
+ -------------------- 
+The book can't be uptade - 13:58 21-2-2023 
+ Error: The book can't be uptade
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/models/books.js:49:23
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+
+ -------------------- 
+The book can't be uptade - 14:0 21-2-2023 
+ Error: The book can't be uptade
+    at /home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/models/books.js:49:23
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+
+ -------------------- 
+Cast to Number failed for value "zxc" (type string) at path "code" for model "Books" - 14:1 21-2-2023 
+ CastError: Cast to Number failed for value "zxc" (type string) at path "code" for model "Books"
+    at model.Query.exec (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongoose/lib/query.js:4891:21)
+    at model.Query.Query.then (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongoose/lib/query.js:4990:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+
+ -------------------- 
