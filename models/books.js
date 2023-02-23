@@ -10,7 +10,8 @@ const BOOK_SCHEMA = new Schema({
     copies:Number,
     available:Boolean,
     img:String,
-    borrowed:Number
+    borrowed:Number,
+    code:Number
 })
 
 const Book = new model('Books',BOOK_SCHEMA);
@@ -41,8 +42,12 @@ const SearchBook = (filter) => {
 const UpdateBook = (bookData, filter) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const {title, author, signature, barcode, collection, copies, available, img, borrowed} = bookData
-            const bookUpdate = await Book.updateOne({barcode: filter}, { $set: { title, author, signature, barcode, collection, copies, available, img, borrowed }})
+            const {title, author, signature, barcode, collection, copies, available, img, borrowed, code} = bookData
+            const bookUpdate = await Book.updateOne({barcode,code: filter}, { $set: { title, author, signature, barcode, collection, copies, available, img, borrowed, code }})
+            const { modifiedCount } = bookUpdate
+            if (modifiedCount == 0 ) {
+                throw new Error(`The book can't be uptade`, {cause:'UserInput'})
+            }
             resolve (bookUpdate)
         } catch (error) {
             reject(error)
@@ -53,7 +58,7 @@ const UpdateBook = (bookData, filter) => {
 const DeleteBook = (filter) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const bookDelete = await Book.deleteOne({barcode: filter})
+            const bookDelete = await Book.deleteOne({code: filter})
             const { deletedCount } = bookDelete
             if (deletedCount == 0) {
                 throw new Error(`The book can't be delete`, {cause:'UserInput'})

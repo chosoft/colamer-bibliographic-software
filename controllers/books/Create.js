@@ -27,6 +27,9 @@ const REQUIRED_FIELDS = {
     },
     borrowed: {
         type:"number",
+    },
+    code: {
+        type:"number",
     }
 }
 
@@ -69,9 +72,9 @@ const dataChecker = (bookData) => {
                 throw new Error(`The number of books borrowed cannot be more than the number of copies`,{cause:'UserInput'})
             }
             if (borrowed == copies) {
-                if(available == true) {
+                if(available) {
                     throw new Error(`Being the same number of books borrowed as the existing ones, the book cannot be available`,{cause:'UserInput'}) 
-                }
+                }   
             }
             resolve()
         } catch (err) {
@@ -83,10 +86,18 @@ const dataChecker = (bookData) => {
 const searchRepeatBookData = (bookData) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const { title } = bookData
+            const { title, barcode, code } = bookData
             const searchByTitle = await SearchBook({title})
+            const searchByCode = await SearchBook({code})
+            const searchByBarcode = await SearchBook({barcode})
             if (searchByTitle) {
                 throw new Error(`The title ${title} is already taken, pls change it`, {cause:'UserInput'})
+            }
+            if (searchByCode) {
+                throw new Error(`The code ${code} is already taken, pls change it`, {cause:'UserInput'})
+            }
+            if (searchByBarcode) {
+                throw new Error(`The barcode ${barcode} is already taken, pls change it`, {cause:'UserInput'})
             }
             resolve()
         } catch (error) {
