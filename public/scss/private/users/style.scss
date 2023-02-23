@@ -53,71 +53,21 @@
         }
     }
 }
-/* .results{
-
-} */
-.popUpBg{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    z-index: 10;
-    background: rgba($color: $black, $alpha: .6);
+.wpResults{
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    top: 200%;
-    align-items: center;
-    transition: all .3s ease;
-    justify-content: center;
-    opacity: 0;
-    .modal{
-        min-width: 70%;
-        min-height: 80%;
-        background: $white;
-        position: relative;
-        .closer{
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            border: none;
-            background: transparent;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            cursor: pointer;
-            transition: all .3s ease;
-            &:hover{
-                transform: rotate(90deg);
-                color: $errorColor;
-            }
-            &:active{
-                transform: scale(.9);
-            }
+    flex-direction: column;
+    margin-top: 25px;
+    .titleResults{
+        width: 100%;
+        h2{
+            font: $titleSmallBold
         }
     }
 }
-.createUser{
-    position: fixed;
-    bottom: 25%;
-    right: 10%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    border: 3px solid transparent;
-    background: $mainColor;
-    color: $white;
-    transition: all .3s ease;
-    cursor: pointer;
-    &:hover{
-        transform: translateY(-5px);
 
-    }
-    &:active{
-        transform: scale(.9);
+.popUpBg{
+    .modal{
+        width: 35%;
     }
 }

@@ -13,8 +13,16 @@ html(lang="en")
     body
         .popUpBg
             .modal
-                button.closer
+                .modalTitleWp
+                    h2 Crear nuevo Usuario
+                .modalContentWp
+                    label(for="") Correo
+                    input(type="text").field
+                    input(type="text").field
+                    button.submitBtn Crear Usuario
+                button.modalCloser
                     i(class="ri-close-line")
+            
 
         button.createUser#addU.activer
             i(class="ri-add-line")
@@ -33,7 +41,10 @@ html(lang="en")
                         i(class="ri-list-check") 
                     button.view#card
                         i(class="ri-table-line")
-            .results
-
+            .wpResults
+                header.titleResults
+                    h2 Resultados busqueda
+                .results
+                    
 
         script(src="/js/private/defaults/popUp.js") 

@@ -153,3 +153,117 @@ aside{
         }
     }
 }
+//Modal Default Styles
+.popUpBg{
+    //Sizes
+    width: 100vw;
+    height: 100vh;
+    //Overlaping
+    position: fixed;
+    z-index: 10;
+    //Styles
+    background: rgba($color: $black, $alpha: .6);
+    //Box Model
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    //Hidde State Props
+    top: 200%;
+    opacity: 0;
+    transition: all .6s ease;
+    .modal{
+        //Sizes
+        min-width: 25%;
+        min-height: 15%;
+        //Styles
+        background: $white;
+        padding: 25px;
+        //Box Model
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //Position
+        position: relative;
+        .modalCloser{
+            //Corner Location
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            //Box Model
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            //Styles
+            border: 0;
+            background: transparent;
+            transition: all .3s ease;
+            cursor: pointer;
+            //Font Styles
+            font-size: 25px;
+            //States Styles
+            &:hover{
+                color: $errorColor;
+                transform: rotate(90deg);
+            }
+            &:active{
+                color: $errorColor;
+                transform: rotate(90deg) scale(.9);
+            }
+        }
+        .modalTitleWp{
+            //Sizes
+            width: 100%;
+            //Box Model
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            margin-bottom: 15px;
+            h2{
+                font: $titleSmallBold;
+            }
+        }
+        .modalContentWp{
+            //Sizes
+            width: 100%;
+            //Styles
+            //Box Model
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+.activer{
+    //Sizes
+    width: 3rem;
+    height: 3rem;
+    //Overlaping
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    //Styles
+    background: $mainColor;
+    border: 0;
+    padding: 5px;
+    cursor: pointer;
+    //Font Styles
+    color: $white;
+    font-size: 30px;
+    //Box Model
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease;
+    //States
+    &:hover{
+        transform: rotate(90deg);
+    }
+    &:active{
+        transform: rotate(90deg) scale(.9);
+    }
+}
