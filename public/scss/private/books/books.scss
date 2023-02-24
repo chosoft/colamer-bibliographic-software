@@ -2,29 +2,34 @@
 @import '../../defaults/userlayout';
 
 main {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100vh;
-    width: 100vw;
-    header {
+    .pageHeader {
+        display: flex;
+        margin: 100px 0 0 0px;
+        width: 100%;
         h1 {
-            display: flex;
-            margin: 110px 0 0 50px;
             font: $titleMediumBold;
         }
     }
-
+    .search {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
         .searchUtils {
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             input {
                 display: flex;
                 width: 70%;
+                height: 20%;
                 padding: 20px;
-                margin: 20px 0 0 50px;
                 color: #979797;
                 background-color: #D9D9D9;
-                font-family: Roboto;
+                font-family: 'Roboto';
                 font-size: 25px;
                 font-weight: 700;
                 line-height: 29px;
@@ -33,7 +38,7 @@ main {
             #searchFilter {
                 display: flex;
                 width: 15%;
-                margin: 20px 0 0 20px;
+                margin-left: 20px;
                 padding: 20px;
                 font:700 25px 'Roboto';
                 color: #979797;
@@ -42,109 +47,84 @@ main {
             }
         }
         .resultsViews {
+            width: 100%;
+            margin-top: 20px;
             display: flex;
-            .changeView#listStyle {
+            flex-direction: row;
+            .changeView {
                 display: flex;
                 width: 40px;
                 height: 40px;
-                margin: 30px 0 0 50px;
+                margin-right: 20px;
                 justify-content: center;
                 align-items: center;
                 background: #D9D9D9;
                 font-size: 25px;
                 border: none;
-            }
-            .changeView#tableStyle {
-                display: flex;
-                width: 40px;
-                height: 40px;
-                margin: 30px 0 0 20px;
-                justify-content: center;
-                align-items: center;
-                background: #D9D9D9;
-                font-size: 25px;
-                border: none;
+                transition: all .3s ease;
+                cursor: pointer;
+                &:last-child{
+                    margin: 0;
+                }
+                &:hover{
+                    transform: translateY(-5px);
+                }
+                &:active{
+                    transform: scale(.9);
+                }
             }
         }
-
+    }
+        
     .results {
+        width: 100%;
+        display: flex;
+        margin-top: 20px;
         h1 {
             font: $titleMediumBold;
-            width: 28%;
-            color: #000000;
-        }
-        table {
-            width: 63%;
-            height: 20%;
-            border: 1px solid #979797;
-            border-spacing: 0;
-            table-layout: fixed;
-        }
-        .Head {
-            td {
-                font: $textBold;
-                height: 15%;
-                text-align: center;
-                border: 1px solid #979797;
-                background-color: #D9D9D9;
-            }
-            .titulo {
-                width: 20%;
-            }
-            .autor {
-                width: 20%;
-            }
-            .coleccion {
-                width: 15%;
-            }
-        }
-        td {
-            font: $textBold;
-            empty-cells: show;
-            border: 1px solid #979797;
-            text-align: center;
-            height: 10%;
-        }
-        caption {
-            border: 1px solid #979797;
-            font: $textBold;
-            height: 15%;
-            caption-side: bottom;
-            padding: 15px;
-            text-align: center;
-            background-color: #FFCA05;
         }
     }
 
-    .backPage {
-        font-size: 30px;
-        color: #4180E2;
-        background: none;
-        border: none;
+    .table {
+        display: flex;
+        width: 100%;
+        height: 35%;
+        margin-top: 20px;
+        border: 5px solid red;
     }
 
-    .nextPage {
-        font-size: 30px;
-        color: #4180E2;
-        background: none;
-        border: none;
-    }
-
-    .newBook {
-        width: 4.5%;
-        height: 8%;
-        background-color: #4180E2;
-        color: #fff;
-        font-size: 50px;
-        border: none;
+    .nav {
+        display: flex;
+        flex-direction: row;
+        margin-top: 25px;
+        justify-content: center;
+        align-items: center;
+        .changePage {
+            font-size: 30px;
+            color: #4180E2;
+            background: none;
+            border: none;
+            margin: 0 40px 0 40px;
+        }
     }
 }
 
-.popUp {
-    display: flex;
-    background: rgba(0, 0, 0, 0.8);
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.popUpBg{
+    .modal{
+        width: 35%;
+        .modalContentWp{
+            .field{
+                width: 100%;
+                @include d-input;
+            }
+            .fieldLabel{
+                width: 100%;
+                @include d-label;
+            }
+            .submitBtn{
+                @include d-btn;
+                color: $white;
+            }
+        }
+    }
 }
