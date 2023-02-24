@@ -1,7 +1,7 @@
 const bg = document.querySelector('.popUp')
 const modal = document.querySelector('.modal')
 
-const btnActiver = document.querySelector('.activer')
+const btnActiver = document.querySelector('.newBook')
 const btnCloser = document.querySelector('.modalCloser')
 
 btnActiver.onclick = (e) => {

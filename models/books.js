@@ -58,7 +58,7 @@ const UpdateBook = (bookData, filter) => {
 const DeleteBook = (filter) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const bookDelete = await Book.deleteOne({code: filter})
+            const bookDelete = await Book.deleteOne({barcode: filter})
             const { deletedCount } = bookDelete
             if (deletedCount == 0) {
                 throw new Error(`The book can't be delete`, {cause:'UserInput'})

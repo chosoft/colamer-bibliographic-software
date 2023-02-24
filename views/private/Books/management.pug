@@ -31,37 +31,24 @@ html(lang="en")
                         i(class="ri-table-line")
             .results 
                 h1 Resultados de busqueda
-                table
-                    tr.Head
-                        td.id ID
-                        td.titulo Titulo
-                        td.autor Autor 
-                        td.coleccion Colección 
-                        td.cantidad Cantidad
-                        td.prestados Prestados
-                        td.disponible Disponible
-                    tr 
-                        td 
-                        td    
-                        td   
-                        td  
-                        td 
-                        td 
-                        td 
-                    tr
-                        td 
-                        td 
-                        td 
-                        td 
-                        td 
-                        td
-                        td
-                    caption Ver o Editar Informacion de 
                 
             .nav 
                 button.backPage
                     i(class="ri-arrow-left-line")
                 button.nextPage
                     i(class="ri-arrow-right-line")
-                button.newBook 
+                button.newBook
                     i(class="ri-add-line")
+            .popUpBg
+                .modal
+                    .modalTitleWp
+                        h2 Crear nuevo Usuario
+                    .modalContentWp
+                        label(for="") Correo
+                        input(type="text").field
+                        input(type="text").field
+                        button.submitBtn Crear Usuario
+                        button.modalCloser
+                        i(class="ri-close-line")
+
+    script(src="/js/private/books/books.js  ") 
