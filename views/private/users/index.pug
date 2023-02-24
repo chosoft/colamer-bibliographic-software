@@ -16,9 +16,14 @@ html(lang="en")
                 .modalTitleWp
                     h2 Crear nuevo Usuario
                 .modalContentWp
-                    label(for="") Correo
-                    input(type="text").field
-                    input(type="text").field
+                    label.fieldLabel(for="email") Correo
+                    input.field#email(type="email" placeholder="tucorreo@colamer.edu.co")
+                    label.fieldLabel(for="username") Nombre de usuario 
+                    input.field#username(type="text" placeholder="Nombre usuario")
+                    label.fieldLabel(for="rol") Rol
+                    select.field#rol(name="")
+                        option(value="admin") Administrador
+                        option(values="user") Usuario  
                     button.submitBtn Crear Usuario
                 button.modalCloser
                     i(class="ri-close-line")

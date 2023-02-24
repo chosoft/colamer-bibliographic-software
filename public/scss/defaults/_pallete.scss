@@ -31,7 +31,7 @@ $textBold:700 16px 'Roboto', sans-serif  ;
 
 //Inputs Mixin
 @mixin d-input{
-    padding: 10px;
+    padding: 15px;
     border: 0;
     background: $inputsColor;
     font: $normalInputs;
@@ -41,6 +41,7 @@ $textBold:700 16px 'Roboto', sans-serif  ;
 @mixin d-label{
     color: $mainColor;
     font: $labelTxt;
+    cursor:pointer;
 }
 @mixin d-btn{
     width: 100%;

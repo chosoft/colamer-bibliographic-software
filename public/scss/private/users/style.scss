@@ -69,5 +69,24 @@
 .popUpBg{
     .modal{
         width: 35%;
+        .modalContentWp{
+            .field{
+                //Sizes
+                width: 100%;
+                //Defaults
+                @include d-input;
+            }
+            .fieldLabel{
+                width: 100%;
+                //Defaults
+                @include d-label;
+            }
+            .submitBtn{
+                //Defaults
+                @include d-btn;
+                //Font Style
+                color: $white;
+            }
+        }
     }
 }
