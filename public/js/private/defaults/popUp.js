@@ -1,4 +1,4 @@
-const bg = document.querySelector('.popUp')
+const bg = document.querySelector('.popUpBg')
 const modal = document.querySelector('.modal')
 
 const btnActiver = document.querySelector('.activer')

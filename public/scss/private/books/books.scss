@@ -108,22 +108,34 @@ main {
         }
     }
 }
-
 .popUpBg{
     .modal{
         width: 35%;
         .modalContentWp{
-            .field{
-                width: 100%;
-                @include d-input;
+            flex-direction: row;
+            .form {
+                .field{
+                    //Sizes
+                    width: 100%;
+                    //Defaults
+                    @include d-input;
+                }
+                .fieldLabel{
+                    width: 100%;
+                    //Defaults
+                    @include d-label;
+                }
+                .submitBtn{
+                    //Defaults
+                    @include d-btn;
+                    //Font Style
+                    color: $white;
+                }
             }
-            .fieldLabel{
-                width: 100%;
-                @include d-label;
-            }
-            .submitBtn{
-                @include d-btn;
-                color: $white;
+            .img {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid red;
             }
         }
     }
