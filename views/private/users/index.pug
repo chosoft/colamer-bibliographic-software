@@ -16,15 +16,18 @@ html(lang="en")
                 .modalTitleWp
                     h2 Crear nuevo Usuario
                 .modalContentWp
-                    label.fieldLabel(for="email") Correo
+                    label.fieldLabel#emailLabel(for="email") Correo
                     input.field#email(type="email" placeholder="tucorreo@colamer.edu.co")
-                    label.fieldLabel(for="username") Nombre de usuario 
+                    p#emailPosibleError.posibleError
+                    label.fieldLabel#usernameLabel(for="username") Nombre de usuario 
                     input.field#username(type="text" placeholder="Nombre usuario")
-                    label.fieldLabel(for="rol") Rol
+                    p#usernamePosibleError.posibleError
+                    label.fieldLabel#rolLabel(for="rol") Rol
                     select.field#rol(name="")
                         option(values="user") Usuario
                         option(value="assistant") Auxiliar
                         option(values="admin") Administrador
+                    p#rolPosibleError.posibleError
                     button.submitBtn Crear Usuario
                     p.errorContext
                 button.modalCloser

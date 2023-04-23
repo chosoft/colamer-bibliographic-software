@@ -75,11 +75,22 @@
                 width: 100%;
                 //Defaults
                 @include d-input;
+                margin-bottom: 8px;
+                border: 2px solid transparent;
+                transition: all .3s ease;
             }
             .fieldLabel{
                 width: 100%;
                 //Defaults
                 @include d-label;
+                transition: all .3s ease;
+            }
+            .posibleError{
+                text-align: left;
+                width: 100%;
+                font: $textBold;
+                color: $errorColor;
+                margin-bottom: 10px;
             }
             .submitBtn{
                 //Defaults
