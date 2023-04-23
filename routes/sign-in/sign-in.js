@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const passport = require('passport')
+
 //This render the sign-in page that contains the form
 router.get('/',(req,res,next) => {
     try {
@@ -12,7 +13,9 @@ router.get('/',(req,res,next) => {
         next(error)
     }
 })
-//Endpoint to authenticated the users input credentials
+
+/* Below this comment add the other auth strategies */
+//Endpoint to authenticated the users input credentials -> using the user password
 router.post('/password',passport.authenticate('local',{
     successRedirect:'/borrowings',
     failureRedirect: '/sign-in',

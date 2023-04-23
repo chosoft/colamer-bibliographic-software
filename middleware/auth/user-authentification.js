@@ -17,7 +17,7 @@ const DEFAULT_404_RENDER = (req,res,errMsg='What you are looking for is not here
 2 -> Check if the user role is consistent for the endpoint
 3 -> Allow the server continuos with the Bussines logic
 */
-const userAuthentification = (authorizedRol=['user','admin','superadmin']) => {
+const userAuthentification = (authorizedRol=['user','assistant','admin']) => {
     return async(req,res,next) => {
         try {
             //Check if the request is authenticated
@@ -40,7 +40,7 @@ const userAuthentification = (authorizedRol=['user','admin','superadmin']) => {
             }
             //If the middleware is configurated to one role
             //Check if the user role is the same of the configuration role
-            if(!role === authorizedRol){
+            if(!rol === authorizedRol){
                 DEFAULT_404_RENDER(req,res)
                 return
             }

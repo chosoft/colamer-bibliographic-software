@@ -11,22 +11,22 @@ const SQLiteStore = require('connect-sqlite3')(session)
 const { secret } = require('../../configs/env')
 //User model Search Function to find the user that will be auth
 const { SearchUser } = require('./../../models/users')
-//
+//The strategy of auth that passport will be use
 const userAuth = require('./../../auth/login-user')
-
+//All the config of the session storage
 const SESSION_CONFIG = {
-    secret:secret,
-    cookie:{
-        maxAge:10800000,
+    secret:secret,//Here is the key that helps to encrypt the session Info
+    cookie:{//Coookie config
+        maxAge:10800000,//Limit time of life
         httpOnly:true,
-        expires: new Date(Date.now() + 10800000 * 5),
-        sameSite:'strict'
+        expires: new Date(Date.now() + 10800000 * 5),//Time of life
+        sameSite:'strict'//The cookie only works in the same domain
     },
     resave: false,
     saveUninitialized:false,
-    store:new SQLiteStore
+    store:new SQLiteStore//The DB where the session will be storage
 }
-
+//Main Function of the User Session Auth
 const passportSetup = (server) => {
     //Session persistent 
     server.use(session(SESSION_CONFIG))
@@ -34,12 +34,13 @@ const passportSetup = (server) => {
     server.use(flash())
     //Passport Local Strategy
     passport.use(userAuth)
-
+    //Serialize -> Send the id of the user to the DB and relates to a session
     passport.serializeUser((user,cb) => {
         process.nextTick(async() => {
             cb(null,user._id)
         })
     })
+    //Get the Id that is storage in the DB and retrieve the user info
     passport.deserializeUser((id,cb) => {
         process.nextTick(async() => {
             const userInfo = await SearchUser({_id:id},{username:1,email:1,rol:1})

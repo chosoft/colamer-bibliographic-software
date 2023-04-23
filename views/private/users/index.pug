@@ -22,9 +22,11 @@ html(lang="en")
                     input.field#username(type="text" placeholder="Nombre usuario")
                     label.fieldLabel(for="rol") Rol
                     select.field#rol(name="")
-                        option(value="admin") Administrador
-                        option(values="user") Usuario  
+                        option(values="user") Usuario
+                        option(value="assistant") Auxiliar
+                        option(values="admin") Administrador
                     button.submitBtn Crear Usuario
+                    p.errorContext
                 button.modalCloser
                     i(class="ri-close-line")
             
@@ -51,5 +53,6 @@ html(lang="en")
                     h2 Resultados busqueda
                 .results
                     
-
-        script(src="/js/private/defaults/popUp.js") 
+        script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" crossorigin) 
+        script(src="/js/private/defaults/popUp.js")
+        script(src="/js/private/users/create_user.js") 
