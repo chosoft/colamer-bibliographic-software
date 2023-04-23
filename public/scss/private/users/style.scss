@@ -85,6 +85,16 @@
                 @include d-label;
                 transition: all .3s ease;
             }
+            #passwordFeatureList{
+                width: 100%;
+                padding: 0 25px ;
+                
+                li{
+                    font: $textBold;
+                    color: rgba($color: $black, $alpha: .5);
+                    margin-bottom: 10px;
+                }
+            }
             .posibleError{
                 text-align: left;
                 width: 100%;

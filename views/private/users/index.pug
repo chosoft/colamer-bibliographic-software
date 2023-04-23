@@ -22,11 +22,19 @@ html(lang="en")
                     label.fieldLabel#usernameLabel(for="username") Nombre de usuario 
                     input.field#username(type="text" placeholder="Nombre usuario")
                     p#usernamePosibleError.posibleError
+                    label.fieldLabel#passwordLabel(for="password") Contraseña
+                    input.field#password(type="password" placeholder="Contraseña supersegura :)")
+                    p#passwordPosibleError.posibleError
+                    #passwordFeatureList
+                        ul
+                            li#digitFeature 1 Numero
+                            li#uppercaseFeature 1 Mayuscula
+                            li#charactersFeature 10 caracteres
                     label.fieldLabel#rolLabel(for="rol") Rol
                     select.field#rol(name="")
-                        option(values="user") Usuario
+                        option(value="user") Usuario
                         option(value="assistant") Auxiliar
-                        option(values="admin") Administrador
+                        option(value="admin") Administrador
                     p#rolPosibleError.posibleError
                     button.submitBtn Crear Usuario
                     p.errorContext

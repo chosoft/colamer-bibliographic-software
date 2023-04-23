@@ -9,7 +9,7 @@ const DeleteUser = require('./../../controllers/users/Delete')
 //Auth middleware of all endpoints
 const userAuthentification = require('./../../middleware/auth/user-authentification')
 
-router.use(userAuthentification('superadmin'))
+router.use(userAuthentification('admin'))
 //Get Route - This send the HTML page
 router.get('/', async(req,res,next) => {
     try {
@@ -27,10 +27,13 @@ router.get('/', async(req,res,next) => {
 //Create new user ENDPOINT
 router.post('/',async(req,res,next) => {
     try {
+        console.log('process')
         const userData = req.body
         await Create(userData)
+        console.log('finischeed')
         res.json({msg:'User Created'})
     } catch (error) {
+        console.log(error)
         next(error)
     }
 })
