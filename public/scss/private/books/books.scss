@@ -90,7 +90,6 @@ main {
         width: 100%;
         height: 35%;
         margin-top: 20px;
-        border: 5px solid red;
     }
 
     .nav {
@@ -110,33 +109,67 @@ main {
 }
 .popUpBg{
     .modal{
-        width: 35%;
+        width: 55%;
         .modalContentWp{
             flex-direction: row;
+            justify-content: space-between;
             .form {
                 .field{
-                    //Sizes
-                    width: 100%;
-                    //Defaults
-                    @include d-input;
+                    display: flex;
+                    border: none;
+                    height: 25px;
+                    margin-top: 7px;
+                    width: auto;
+                    margin-top: 7px;
+                    outline: none;
+                    background-color: antiquewhite ;
+                    font: $normalInputs;
                 }
-                .fieldLabel{
-                    width: 100%;
+                .fieldLabel{ 
+                    width: auto;
                     //Defaults
                     @include d-label;
                 }
                 .submitBtn{
+                    display: flex;
+                    margin-top: 25px;
                     //Defaults
                     @include d-btn;
+                    width: 40%;
+                    align-items: start;
                     //Font Style
                     color: $white;
                 }
+                i {
+                    font-size: 20px;
+                    padding-right: 5px;
+                }
+                .form1 {
+                    display: flex;
+                    justify-content: flex-start;
+                    font-size: 25px;
+                    align-items: end;
+                    .fieldLabel {
+                        margin-right: 10px;
+                    }
+                }
+                .nav {
+                    display: flex;
+                    align-content: space-between;
+                    align-items: center;
+                    height: 10%;
+                }
+                #tittle{
+                    font: $titleSmallBold;
+                }
+                #author{
+                    font: $normalInputs;
+                    size: 2px;
+                }
             }
-            .img {
-                display: flex;
-                flex-direction: column;
-                border: 1px solid red;
-            }
+           .img {
+                height: 80%;
+            } 
         }
     }
 }
