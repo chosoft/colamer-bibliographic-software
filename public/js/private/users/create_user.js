@@ -1,5 +1,21 @@
 const createUserBtn = document.querySelector('.submitBtn')
 
+const fields = document.querySelectorAll('.field')
+
+const fieldRecover = (e) => {
+    const field = e.target
+    const keyId = field.id
+    const posibleErrorElement = document.querySelector(`#${keyId}PosibleError`)
+    const label = document.querySelector(`#${keyId}Label`)
+    posibleErrorElement.innerText = ''
+    label.style.color = "#4180E2"
+    field.style.border = "2px solid transparent"
+}
+
+for (const field of fields) {
+    field.onkeydown = fieldRecover
+}
+
 const defaultErrorSpam = (error) => {
     const errorContext = document.querySelector('.errorContext')
     errorContext.innerText = error.message
@@ -9,9 +25,7 @@ const defaultErrorSpam = (error) => {
 
 const checkNewUserFields = (fieldsToCheck) => {
     try {        
-        console.log('inside')
         for (const key in fieldsToCheck) {
-            console.log(fieldsToCheck[key])
             if(fieldsToCheck[key] === null){
                 const inputToReact = document.querySelector(`#${key}`)
                 const labelToReact = document.querySelector(`#${key}Label`)
@@ -22,9 +36,11 @@ const checkNewUserFields = (fieldsToCheck) => {
             }
         }
     } catch (error) {
-        console.log('error')
+
     }
 }
+
+
 
 const createNewUser = async(e) => {
     try {
