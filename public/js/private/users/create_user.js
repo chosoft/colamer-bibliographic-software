@@ -42,11 +42,12 @@ for (const field of fields) {
     }
 }
 
+//This function notify the error from the API to the user
 const defaultErrorSpam = (error) => {
-    const errorContext = document.querySelector('.errorContext')
-    errorContext.innerText = error.response.data.msg
-    createUserBtn.style.background = "#FA2828"
-    createUserBtn.innerText = "Ha ocurrido un error"
+    const processContext = document.querySelector('.processContext')
+    processContext.style.display = 'block'
+    processContext.style.background = '#FA2828'
+    processContext.innerText = error.response.data.msg
 }
 //This function check that any field is empty -> This notify to the user is any field is empty
 const checkNewUserFields = (fieldsToCheck) => {
@@ -118,6 +119,9 @@ const createNewUser = async(e) => {
     try {
         //Prevent the default form send
         e.preventDefault()
+        const btn = e.target
+        const processContext = document.querySelector('.processContext')
+        processContext.style.display = 'none'
         //Get the value of the fields of the new user
         const email = document.querySelector('#email').value || null
         const username = document.querySelector('#username').value|| null
@@ -130,11 +134,16 @@ const createNewUser = async(e) => {
         //Check if the value of the password is valid
         await checkPwdField(password)
         //Here is the loading msg
+        btn.setAttribute('disabled','true')
         //Time to send the data to the endpoint and create the new user
         await axios.post('/users',newUserData)
+        btn.removeAttribute('disabled')
         //Here is the successful msg
-        alert('usuario creado')
+        processContext.style.background = '#48e015'
+        processContext.style.display = 'block'
+        processContext.innerText = `${username} se ha añadido como nuevo usuario`
     } catch (error) {
+        createUserBtn.removeAttribute('disabled')
         if(error === 'okerror'){
             return
         }

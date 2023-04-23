@@ -33,7 +33,6 @@ router.post('/',async(req,res,next) => {
         console.log('finischeed')
         res.json({msg:'User Created'})
     } catch (error) {
-        console.log(error)
         next(error)
     }
 })

@@ -79,6 +79,14 @@
                 border: 2px solid transparent;
                 transition: all .3s ease;
             }
+            .processContext{
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+                color: $white;
+                padding: 15px;
+                font: $textBold;
+            }
             .fieldLabel{
                 width: 100%;
                 //Defaults
@@ -107,6 +115,9 @@
                 @include d-btn;
                 //Font Style
                 color: $white;
+                &:disabled{
+                    opacity: .5;
+                }
             }
         }
     }
