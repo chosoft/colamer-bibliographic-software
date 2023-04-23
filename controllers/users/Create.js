@@ -14,7 +14,7 @@ const REQUIRED_FIELDS = {
     },
     rol: {
         type:"string",
-        regex:/admin|developer|user|assitent/
+        regex:/admin|user|assitent/
     }
 }
 const Create = (userData) => {
