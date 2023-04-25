@@ -109,9 +109,10 @@ main {
 }
 .popUpBg{
     .modal{
-        width: 55%;
+        width: 44%;
         .modalContentWp{
             flex-direction: column;
+            width: 100%;
             .Bigform {
                 width: 100%;
                 display: flex;
@@ -123,6 +124,12 @@ main {
                 }
                 .forms {
                     padding: 20px;
+                    #tittle {
+                        width: 76%;
+                    }
+                    #author {
+                        width: 76%;
+                    }
                     .field{
                         display: flex;
                         border: none;
@@ -131,7 +138,8 @@ main {
                         width: auto;
                         margin-top: 7px;
                         outline: none;
-                        background-color: antiquewhite ;
+                        background-color: #EBEBEB;
+                        padding-left: 4px;
                         font: $normalInputs;
                     }
                     .fieldLabel{ 
@@ -151,6 +159,15 @@ main {
                         .fieldLabel {
                             margin-right: 10px;
                         }
+                        #barcode {
+                            width: 40%;
+                        }
+                        #code {
+                            width: 30%;
+                        }
+                        #signature {
+                            width: 35%;
+                        }
                     }
                     #tittle{
                         font: $titleSmallBold;
@@ -164,13 +181,23 @@ main {
             }
             .end {
                 width: 100%;
-                height: 100%;
                 display: flex;
                 justify-content: space-between;
                 flex-direction: row;
-                button {
-                    height: 100%;
-                    width: 10%;
+                padding-top: 5px;
+                margin: 10px;
+                .link {
+                    width: 30%;
+                    border: 2px solid $mainColor;
+                    padding: 4px;
+                    outline: none;
+                    font-size: 15px;
+                }
+                input.link::placeholder { 
+                    text-align: center;
+                    color: $mainColor;
+                    font-size: 20px;
+                    font: $textBold;
                 }
                 .submitBtn{
                     display: flex;
