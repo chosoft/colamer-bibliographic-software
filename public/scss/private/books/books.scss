@@ -111,65 +111,78 @@ main {
     .modal{
         width: 55%;
         .modalContentWp{
-            flex-direction: row;
-            justify-content: space-between;
-            .form {
-                .field{
-                    display: flex;
-                    border: none;
-                    height: 25px;
-                    margin-top: 7px;
-                    width: auto;
-                    margin-top: 7px;
-                    outline: none;
-                    background-color: antiquewhite ;
-                    font: $normalInputs;
+            flex-direction: column;
+            .Bigform {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                img {
+                    width: 30%;
+                    height: auto;
+                    border: 2px solid black;
                 }
-                .fieldLabel{ 
-                    width: auto;
-                    //Defaults
-                    @include d-label;
+                .forms {
+                    padding: 20px;
+                    .field{
+                        display: flex;
+                        border: none;
+                        height: 25px;
+                        margin-top: 7px;
+                        width: auto;
+                        margin-top: 7px;
+                        outline: none;
+                        background-color: antiquewhite ;
+                        font: $normalInputs;
+                    }
+                    .fieldLabel{ 
+                        width: auto;
+                        //Defaults
+                        @include d-label;
+                    }
+                    i {
+                        font-size: 20px;
+                        padding-right: 5px;
+                    }
+                    .form1 {
+                        display: flex;
+                        justify-content: flex-start;
+                        font-size: 25px;
+                        align-items: end;
+                        .fieldLabel {
+                            margin-right: 10px;
+                        }
+                    }
+                    #tittle{
+                        font: $titleSmallBold;
+                    }
+                    #author{
+                        font: $normalInputs;
+                        size: 2px;
+                        
+                    }
+                }
+            }
+            .end {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                button {
+                    height: 100%;
+                    width: 10%;
                 }
                 .submitBtn{
                     display: flex;
-                    margin-top: 25px;
-                    //Defaults
+                    i {
+                        padding: 2px;
+                    }
                     @include d-btn;
-                    width: 40%;
-                    align-items: start;
-                    //Font Style
+                    justify-content: center;
+                    width: 25%;
                     color: $white;
                 }
-                i {
-                    font-size: 20px;
-                    padding-right: 5px;
-                }
-                .form1 {
-                    display: flex;
-                    justify-content: flex-start;
-                    font-size: 25px;
-                    align-items: end;
-                    .fieldLabel {
-                        margin-right: 10px;
-                    }
-                }
-                .nav {
-                    display: flex;
-                    align-content: space-between;
-                    align-items: center;
-                    height: 10%;
-                }
-                #tittle{
-                    font: $titleSmallBold;
-                }
-                #author{
-                    font: $normalInputs;
-                    size: 2px;
-                }
             }
-           .img {
-                height: 80%;
-            } 
         }
     }
 }

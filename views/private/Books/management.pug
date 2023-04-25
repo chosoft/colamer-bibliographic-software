@@ -44,40 +44,40 @@ html(lang="en")
                 .modalTitleWp
                     h2 Guardar Libros
                 .modalContentWp
-                    .form
-                        input.field#tittle(type="text" placeholder="Titulo del Libro")
-                        input.field#author(type="text" placeholder="Nombre de autor")
-                        .form1
-                            i(class="ri-barcode-line")
-                            label.fieldLabel(for="Barcode")  Codigo de barras: 
-                            input.field#barcode(type="text")
-                        .form1
-                            i(class="ri-barcode-box-fill")
-                            label.fieldLabel(for="Code") Codigo Extra:
-                            input.field#code(type="text")
-                        .form1
-                            i(class="ri-map-pin-line")
-                            label.fieldLabel(for="Signatura") Signatura:
-                            input.field#signature(type="text")
-                        .form1
-                            i(class="ri-t-box-line")
-                            label.fieldLabel(for="Collection") Colección:
-                            input.field#collection(type="text")
-                        .form1
-                            i(class="ri-hashtag")
-                            label.fieldLabel(for="Copies") Ejemplares:
-                            input.field#copies(type="number" inputmode="numeric")
-                        .form1
-                            i(class="ri-book-mark-fill")
-                            label.fieldLabel(for="Borrowed") Prestados:
-                            input.field#borrowed(type="number")
-
-                        .nav
-                            i(class="ri-edit-line")
-                            input(type="text" placeholder="Link de Caratula" id="caratula")
-                            button.submitBtn 
-                                i(class="ri-save-3-line")
-                                span Guardar Libro
+                    .BigForm
+                        img(src="", alt="")
+                        .forms
+                            input.field#tittle(type="text" placeholder="Titulo del Libro")
+                            input.field#author(type="text" placeholder="Nombre de autor")
+                            .form1
+                                i(class="ri-barcode-line")
+                                label.fieldLabel(for="Barcode")  Codigo de barras: 
+                                input.field#barcode(type="text")
+                            .form1
+                                i(class="ri-barcode-box-fill")
+                                label.fieldLabel(for="Code") Codigo Extra:
+                                input.field#code(type="text")
+                            .form1
+                                i(class="ri-map-pin-line")
+                                label.fieldLabel(for="Signatura") Signatura:
+                                input.field#signature(type="text")
+                            .form1
+                                i(class="ri-t-box-line")
+                                label.fieldLabel(for="Collection") Colección:
+                                input.field#collection(type="text")
+                            .form1
+                                i(class="ri-hashtag")
+                                label.fieldLabel(for="Copies") Ejemplares:
+                                input.field#copies(type="number" inputmode="numeric")
+                            .form1
+                                i(class="ri-book-mark-fill")
+                                label.fieldLabel(for="Borrowed") Prestados:
+                                input.field#borrowed(type="number")
+                    .end
+                        button(value="Link")
+                        button.submitBtn 
+                            i(class="ri-save-3-line")
+                            span Guardar Libro
                     button.modalCloser
                         i(class="ri-close-line")
 
