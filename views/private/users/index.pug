@@ -12,12 +12,15 @@ html(lang="en")
         link(rel="stylesheet", href="/css/private/users/style.css")
     body
         //Pop Up Tags
-        .popUpBg // -> This is the background
-
-            .modal // -> This is the white Square in which the content lives
-                .modalTitleWp// -> The container in which lives the title of the process
+        // -> This is the background
+        .popUpBg 
+            // -> This is the white Square in which the content lives
+            .modal 
+                // -> The container in which lives the title of the process
+                .modalTitleWp
                     h2 Crear nuevo Usuario
-                .modalContentWp// -> Here Live the content and the main elements of the action or process
+                // -> Here Live the content and the main elements of the action or process
+                .modalContentWp
                     // This Labels refers to the new user create process
                     label.fieldLabel#emailLabel(for="email") Correo
                     input.field#email(type="email" placeholder="tucorreo@colamer.edu.co")
@@ -40,8 +43,10 @@ html(lang="en")
                         option(value="admin") Administrador
                     p#rolPosibleError.posibleError
                     button.submitBtn Crear Usuario
-                    p.processContext // -> This is a paragraph that works like a process notify and allow give context to the user
-                button.modalCloser // -> This is the "x" icon that allow the user to close the modal
+                    // -> This is a paragraph that works like a process notify and allow give context to the user
+                    p.processContext 
+                // -> This is the "x" icon that allow the user to close the modal
+                button.modalCloser 
                     i(class="ri-close-line")
             
 
@@ -69,4 +74,5 @@ html(lang="en")
                     
         script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" crossorigin) 
         script(src="/js/private/defaults/popUp.js")
-        script(src="/js/private/users/create_user.js") 
+        script(src="/js/private/users/create_user.js")
+        script(src="/js/private/users/search_user.js") 

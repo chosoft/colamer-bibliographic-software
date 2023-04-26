@@ -8,7 +8,8 @@ const UpdateRol = require('./../../controllers/users/UpdateRol')
 const DeleteUser = require('./../../controllers/users/Delete')
 //Auth middleware of all endpoints
 const userAuthentification = require('./../../middleware/auth/user-authentification')
-
+//Middleware to protect routes from a browser request page
+const onlyJson = require('./../../middleware/various/only_json_request')
 router.use(userAuthentification('admin'))
 //Get Route - This send the HTML page
 router.get('/', async(req,res,next) => {
@@ -20,6 +21,15 @@ router.get('/', async(req,res,next) => {
             }
         }
         res.render('private/users/index',RENDER_INFO)
+    } catch (error) {
+        next(error)
+    }
+})
+//Read and Query Users
+router.get('/api',onlyJson('/users'),async(req,res,next) => {
+    try {
+        const queries = req.query
+        console.log(queries)
     } catch (error) {
         next(error)
     }

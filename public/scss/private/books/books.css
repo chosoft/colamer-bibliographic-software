@@ -255,61 +255,73 @@ main .nav {
 .popUpBg .modal {
   width: 55%; }
   .popUpBg .modal .modalContentWp {
-    flex-direction: row;
-    justify-content: space-between; }
-    .popUpBg .modal .modalContentWp .form .field {
-      display: flex;
-      border: none;
-      height: 25px;
-      margin-top: 7px;
-      width: auto;
-      margin-top: 7px;
-      outline: none;
-      background-color: antiquewhite;
-      font: 400 16px "Roboto", sans-serif; }
-    .popUpBg .modal .modalContentWp .form .fieldLabel {
-      width: auto;
-      color: #4180E2;
-      font: 700 16px "Poppins", sans-serif;
-      cursor: pointer; }
-    .popUpBg .modal .modalContentWp .form .submitBtn {
-      display: flex;
-      margin-top: 25px;
+    flex-direction: column; }
+    .popUpBg .modal .modalContentWp .Bigform {
       width: 100%;
-      font: 700 18px "Poppins", sans-serif;
-      border: 0;
-      background: #4180E2;
-      padding: 10px;
-      transition: all .3s ease;
-      cursor: pointer;
-      width: 40%;
-      align-items: start;
-      color: #FAFAFA; }
-      .popUpBg .modal .modalContentWp .form .submitBtn:hover {
-        transform: scale(1.05); }
-      .popUpBg .modal .modalContentWp .form .submitBtn:active {
-        transform: scale(0.95); }
-    .popUpBg .modal .modalContentWp .form i {
-      font-size: 20px;
-      padding-right: 5px; }
-    .popUpBg .modal .modalContentWp .form .form1 {
       display: flex;
-      justify-content: flex-start;
-      font-size: 25px;
-      align-items: end; }
-      .popUpBg .modal .modalContentWp .form .form1 .fieldLabel {
-        margin-right: 10px; }
-    .popUpBg .modal .modalContentWp .form .nav {
+      flex-wrap: wrap; }
+      .popUpBg .modal .modalContentWp .Bigform img {
+        width: 30%;
+        height: auto;
+        border: 2px solid black; }
+      .popUpBg .modal .modalContentWp .Bigform .forms {
+        padding: 20px; }
+        .popUpBg .modal .modalContentWp .Bigform .forms .field {
+          display: flex;
+          border: none;
+          height: 25px;
+          margin-top: 7px;
+          width: auto;
+          margin-top: 7px;
+          outline: none;
+          background-color: antiquewhite;
+          font: 400 16px "Roboto", sans-serif; }
+        .popUpBg .modal .modalContentWp .Bigform .forms .fieldLabel {
+          width: auto;
+          color: #4180E2;
+          font: 700 16px "Poppins", sans-serif;
+          cursor: pointer; }
+        .popUpBg .modal .modalContentWp .Bigform .forms i {
+          font-size: 20px;
+          padding-right: 5px; }
+        .popUpBg .modal .modalContentWp .Bigform .forms .form1 {
+          display: flex;
+          justify-content: flex-start;
+          font-size: 25px;
+          align-items: end; }
+          .popUpBg .modal .modalContentWp .Bigform .forms .form1 .fieldLabel {
+            margin-right: 10px; }
+        .popUpBg .modal .modalContentWp .Bigform .forms #tittle {
+          font: 700 25px "Poppins", sans-serif; }
+        .popUpBg .modal .modalContentWp .Bigform .forms #author {
+          font: 400 16px "Roboto", sans-serif;
+          size: 2px; }
+    .popUpBg .modal .modalContentWp .end {
+      width: 100%;
+      height: 100%;
       display: flex;
-      align-content: space-between;
-      align-items: center;
-      height: 10%; }
-    .popUpBg .modal .modalContentWp .form #tittle {
-      font: 700 25px "Poppins", sans-serif; }
-    .popUpBg .modal .modalContentWp .form #author {
-      font: 400 16px "Roboto", sans-serif;
-      size: 2px; }
-    .popUpBg .modal .modalContentWp .img {
-      height: 80%; }
+      justify-content: space-between;
+      flex-direction: row; }
+      .popUpBg .modal .modalContentWp .end button {
+        height: 100%;
+        width: 10%; }
+      .popUpBg .modal .modalContentWp .end .submitBtn {
+        display: flex;
+        width: 100%;
+        font: 700 18px "Poppins", sans-serif;
+        border: 0;
+        background: #4180E2;
+        padding: 10px;
+        transition: all .3s ease;
+        cursor: pointer;
+        justify-content: center;
+        width: 25%;
+        color: #FAFAFA; }
+        .popUpBg .modal .modalContentWp .end .submitBtn i {
+          padding: 2px; }
+        .popUpBg .modal .modalContentWp .end .submitBtn:hover {
+          transform: scale(1.05); }
+        .popUpBg .modal .modalContentWp .end .submitBtn:active {
+          transform: scale(0.95); }
 
 /*# sourceMappingURL=books.css.map */
