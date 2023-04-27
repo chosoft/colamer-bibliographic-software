@@ -4,7 +4,6 @@
 main {
     .pageHeader {
         display: flex;
-        margin: 100px 0 0 0px;
         width: 100%;
         h1 {
             font: $titleMediumBold;
@@ -17,50 +16,40 @@ main {
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        margin-top: 20px;
         .searchUtils {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             input {
-                display: flex;
-                width: 70%;
-                height: 20%;
-                padding: 20px;
-                color: #979797;
-                background-color: #D9D9D9;
-                font-family: 'Roboto';
-                font-size: 25px;
-                font-weight: 700;
-                line-height: 29px;
-                border: none;
+                @include d-input;
+                width: 90%;
+                margin: 0 10px 0 0;
             }
-            #searchFilter {
-                display: flex;
-                width: 15%;
-                margin-left: 20px;
-                padding: 20px;
-                font:700 25px 'Roboto';
-                color: #979797;
-                background-color: #D9D9D9;
-                border: none;
+        }
+        .searchConfig {
+            width: 100%;
+            display: flex;
+            h2 {
+                
             }
         }
         .resultsViews {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 15px;
             display: flex;
             flex-direction: row;
             .changeView {
+                padding: 5px;
+                width: 30px;
+                height: 30px;
                 display: flex;
-                width: 40px;
-                height: 40px;
-                margin-right: 20px;
+                flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                background: #D9D9D9;
-                font-size: 25px;
+                font-size: 18px;
+                margin-right: 10px;
                 border: none;
+                background: $inputsColor;
                 transition: all .3s ease;
                 cursor: pointer;
                 &:last-child{
@@ -79,9 +68,11 @@ main {
     .results {
         width: 100%;
         display: flex;
-        margin-top: 20px;
-        h1 {
-            font: $titleMediumBold;
+        flex-direction: column;
+        margin-top: 25px;
+        h2 {
+            font: $titleSmallBold
+        }
         }
     }
 
@@ -97,7 +88,7 @@ main {
         flex-direction: row;
         margin-top: 25px;
         justify-content: center;
-        align-items: center;
+        align-content: end;
         .changePage {
             font-size: 30px;
             color: #4180E2;
@@ -106,10 +97,10 @@ main {
             margin: 0 40px 0 40px;
         }
     }
-}
+
 .popUpBg{
     .modal{
-        width: 44%;
+        width: 50%;
         .modalContentWp{
             flex-direction: column;
             width: 100%;

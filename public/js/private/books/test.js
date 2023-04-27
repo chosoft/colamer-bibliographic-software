@@ -1,5 +1,11 @@
-var boton = document.querySelector(".submitBtn")
+var img = document.querySelector('.link')
 
-boton.addEventListener("click", function(){
-    alert("Hola")
+img.addEventListener('input', (e) => {
+    e.preventDefault
+    console.log("Esta siendo cambiado")
+    var test = "Preba"
 })
+
+var img2 = document.querySelector('.img')
+
+img2.setAttribute(src, test)
