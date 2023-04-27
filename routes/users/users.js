@@ -29,7 +29,7 @@ router.get('/', async(req,res,next) => {
 router.get('/api',onlyJson('/users'),async(req,res,next) => {
     try {
         const queries = req.query
-        console.log(queries)
+        res.json(queries)
     } catch (error) {
         next(error)
     }

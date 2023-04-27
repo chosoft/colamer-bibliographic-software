@@ -59,14 +59,27 @@ html(lang="en")
             .search
                 .searchUtils
                     input.userSearchbar(type="search", name="query" placeholder="Ingresa tu busqueda")
-                    select#filter.searchbarFilter(name="f-query")
-                        option(value="") Rol
-                        option(value="") Nombre
-                .resultsViews
-                    button.view#table 
-                        i(class="ri-list-check") 
-                    button.view#card
-                        i(class="ri-table-line")
+                    .searchConfig
+                        .configTitle
+                            h3.headerConfig Configuracion de busqueda
+                            button#toggleConfig(isOpen="true")
+                                i(class="ri-arrow-down-s-line")
+                        .configOptions
+                            .option#searchMode
+                                label.optLabel(for="searchMode") Buscar mediante
+                                button.tag#username(active="")
+                                    i(class="ri-font-size")
+                                    .
+                                        Nombre
+                                    
+                                button.tag#email(active="")
+                                    i(class="ri-mail-line")
+                                    .
+                                        Correo
+                            .option#filters
+                                label.optLabel(for="addFilter") Filtrar por
+                                button#addFilter
+                                     i( class="ri-add-line")
             .wpResults
                 header.titleResults
                     h2 Resultados busqueda
