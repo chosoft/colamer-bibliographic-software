@@ -11,7 +11,7 @@ saveBook.addEventListener('click', (e) => {
         collectionType: document.querySelector('#collection').value,
         copies: parseInt(document.querySelector('#copies').value),
         borrowed: parseInt(document.querySelector('#borrowed').value),
-        img: document.querySelector('.link').value
+        img: document.querySelector('.link').value,
     };
     Checker(info)
     createBook(info)
@@ -37,5 +37,6 @@ const createBook = async (info) => {
         console.log(respuesta)
     } catch (error) {
         console.log(error)
+        console.log("Error en la API")
     }
 }

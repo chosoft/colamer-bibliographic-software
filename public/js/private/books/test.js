@@ -1,11 +1,13 @@
 var img = document.querySelector('.link')
+var img2 = document.querySelector('.image')
 
-img.addEventListener('input', (e) => {
-    e.preventDefault
-    console.log("Esta siendo cambiado")
-    var test = "Preba"
-})
+console.log(img.value)
 
-var img2 = document.querySelector('.img')
+img.addEventListener("onchange", async () => {
+        img2.setAttribute("src", img.value)
+        console.log(img2.src)
+    })
 
-img2.setAttribute(src, test)
+const prueba = (info) => {
+    console.log(info)
+}  

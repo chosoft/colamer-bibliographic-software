@@ -81,8 +81,8 @@ html(lang="en")
                                 label.fieldLabel(for="Borrowed") Prestados:
                                 input.field#borrowed(type="number")
                     .end
+                        //<input placeholder="Link de caratula" onkeyup="prueba(this.value)")>
                         input.link(placeholder="Link de caratula")
-                            
                         button.submitBtn 
                             i(class="ri-save-3-line")
                             span Guardar Libro
@@ -90,6 +90,6 @@ html(lang="en")
                         i(class="ri-close-line")
 
     script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
-    script(src="/js/private/books/api.js")
+    script(src="/js/private/books/create_book.js")
     script(src="/js/private/defaults/popUp.js")
     script(src="/js/private/books/test.js") 
