@@ -67,19 +67,24 @@ html(lang="en")
                         .configOptions
                             .option#searchMode
                                 label.optLabel(for="searchMode") Buscar mediante
-                                button.tag#username(active="")
-                                    i(class="ri-font-size")
-                                    .
-                                        Nombre
-                                    
-                                button.tag#email(active="")
-                                    i(class="ri-mail-line")
-                                    .
-                                        Correo
+                                .tagsCont(isOpen="false")
+                                    button.tag#usernameTag(active="true")
+                                        i(class="ri-font-size")
+                                        .
+                                            Nombre
+                                        
+                                    button.tag#emailTag(active="false")
+                                        i(class="ri-mail-line")
+                                        .
+                                            Correo
                             .option#filters
                                 label.optLabel(for="addFilter") Filtrar por
-                                button#addFilter
-                                     i( class="ri-add-line")
+                                .addedOpts
+                                
+                                .addopts
+                                    button#addFilter
+                                         i( class="ri-add-line")
+                                    
             .wpResults
                 header.titleResults
                     h2 Resultados busqueda

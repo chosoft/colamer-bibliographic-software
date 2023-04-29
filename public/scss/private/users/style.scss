@@ -66,16 +66,24 @@
                         font: $textBold;
                         color: rgba($color: $black, $alpha: .5);
                     }
-                    .tag{
-                        cursor: pointer;
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        font: $textBold;
-                        color: rgba($color: $black, $alpha: .5);
-                        padding:5px;
-                        i{
-                            margin-right: 5px;
+                    .tagsCont{
+                        .tag{
+                            cursor: pointer;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            font: $textBold;
+                            color: rgba($color: $black, $alpha: .5);
+                            padding:5px;
+                            position: relative;
+                            i{
+                                margin-right: 5px;
+                            }
+                            &[active="false"]{
+                                display: none;
+                                position: absolute;
+                                margin-top: 10px;
+                            }
                         }
                     }
                     #addFilter{

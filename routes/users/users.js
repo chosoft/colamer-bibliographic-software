@@ -37,10 +37,8 @@ router.get('/api',onlyJson('/users'),async(req,res,next) => {
 //Create new user ENDPOINT
 router.post('/',async(req,res,next) => {
     try {
-        console.log('process')
         const userData = req.body
         await Create(userData)
-        console.log('finischeed')
         res.json({msg:'User Created'})
     } catch (error) {
         next(error)
