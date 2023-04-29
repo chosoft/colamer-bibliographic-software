@@ -79,11 +79,39 @@ html(lang="en")
                                             Correo
                             .option#filters
                                 label.optLabel(for="addFilter") Filtrar por
-                                .addedOpts
-                                
-                                .addopts
-                                    button#addFilter
+                                .addedOpts(filtersselected="")
+                                        .selectedOpt#rolOpt(selected="false" filterValue="" idWord="rol")
+                                            i(class="ri-profile-line")
+                                            .
+                                                Rol
+                                            select#rolSelectOpt.selectFilter()
+                                                option(value="admin") Administrador
+                                                option(value="assitent") Auxiliar
+                                                option(value="user") Usuario
+                                            button.deleteOpt(idWord="rol")
+                                                i(class="ri-close-line" idWord="rol")
+                                        .selectedOpt#testOpt(selected='false' idWord="test")
+                                            i(class="ri-flask-line")
+                                            .
+                                                Test
+                                            select#testSelectOpt.selectFilter() 
+                                                option(value="1") one
+                                                option(value="2") two
+                                            button.deleteOpt(idWord="test")
+                                                i(class="ri-close-line" idWord="test")
+                                .addOptsCont
+                                    button#addFilter(isselecting="false")
                                          i( class="ri-add-line")
+                                    .addOpts
+                                        button.optFilter#rolFilter(selected="false" idWord="rol")
+                                            i(class="ri-profile-line" idWord="rol")
+                                            .
+                                                Rol
+                                        button.optFilter#testFilter(selected='false' idWord="test")
+                                            i(class="ri-flask-line" idWord="test")
+                                            .
+                                                Test
+
                                     
             .wpResults
                 header.titleResults
