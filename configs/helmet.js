@@ -5,7 +5,7 @@ const HELMET_CONFIG = {
             //This allows the frontend to retrieve JS files -> this is to load libraries like Axios http
             "script-src": ["'self'","cdn.jsdelivr.net"], //Permitir descargar archicos de CDNJS
             //This allows the frontend to retrieve the necesary images in diferent sites
-            "img-src":["'self'","res.cloudinary.com","www.colamer.edu.co",'blob:'],
+            "img-src":['*'],
             "object-src":["'self'"],
             "style-src":['*']
         }

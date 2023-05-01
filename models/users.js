@@ -68,6 +68,18 @@ const SearchUser = (filter,projection=DEFAULT_PROJECTION) => {
     })
 }
 
+const SearchUsers = (filter,config,projection={hash:0}) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            const { skipSteps } = config
+            const foundUsers = await User.find(filter,projection).sort({_id:-1}).skip(skipSteps).limit(4)
+            resolve(foundUsers)
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 const UpdateUser = (filter,updateFields) => {
     //This function helps to update the fields of a certain user
     //The firs argument is the filter -> This will retrieve the user that will be updated
@@ -99,6 +111,7 @@ const DeleteUser = (_id) => {
 module.exports = {
     CreateUser,
     SearchUser,
+    SearchUsers,
     UpdateUser,
     DeleteUser
 }

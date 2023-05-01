@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 //Controllers Functions of the different endpoints
 const Create = require('./../../controllers/users/Create')
+const Search = require('./../../controllers/users/Search')
 const UpdateUsername = require('./../../controllers/users/UpdateUsername')
 const UpdateRol = require('./../../controllers/users/UpdateRol')
 const DeleteUser = require('./../../controllers/users/Delete')
@@ -26,10 +27,24 @@ router.get('/', async(req,res,next) => {
     }
 })
 //Read and Query Users
-router.get('/api',onlyJson('/users'),async(req,res,next) => {
+/* The Structure of the need body to receive is the following
+    {
+        mode: name_field,
+        query: value_of_the_search_bar,
+        filters:{ //An object that contains all the keys/fields and his values
+            key:value,
+            rol:admin
+        }
+        skipSteps: 4 //This indicate the range in wich the model will retrieve the users
+    }
+
+
+*/
+router.post('/search',async(req,res,next) => {
     try {
-        const queries = req.query
-        res.json(queries)
+        const searchParams = req.body
+        const result = await Search(searchParams)
+        res.json(result)
     } catch (error) {
         next(error)
     }
