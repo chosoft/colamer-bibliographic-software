@@ -68,19 +68,15 @@ html(lang="en")
                             .option#searchMode
                                 label.optLabel(for="searchMode") Buscar mediante
                                 .tagsSelectCont
-                                    button.tag#usernameTag(active="true")
+                                    button.tag#usernameTag(active="true" mode="username")
                                         i(class="ri-font-size")
                                         .
                                             Nombre
                                     .modesTagsContainer(isOpen="false")
-                                        button.tag#emailTag(active="false")
+                                        button.tag#emailTag(active="false" mode="email")
                                             i(class="ri-mail-line")
                                             .
                                                 Correo
-                                        button.tag#testTag(active="false")
-                                            i(class="ri-flask-line")
-                                            .
-                                                test
                             //Here the tags of the filter element lives
                             //Main container of the filters
                             .option#filters
@@ -104,15 +100,6 @@ html(lang="en")
                                             //This is the button to unselect the filter option
                                             button.deleteOpt(idWord="rol")
                                                 i(class="ri-close-line" idWord="rol")
-                                        .selectedOpt#testOpt(selected='false' idWord="test")
-                                            i(class="ri-flask-line")
-                                            .
-                                                Test
-                                            select#testSelectOpt.selectFilter() 
-                                                option(value="1") one
-                                                option(value="2") two
-                                            button.deleteOpt(idWord="test")
-                                                i(class="ri-close-line" idWord="test")
                                 //This container have inside the add button and the posible options to select
                                 .addOptsCont
                                     //The famous add button
@@ -132,10 +119,7 @@ html(lang="en")
                                             i(class="ri-profile-line" idWord="rol")
                                             .
                                                 Rol
-                                        button.optFilter#testFilter(selected='false' idWord="test")
-                                            i(class="ri-flask-line" idWord="test")
-                                            .
-                                                Test
+
             .wpResults
                 header.titleResults
                     h2 Resultados busqueda
