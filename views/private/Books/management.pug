@@ -55,31 +55,45 @@ html(lang="en")
                         img.image(src="", crossorigin, alt="")
                         .forms
                             input.field#tittle(type="text" placeholder="Titulo del Libro")
+                            p.error#etittle
                             input.field#author(type="text" placeholder="Nombre de autor")
+                            p.error#eauthor
                             .form1
                                 i(class="ri-barcode-line")
                                 label.fieldLabel(for="Barcode")  Codigo de barras: 
                                 input.field#barcode(type="text")
+                                p.error#ebarcode
+                                p.error#barcode2
                             .form1
                                 i(class="ri-barcode-box-fill")
                                 label.fieldLabel(for="Code") Codigo Extra:
                                 input.field#code(type="text")
+                                p.error#ecode
+                                p.error#code2
                             .form1
                                 i(class="ri-map-pin-line")
                                 label.fieldLabel(for="Signatura") Signatura:
                                 input.field#signature(type="text")
+                                p.error#esignature
+                                p.error#signature2
                             .form1
                                 i(class="ri-t-box-line")
                                 label.fieldLabel(for="Collection") Colección:
                                 input.field#collection(type="text")
+                                p.error#ecollection
+                                p.error#collection2
                             .form1
                                 i(class="ri-hashtag")
                                 label.fieldLabel(for="Copies") Ejemplares:
                                 input.field#copies(type="number" inputmode="numeric")
+                                p.error#ecopies
+                                p.error#copies2
                             .form1
                                 i(class="ri-book-mark-fill")
                                 label.fieldLabel(for="Borrowed") Prestados:
                                 input.field#borrowed(type="number")
+                                p.error#eborrowed
+                                p.error#borrowed2
                     .end
                         //<input placeholder="Link de caratula" onkeyup="prueba(this.value)")>
                         input.link(placeholder="Link de caratula")
