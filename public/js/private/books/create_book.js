@@ -1,51 +1,64 @@
 // Variables that i want to use
+//Submit Btn element
 const saveBook = document.querySelector(".submitBtn")
 var input = document.querySelector('.link');
 var image = document.querySelector('.image');
 
-// Fuction to create the book
-saveBook.addEventListener('click', (e) => {
-    // Reset de configs of de event
-    e.preventDefault()
-    // Declare the info of the input
-    const info = {
-        title: document.querySelector('#tittle').value,
-        author: document.querySelector('#author').value,
-        barcode: document.querySelector('#barcode').value,
-        code: parseInt(document.querySelector('#code').value),
-        signature: document.querySelector('#signature').value,
-        collectionType: document.querySelector('#collection').value,
-        copies: parseInt(document.querySelector('#copies').value),
-        borrowed: parseInt(document.querySelector('#borrowed').value),
-        img: document.querySelector('.link').value,
-    };
-    console.log(info.author)
-    // First go through the checker
-    Checker(info)
-    // And for last one create the book
-    createBook(info)
-})
-
 // Fuction of check the information
-const Checker = async (info) => {
+const emptyChecker = async (inputs) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            const necesaryOkInputs = Object.entries(inputs)
+            let okInputs = 0
+            for (const fieldName in inputs) {
+
+                const fieldValue = inputs[fieldName] || null
+                if(!(fieldValue)){
+                    const errorFieldContainer = document.querySelector(`#e${fieldName}`)
+                    errorFieldContainer.textContent = `${fieldName} needs to be filled`
+                }else{
+                    okInputs += 1
+                }
+            }
+            if(!(necesaryOkInputs === okInputs)){
+                reject('All inputs need to be filled')
+            }
+            resolve()
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+// Fuction to create the book
+saveBook.addEventListener('click', async(e) => {
     try {
-        // Save only the copies and borrowed of the variable info
-        const { copies, borrowed } = info
-        // Validate if the copies is > than borrowed
-        if (copies > borrowed) {
-            // Add the new variable avaible but in this case in true
-            info.available = true;
-        }
-        // Validate if the copies is <= than borrowed
-        else if (copies <= borrowed) {
-            // Add the new variable but in false
-            info.available = false;
-        }
+        // Reset de configs of de event
+        e.preventDefault()
+        // Get the info of the input
+        const info = {
+            title: document.querySelector('#title').value,
+            author: document.querySelector('#author').value,
+            barcode: document.querySelector('#barcode').value,
+            code: parseInt(document.querySelector('#code').value),
+            signature: document.querySelector('#signature').value,
+            collectionType: document.querySelector('#collectionType').value,
+            copies: parseInt(document.querySelector('#copies').value),
+            borrowed: parseInt(document.querySelector('#borrowed').value),
+            img: document.querySelector('.link').value,
+        };
+
+        // First go through the checker
+        await emptyChecker(info)
+        // And for last one create the book
+        createBook(info)
+        
     } catch (error) {
-        // Print the error
         console.log(error)
     }
-}
+})
+
+
 
 // Fuction of create the book
 const createBook = async (info) => {

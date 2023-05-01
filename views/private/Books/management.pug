@@ -54,8 +54,8 @@ html(lang="en")
                     .BigForm
                         img.image(src="", crossorigin, alt="")
                         .forms
-                            input.field#tittle(type="text" placeholder="Titulo del Libro")
-                            p.error#etittle
+                            input.field#title(type="text" placeholder="Titulo del Libro")
+                            p.error#etitle
                             input.field#author(type="text" placeholder="Nombre de autor")
                             p.error#eauthor
                             .form1
@@ -79,8 +79,8 @@ html(lang="en")
                             .form1
                                 i(class="ri-t-box-line")
                                 label.fieldLabel(for="Collection") Colección:
-                                input.field#collection(type="text")
-                                p.error#ecollection
+                                input.field#collectionType(type="text")
+                                p.error#ecollectionType
                                 p.error#collection2
                             .form1
                                 i(class="ri-hashtag")
@@ -96,7 +96,8 @@ html(lang="en")
                                 p.error#borrowed2
                     .end
                         //<input placeholder="Link de caratula" onkeyup="prueba(this.value)")>
-                        input.link(placeholder="Link de caratula")
+                        input.link#img(placeholder="Link de caratula")
+                        p#eimg
                         button.submitBtn 
                             i(class="ri-save-3-line")
                             span Guardar Libro
