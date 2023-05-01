@@ -89,11 +89,18 @@
                         }
                         .modesTagsContainer{
                             position: absolute;
+                            margin-top: 10px;
                             display: none;
                             flex-direction: column;
                             align-items: flex-start;
+                            background: rgba($color: $black, $alpha: .5);
+                            padding: 5px;
+                            backdrop-filter: blur(5px);
                             .tag{
                                 margin-top: 10px;
+                                &:first-child{
+                                    margin-top: 0;
+                                }
                             }
                         }
                     }
