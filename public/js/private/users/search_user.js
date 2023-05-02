@@ -25,7 +25,6 @@ const getQueryFilters = () => {
             for (const filter of activeFilters) {
 
                 const filterName = filter.attributes.idWord.value
-                console.log(filterName)
                 const selectFilterValue = document.querySelector(`#${filterName}SelectOpt`).value
                 filters[filterName]  = selectFilterValue
             }
@@ -35,6 +34,50 @@ const getQueryFilters = () => {
         }
     })
 }
+
+const createUsersHtml = (usersList) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            let allTemplates = ''
+            for (const user of usersList) {
+                const { _id,username,rol } = user
+                const template = `<div class="userResult" id="${_id}-userResult">
+                                    <div class="header-result">
+                                        <div class="lorempic">
+                                            <i class="ri-file-user-line"></i>
+                                        </div>
+                                        <div class="infoContainer">
+                                            <h3 class="user-result-name">${username}</h3>
+                                            <span class="user-result-rol">Rol - ${rol}</span>
+                                            <div class="actions">
+                                                <button class="button-user-result" idReference="${_id}"><i idReference="${_id}" class="ri-delete-bin-line"></i></button>
+                                                <button class="button-user-result" idReference="${_id}"><i idReference="${_id}" class="ri-pencil-line"></i></button>
+                                                <button class="button-user-result" idReference="${_id}"><i idReference="${_id}" class="ri-eye-line"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`
+                allTemplates += template
+            }
+            resolve(allTemplates)
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+const innerFoundUsers = (usersList) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            const resultsContainer = document.querySelector('.results')
+            const usersListTemplate = await createUsersHtml(usersList)
+            resultsContainer.innerHTML = usersListTemplate
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 const searchUser = async(e) => {
     try {
         const searchBar = e.target
@@ -47,10 +90,11 @@ const searchUser = async(e) => {
             filters:searchFilters,
             skipSteps:0
         }
-        
-        console.log(searchFilters)
+        const { data } = await axios.post('/users/search',searchParams)
+        console.log(data)
+        await innerFoundUsers(data)
+
     } catch (error) {
-        console.log(error)
         defaultErrorSpam(error)
     }
 }
