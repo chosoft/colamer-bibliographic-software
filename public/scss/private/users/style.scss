@@ -262,6 +262,21 @@
             font: $titleSmallBold
         }
     }
+    .results{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px;
+        flex-wrap: wrap;
+        gap: 20px;
+        .userResult{
+            min-width: 45%;
+            border: 2px solid $inputsColor;
+            padding: 10px;
+
+        }
+    }
 }
 
 .popUpBg{
