@@ -1,0 +1,221 @@
+@import '../../defaults/pallete';
+@import '../../defaults/userlayout';
+
+main {
+    .pageHeader {
+        display: flex;
+        width: 100%;
+        h1 {
+            font: $titleMediumBold;
+        }
+    }
+    .search {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        .searchUtils {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            input {
+                @include d-input;
+                width: 90%;
+                margin: 0 10px 0 0;
+            }
+        }
+        .searchConfig {
+            width: 100%;
+            display: flex;
+        }
+        .resultsViews {
+            width: 100%;
+            margin-top: 15px;
+            display: flex;
+            flex-direction: row;
+            .changeView {
+                padding: 5px;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                font-size: 18px;
+                margin-right: 10px;
+                border: none;
+                background: $inputsColor;
+                transition: all .3s ease;
+                cursor: pointer;
+                &:last-child{
+                    margin: 0;
+                }
+                &:hover{
+                    transform: translateY(-5px);
+                }
+                &:active{
+                    transform: scale(.9);
+                }
+            }
+        }
+    }
+        
+    .results {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+        h2 {
+            font: $titleSmallBold
+        }
+        }
+    }
+
+    .table {
+        display: flex;
+        width: 100%;
+        height: 35%;
+        margin-top: 20px;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: row;
+        margin-top: 25px;
+        justify-content: center;
+        align-content: end;
+        .changePage {
+            font-size: 30px;
+            color: #4180E2;
+            background: none;
+            border: none;
+            margin: 0 40px 0 40px;
+        }
+    }
+
+.popUpBg{
+    .modal{
+        width: 55%;
+        .modalContentWp{
+            flex-direction: column;
+            width: 100%;
+            .error {
+                font: $textBold;
+                color: $errorColor;
+            }
+            .Bigform {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                img {
+                    width: 25%;
+                    height: 240px;
+                    border: 2px solid black;
+                }
+                .forms {
+                    padding-left: 20px;
+                    width: 75%;
+                    .error {
+                        margin: 5px 0 5px 0;
+                    }
+                    #title{
+                        font: $titleSmallBold;
+                        width: 80%;
+                        font-size: 20px;
+                    }
+                    #author{
+                        font: $normalInputs;
+                        size: 2px;
+                        width: 80%;
+                    }
+                    .field{
+                        display: flex;
+                        border: none;
+                        height: 25px;
+                        margin-top: 6px;
+                        width: auto;
+                        outline: 2px solid #EBEBEB;
+                        padding-left: 4px;
+                        font: $normalInputs;
+                    }
+                    .fieldLabel{ 
+                        width: auto;
+                        //Defaults
+                        @include d-label;
+                    }
+                    i {
+                        font-size: 20px;
+                        padding-right: 5px;
+                    }
+                    .form1 {
+                        display: flex;
+                        justify-content: flex-start;
+                        font-size: 25px;
+                        align-items: end;
+                        .fieldLabel {
+                            margin-right: 10px;
+                        }
+                        .barcode {
+                            width: 43%;
+                        }
+                        #code {
+                            width: 31.5%;
+                        }
+                        #signature {
+                            width: 35%;
+                        }
+                        #collection {
+                            width: 35%;
+                        }
+                        #copies {
+                            width: 15%;
+                            -webkit-appearance: textfield;
+                            -moz-appearance:textfield;
+                        }
+                        #borrowed {
+                            width: 17%;
+                            -webkit-appearance: textfield;
+                            -moz-appearance:textfield;
+                        }
+                    }
+                }
+            }
+            .end {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                padding-top: 5px;
+                margin-top: 10px;
+                #eimg {
+                    display: flex;
+                }
+                .img {
+                    width: 25%;
+                    border: 2px solid $mainColor;
+                    padding: 4px;
+                    outline: none;
+                    font-size: 15px;
+                }
+                input.img::placeholder { 
+                    text-align: center;
+                    color: $mainColor;
+                    font-size: 20px;
+                    font: $textBold;
+                }
+                .submitBtn{
+                    display: flex;
+                    i {
+                        padding: 2px;
+                    }
+                    @include d-btn;
+                    justify-content: center;
+                    width: 25%;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

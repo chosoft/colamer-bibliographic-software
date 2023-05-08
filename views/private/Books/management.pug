@@ -17,19 +17,6 @@ html(lang="en")
             .search
                 .searchUtils
                     input(type="search" placeholder="Ingresa tu busqueda")
-                .searchConfig
-                    h2 Configuración de Busqueda
-                    button.appear
-                        i(class="ri-arrow-down-s-line")
-                    select#searchFilter()
-                        option(value="" disabled selected) Filtro
-                        optgroup(label="Filtros")
-                            option(value="title") Titulo
-                            option(value="author") Autor
-                            option(value="collection") Coleccion    
-                    select#searchOver()
-                        option(value="tittle") Titulo 
-                        option(value="author") Autor  
                 .resultsViews
                     button.changeView#listStyle     
                         i(class="ri-list-check")
@@ -55,49 +42,33 @@ html(lang="en")
                         img.image(src="", crossorigin, alt="")
                         .forms
                             input.field#title(type="text" placeholder="Titulo del Libro")
-                            p.error#etitle
                             input.field#author(type="text" placeholder="Nombre de autor")
-                            p.error#eauthor
                             .form1
                                 i(class="ri-barcode-line")
                                 label.fieldLabel(for="Barcode")  Codigo de barras: 
                                 input.field#barcode(type="text")
-                                p.error#ebarcode
-                                p.error#barcode2
                             .form1
                                 i(class="ri-barcode-box-fill")
                                 label.fieldLabel(for="Code") Codigo Extra:
                                 input.field#code(type="text")
-                                p.error#ecode
-                                p.error#code2
                             .form1
                                 i(class="ri-map-pin-line")
                                 label.fieldLabel(for="Signatura") Signatura:
                                 input.field#signature(type="text")
-                                p.error#esignature
-                                p.error#signature2
                             .form1
                                 i(class="ri-t-box-line")
                                 label.fieldLabel(for="Collection") Colección:
                                 input.field#collectionType(type="text")
-                                p.error#ecollectionType
-                                p.error#collection2
                             .form1
                                 i(class="ri-hashtag")
                                 label.fieldLabel(for="Copies") Ejemplares:
                                 input.field#copies(type="number" inputmode="numeric")
-                                p.error#ecopies
-                                p.error#copies2
                             .form1
                                 i(class="ri-book-mark-fill")
                                 label.fieldLabel(for="Borrowed") Prestados:
                                 input.field#borrowed(type="number")
-                                p.error#eborrowed
-                                p.error#borrowed2
                     .end
-                        //<input placeholder="Link de caratula" onkeyup="prueba(this.value)")>
-                        input.link#img(placeholder="Link de caratula")
-                        p#eimg
+                        input.img#img(placeholder="Link de caratula")
                         button.submitBtn 
                             i(class="ri-save-3-line")
                             span Guardar Libro
@@ -106,5 +77,5 @@ html(lang="en")
 
     script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
     script(src="/js/private/books/create_book.js")
+    script(src="/js/private/books/search_book.js")
     script(src="/js/private/defaults/popUp.js")
-    script(src="/js/private/books/test.js") 
