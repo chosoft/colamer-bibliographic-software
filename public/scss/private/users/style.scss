@@ -274,7 +274,81 @@
             min-width: 45%;
             border: 2px solid $inputsColor;
             padding: 10px;
-
+            display: flex;
+            flex-direction: column;
+            .headerResult,.footer{
+                width: 100%;
+            }
+            .headerResult{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding-bottom: 5px;
+                border-bottom: 2px dotted rgba($color: $black, $alpha: .5);
+                .lorempic{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    i{
+                        font-size: 3.5rem;
+                    }
+                }
+                .infoContainer{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    gap: 10px;
+                    .user-result-name{
+                        font: $textBold;
+                        font-family: 'Poppins',sans-serif;
+                        text-transform: capitalize;
+                    }
+                    .user-result-rol{
+                        font:$text;
+                    }
+                }
+                .actions{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    align-items: center;
+                    .button-user-result{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 5px;
+                        border: 0;
+                        font: $text;
+                        color: $white;
+                        cursor: pointer;
+                        transition: all .3s ease;
+                        &:active{
+                            transform: scale(.9);
+                        }
+                    }
+                    .deleteUser{
+                        background: $errorColor;
+                    }
+                    .editUser{
+                        background: $secondColor;
+                    }
+                }
+            }
+            .footer{
+                padding-top: 5px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                .idInfo{
+                    font: $text;
+                    font-size: 14px;
+                }
+            }
         }
     }
 }

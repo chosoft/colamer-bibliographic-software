@@ -71,8 +71,8 @@ const SearchUser = (filter,projection=DEFAULT_PROJECTION) => {
 const SearchUsers = (filter,config,projection={hash:0}) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const { skipSteps } = config
-            const foundUsers = await User.find(filter,projection).sort({_id:-1}).skip(skipSteps).limit(4)
+            //Need to put the limit and skip functions
+            const foundUsers = await User.find(filter,projection).sort({_id:-1})
             resolve(foundUsers)
         } catch (error) {
             reject(error)

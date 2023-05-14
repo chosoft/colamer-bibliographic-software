@@ -42,7 +42,6 @@ router.get('/', async(req,res,next) => {
 */
 router.post('/search',async(req,res,next) => {
     try {
-        console.log(req.headers)
         const searchParams = req.body
         const result = await Search(searchParams)
         res.json(result)
@@ -99,6 +98,7 @@ router.delete('/',async(req,res,next) => {
             res.json({ msg:"User deleted" })
         }
     } catch (error) {
+        console.log(error)
         next(error)
     }
 })

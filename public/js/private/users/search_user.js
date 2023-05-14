@@ -40,9 +40,9 @@ const createUsersHtml = (usersList) => {
         try {
             let allTemplates = ''
             for (const user of usersList) {
-                const { _id,username,rol } = user
+                const { _id,username,rol,email } = user
                 const template = `<div class="userResult" id="${_id}-userResult">
-                                    <div class="header-result">
+                                    <div class="headerResult">
                                         <div class="lorempic">
                                             <i class="ri-file-user-line"></i>
                                         </div>
@@ -50,11 +50,13 @@ const createUsersHtml = (usersList) => {
                                             <h3 class="user-result-name">${username}</h3>
                                             <span class="user-result-rol">Rol - ${rol}</span>
                                             <div class="actions">
-                                                <button class="button-user-result" idReference="${_id}"><i idReference="${_id}" class="ri-delete-bin-line"></i></button>
-                                                <button class="button-user-result" idReference="${_id}"><i idReference="${_id}" class="ri-pencil-line"></i></button>
-                                                <button class="button-user-result" idReference="${_id}"><i idReference="${_id}" class="ri-eye-line"></i></button>
+                                                <button class="button-user-result deleteUser" actionType="delete" username="${username}" rolUser="${rol}" idReference="${_id}"><i idReference="${_id}" class="ri-delete-bin-line"></i></button>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="footer">
+                                        <span class="idInfo" id="mongoID">${_id}</span>
+                                        <span class="idInfo" id="emailID">${email}</span>
                                     </div>
                                 </div>`
                 allTemplates += template
@@ -91,8 +93,7 @@ const searchUser = async(e) => {
             skipSteps:0
         }
         const { data } = await axios.post('/users/search',searchParams)
-        console.log(data)
-        await innerFoundUsers(data)
+        await innerFoundUsers(data )
 
     } catch (error) {
         defaultErrorSpam(error)
