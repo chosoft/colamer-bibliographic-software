@@ -66,7 +66,7 @@ saveBook.addEventListener('click', async(e) => {
             borrowed: parseInt(document.querySelector('#borrowed').value),
             img: document.querySelector('#img').value,
         };
-
+        console.log(collectionType)
         // First go through the checker
         await emptyChecker(info)
         console.log("Paso")

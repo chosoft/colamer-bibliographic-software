@@ -16,15 +16,83 @@ html(lang="en")
                 h1 Gestion de Libros
             .search
                 .searchUtils
-                    input(type="search" placeholder="Ingresa tu busqueda")
-                .resultsViews
-                    button.changeView#listStyle     
-                        i(class="ri-list-check")
-                    button.changeView#tableStyle
-                        i(class="ri-table-line")
-            .results
-                h2 Resultados busqueda
-            .table
+                    input.bookSearchbar(type="search", name="query" placeholder="Ingresa tu busqueda")
+                    .searchConfig
+                        .configTitle
+                            h3.headerConfig Configuracion de busqueda
+                            button#toggleConfig(isOpen="true")
+                                i(class="ri-arrow-down-s-line")
+                        .configOptions
+                            .option#searchMode
+                                label.optLabel(for="searchMode") Buscar mediante
+                                .tagsSelectCont
+                                    button.tag#titleTag(active="true" mode="title")
+                                        i(class="ri-font-size")
+                                        .
+                                            Titulo
+                                    .modesTagsContainer(isOpen="false")
+                                        button.tag#authorTag(active="false" mode="author")
+                                            i(class="ri-mail-line")
+                                            .
+                                                Autor
+                                        button.tag#signatureTag(active="false" mode="signature")
+                                            i(class="ri-mail-line")
+                                            .
+                                                Firma
+                                        button.tag#barcodeTag(active="false" mode="barcode")
+                                            i(class="ri-mail-line")
+                                            .
+                                                Codigo de Barras
+                                        button.tag#codeTag(active="false" mode="code")
+                                            i(class="ri-mail-line")
+                                            .
+                                                Codigo
+                            //Here the tags of the filter element lives
+                            //Main container of the filters
+                            .option#filters
+                                //This is the label
+                                label.optLabel(for="addFilter") Filtrar por
+                                //This container have inside the posible options that can be disaplyed after using the #addFilter Button
+                                .addedOpts()
+                                        //The selected optios works as the follows
+                                        //The element have the attribute of "idWord" this have the task to work like a bridge between the other elements
+                                        //elements that belongs to the filter
+                                        //The attribute selected have the task to display or hide the selectedOption
+                                        .selectedOpt#collectionTypeOpt(selected="false" filterValue="" idWord="collectionType")
+                                            i(class="ri-profile-line")
+                                            .
+                                                Tipo de Coleccion
+                                            //this is the value selector of the filter
+                                            select#collectionTypeSelectOpt.selectFilter()
+                                                option(value="GraphicNovel") Novela Grafica
+                                                option(value="assitent") Auxiliar
+                                                option(value="user") Usuario
+                                            //This is the button to unselect the filter option
+                                            button.deleteOpt(idWord="collectionType")
+                                                i(class="ri-close-line" idWord="collectionType")
+                                //This container have inside the add button and the posible options to select
+                                .addOptsCont
+                                    //The famous add button
+                                    //the "isselecting" prop is key because this prop allows the code to identify if the button is active or not
+                                    button#addFilter(isselecting="false")
+                                        //Simply -> The icon +
+                                        i( class="ri-add-line")
+                                    //This container have inside the options that can be added
+                                    .addOpts
+                                        //The option structure work by the as the follow way
+                                        //His ID start with the name of the filter
+                                        //Also have an attribute called "idWord" the value is only the name of the filter
+                                        //This idWord have the task of be a bridge to manipulate the other elements that belongs to the filter
+                                        //The selected attribute is key, because in case that the value of this will false the filter will displayed
+                                        //Otherwise the filter display wont be display
+                                        button.optFilter#collectionTypeFilter(selected="false" idWord="collectionType")
+                                            i(class="ri-profile-line" idWord="collectionType")
+                                            .
+                                                Tipo de Coleccion
+            .wpResults
+                header.titleResults
+                    h2 Resultados busqueda
+                .results
                 
             .nav 
                 button.changePage#Back
@@ -58,7 +126,9 @@ html(lang="en")
                             .form1
                                 i(class="ri-t-box-line")
                                 label.fieldLabel(for="Collection") Colección:
-                                input.field#collectionType(type="text")
+                                select#collectionType
+                                    option(value="GraphicNovel") Novela Grafica
+                                    option(value="") 
                             .form1
                                 i(class="ri-hashtag")
                                 label.fieldLabel(for="Copies") Ejemplares:
@@ -76,6 +146,7 @@ html(lang="en")
                         i(class="ri-close-line")
 
     script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
-    script(src="/js/private/books/create_book.js")
+    script(src="/js/private/books/search_book_config.js")
     script(src="/js/private/books/search_book.js")
+    script(src="/js/private/books/create_book.js")
     script(src="/js/private/defaults/popUp.js")

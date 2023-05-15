@@ -12,9 +12,20 @@ const userAuthentification = require('./../../middleware/auth/user-authentificat
 router.get('/',userAuthentification(),(req,res,next) => {
     try {
         const RENDER_INFO = {
-            page:{name:'books'}
+            page:{name:'books'},
+            user:req.user
         }
         res.render('private/Books/management', RENDER_INFO)
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.post('/search',async(req,res,next) => {
+    try {
+        const searchParams = req.body
+        const result = await Search(searchParams)
+        res.json(result)
     } catch (error) {
         next(error)
     }

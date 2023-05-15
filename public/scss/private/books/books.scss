@@ -9,69 +9,329 @@ main {
             font: $titleMediumBold;
         }
     }
-    .search {
+    .search{
         width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        .searchUtils {
+        .searchUtils{
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-            input {
+            .bookSearchbar{
                 @include d-input;
-                width: 90%;
-                margin: 0 10px 0 0;
+                min-width: 100%;
+                margin-bottom: 25px;
             }
-        }
-        .searchConfig {
-            width: 100%;
-            display: flex;
-        }
-        .resultsViews {
-            width: 100%;
-            margin-top: 15px;
-            display: flex;
-            flex-direction: row;
-            .changeView {
-                padding: 5px;
-                width: 30px;
-                height: 30px;
+            .searchConfig{
+                min-width: 100%;
                 display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                font-size: 18px;
-                margin-right: 10px;
-                border: none;
-                background: $inputsColor;
-                transition: all .3s ease;
-                cursor: pointer;
-                &:last-child{
-                    margin: 0;
+                flex-direction: column;
+                align-items: flex-start;
+                .configTitle{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: left;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    .headerConfig{
+                        font: $titleSmallBold;
+                        font-size: 20px;
+                        margin-right: 5px;
+                    }
+                    #toggleConfig{
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        font-size: 1.3rem;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        border: 0;
+                        background: transparent;
+                        cursor: pointer;
+                        transition: all .3s ease;
+                        &:hover{
+                            color: $mainColor;
+                        }
+                        &:active{
+                            transform: rotate(180deg);
+                        }
+                    }
                 }
-                &:hover{
-                    transform: translateY(-5px);
-                }
-                &:active{
-                    transform: scale(.9);
+                .configOptions{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    .option{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 10px;
+                        .optLabel{
+                            font: $textBold;
+                            color: rgba($color: $black, $alpha: .5);
+                        }
+                        .tagsSelectCont{
+                            .tag{
+                                cursor: pointer;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                font: $textBold;
+                                color: rgba($color: $black, $alpha: .5);
+                                padding:8px;
+                                position: relative;
+                                background: $inputsColor;
+                                border: 0;
+                                transition: all .3s ease;
+                                &:active{
+                                    transform: scale(.9);
+                                }
+                                i{
+                                    margin-right: 5px;
+                                }
+    
+                            }
+                            .modesTagsContainer{
+                                position: absolute;
+                                margin-top: 10px;
+                                display: none;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                background: rgba($color: $black, $alpha: .5);
+                                padding: 5px;
+                                backdrop-filter: blur(5px);
+                                .tag{
+                                    margin-top: 10px;
+                                    &:first-child{
+                                        margin-top: 0;
+                                    }
+                                }
+                            }
+                        }
+                        .addedOpts{
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            gap: 10px;
+                            .selectedOpt{
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: space-between;
+                                font: $textBold;
+                                color: rgba($color: $black, $alpha: .5);
+                                padding:8px;
+                                background: $inputsColor;
+                                border: 0;
+                                gap: 5px;
+                                &[selected="false"]{
+                                    display: none;
+                                }
+                                .selectFilter{
+                                    font: inherit;
+                                    background: transparent;
+                                    border: 0;
+                                    color: inherit;
+                                    cursor: pointer;
+                                    font-size: .95rem;
+                                    option{
+                                        cursor: pointer;
+                                        color: $black;
+                                    }
+                                }
+                                .deleteOpt{
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border: 0;
+                                    background: transparent;
+                                    color: inherit;
+                                    font: inherit;
+                                    cursor: pointer;
+                                    transition: all .3s ease;
+                                    &:hover,&:active{
+                                        color: $errorColor;
+                                    }
+                                    &:active{
+                                        transform: scale(.9);
+                                    }
+                                    i{
+                                        font: inherit;
+                                        color: inherit;
+    
+                                    }
+                                }
+                            }
+                        }
+                        .addOptsCont{
+    
+                            #addFilter{
+                                width: 1.5rem;
+                                position: relative;
+                                height: 1.5rem;
+                                font: $text;
+                                font-size: 1.3rem;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+                                cursor: pointer;
+                                color: rgba($color: $black, $alpha: .5);
+                                border: 2px dotted rgba($color: $black, $alpha: .5);
+                                transition: all .3s ease;
+                                &:hover{
+                                    color: $successColor;
+                                    border-color: $successColor;
+                                }
+                                &:active{
+                                    color: $successColor;
+                                    border-color: $successColor;
+                                    transform: scale(.9);
+                                }
+                            }
+                            .addOpts{
+                                position: absolute;
+                                display: none;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                .optFilter{
+                                    cursor: pointer;
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    font: $textBold;
+                                    color: rgba($color: $black, $alpha: .5);
+                                    padding:8px;
+                                    background: $inputsColor;
+                                    border: 0;
+                                    margin-top: 10px;
+                                    transition: all .3s ease;
+                                    &:active{
+                                        transform: scale(.9);
+                                    }
+                                    i{
+                                        margin-right: 5px;
+                                    }
+                                    &[selected="true"]{
+                                        display: none;
+                                    }
+                                }
+                            }
+    
+                        }
+                    }
                 }
             }
         }
     }
-        
-    .results {
+}
+
+.wpResults{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    .titleResults{
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        margin-top: 25px;
-        h2 {
+        h2{
             font: $titleSmallBold
         }
+    }
+    .results{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px;
+        flex-wrap: wrap;
+        gap: 20px;
+        .bookResult{
+            min-width: 45%;
+            border: 2px solid $inputsColor;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            .headerResult,.footer{
+                width: 100%;
+            }
+            .headerResult{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding-bottom: 5px;
+                border-bottom: 2px dotted rgba($color: $black, $alpha: .5);
+                .lorempic{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    i{
+                        font-size: 3.5rem;
+                    }
+                }
+                .infoContainer{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    gap: 10px;
+                    .user-result-name{
+                        font: $textBold;
+                        font-family: 'Poppins',sans-serif;
+                        text-transform: capitalize;
+                    }
+                    .user-result-rol{
+                        font:$text;
+                    }
+                }
+                .actions{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    align-items: center;
+                    .button-user-result{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 5px;
+                        border: 0;
+                        font: $text;
+                        color: $white;
+                        cursor: pointer;
+                        transition: all .3s ease;
+                        &:active{
+                            transform: scale(.9);
+                        }
+                    }
+                    .deleteUser{
+                        background: $errorColor;
+                    }
+                    .editUser{
+                        background: $secondColor;
+                    }
+                }
+            }
+            .footer{
+                padding-top: 5px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                .idInfo{
+                    font: $text;
+                    font-size: 14px;
+                }
+            }
         }
     }
+}
 
     .table {
         display: flex;
@@ -83,7 +343,7 @@ main {
     .nav {
         display: flex;
         flex-direction: row;
-        margin-top: 25px;
+        margin-top: 150px;
         justify-content: center;
         align-content: end;
         .changePage {
