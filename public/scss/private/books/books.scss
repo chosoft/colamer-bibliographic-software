@@ -292,6 +292,35 @@ main {
                         font:$titleSmallBold;
                         margin: 10px 0 0 0;
                     }
+                    .actions{
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: space-between;
+                        .button-book-result{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 5px;
+                            font-size: 10px;
+                            border: 0;
+                            font: $text;
+                            color: $white;
+                            cursor: pointer;
+                            transition: all .3s ease;
+                            &:active{
+                                transform: scale(.9);
+                            }
+                        }
+                        .deleteBook{
+                            background: $errorColor;
+                        }
+                        .editBook{
+                            background: $secondColor;
+                        }
+                    }
                 }
             }
             .footer{
@@ -322,13 +351,6 @@ main {
         margin-top: 150px;
         justify-content: center;
         align-content: end;
-        .changePage {
-            font-size: 30px;
-            color: #4180E2;
-            background: none;
-            border: none;
-            margin: 0 40px 0 40px;
-        }
     }
 
 .popUpBg{

@@ -44,12 +44,15 @@ const createBooksHtml = (booksList) => {
                 const template = `<div class="bookResult">
                                     <div class="headerResult">
                                         <div class="img">
-                                            <img src="${img}">
+                                            <img src="${img} crossorigin="">
                                         </div>
                                         <div class="infoContainer">
                                             <h3 class="book-result-title">${title}</h3>
                                             <h4 class="book-result-author">${author}</h4>
                                             <h3 class="book-result-copies">${copies} - Ejemplares</h3>
+                                            <div class="actions">
+                                                <button class="button-book-result deleteBook" actionType="delete" barcode="${barcode}" title="${title}" class="ri-delete-bin-line"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="footer">
@@ -70,7 +73,6 @@ const createBooksHtml = (booksList) => {
 const innerFoundBooks = (booksList) => {
     return new Promise(async(resolve,reject) => {
         try {
-            console.log(booksList)
             const resultsContainer = document.querySelector('.results')
             const booksListTemplate = await createBooksHtml(booksList)
             resultsContainer.innerHTML = booksListTemplate

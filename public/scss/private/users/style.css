@@ -394,7 +394,68 @@ main {
     .wpResults .results .userResult {
       min-width: 45%;
       border: 2px solid #DADADA;
-      padding: 10px; }
+      padding: 10px;
+      display: flex;
+      flex-direction: column; }
+      .wpResults .results .userResult .headerResult, .wpResults .results .userResult .footer {
+        width: 100%; }
+      .wpResults .results .userResult .headerResult {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 5px;
+        border-bottom: 2px dotted rgba(22, 22, 22, 0.5); }
+        .wpResults .results .userResult .headerResult .lorempic {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center; }
+          .wpResults .results .userResult .headerResult .lorempic i {
+            font-size: 3.5rem; }
+        .wpResults .results .userResult .headerResult .infoContainer {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 10px; }
+          .wpResults .results .userResult .headerResult .infoContainer .user-result-name {
+            font: 700 16px "Roboto", sans-serif;
+            font-family: 'Poppins',sans-serif;
+            text-transform: capitalize; }
+          .wpResults .results .userResult .headerResult .infoContainer .user-result-rol {
+            font: 400 16px "Roboto", sans-serif; }
+        .wpResults .results .userResult .headerResult .actions {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 15px;
+          align-items: center; }
+          .wpResults .results .userResult .headerResult .actions .button-user-result {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            border: 0;
+            font: 400 16px "Roboto", sans-serif;
+            color: #FAFAFA;
+            cursor: pointer;
+            transition: all .3s ease; }
+            .wpResults .results .userResult .headerResult .actions .button-user-result:active {
+              transform: scale(0.9); }
+          .wpResults .results .userResult .headerResult .actions .deleteUser {
+            background: #FA2828; }
+          .wpResults .results .userResult .headerResult .actions .editUser {
+            background: #FFBA00; }
+      .wpResults .results .userResult .footer {
+        padding-top: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between; }
+        .wpResults .results .userResult .footer .idInfo {
+          font: 400 16px "Roboto", sans-serif;
+          font-size: 14px; }
 
 .popUpBg .modal {
   width: 35%; }

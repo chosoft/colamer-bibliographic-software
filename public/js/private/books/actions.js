@@ -10,6 +10,7 @@ const spamAlert = (msg) => {
 const deleteBook = async(target) => {
     try {
         const barcode = target.attributes.barcode.value
+        console.log(barcode)
         const title = target.attributes.title.value
         const { isConfirmed } = await Swal.fire({
             title:'Seguro?',
@@ -22,23 +23,24 @@ const deleteBook = async(target) => {
         if(!isConfirmed){
             return
         }
-        await axios.delete('/books',{data:{barcode:target.attributes.barcode.value}})
+        await axios.delete(`/books/${barcode}`)
+        alert("El libro se ha eliminado correctamente")
         window.location.reload()
     } catch (error) {
         spamAlert(error)
     }
 }
-const editUser = async(target) => {
+const editBook = async(target) => {
     try {
         await checkPosibility(target)
-        const username = target.attributes.username.value
+        const title = target.attributes.title.value
         const { value:newUsername,isConfirmed }  = await Swal.fire({
             title: 'Ten cuidado',
             input:'text',
-            inputLabel: `Nuevo nombre para ${username}`,
+            inputLabel: `Nuevo nombre para ${title}`,
             showCancelButton: true,
             cancelButtonText: 'Cancelar',
-            confirmButtonText: `Editar a ${username}`,
+            confirmButtonText: `Editar a ${title}`,
             inputValidator: (value) => {
                 if (!value) {
                   return 'Necesitas ingresar un nombre nuevo!'
@@ -53,6 +55,7 @@ const editUser = async(target) => {
         
     }
 }
+
 document.addEventListener('click', (e) => {
     const target = e.target.closest('.button-book-result')
     if(!target){
@@ -61,10 +64,10 @@ document.addEventListener('click', (e) => {
     console.log(target.attributes)
     switch(target.attributes.actionType.value){
         case 'delete':
-            deleteUser(target)
+            deleteBook(target)
             break
         case 'edit':
-            editUser(target)
+            editBook(target)
             break
         default:
             break
