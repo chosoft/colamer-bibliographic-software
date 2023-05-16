@@ -10,10 +10,9 @@ const spamAlert = (msg) => {
 const deleteBook = async(target) => {
     try {
         const barcode = target.attributes.barcode.value
-        console.log(barcode)
         const title = target.attributes.title.value
         const { isConfirmed } = await Swal.fire({
-            title:'Seguro?',
+            title:'Alerta',
             icon: 'warning',
             text: `Estas apunto de eliminar a ${title}, esto no se arreglara`,
             showCancelButton: true,
@@ -32,9 +31,9 @@ const deleteBook = async(target) => {
 }
 const editBook = async(target) => {
     try {
-        await checkPosibility(target)
         const title = target.attributes.title.value
-        const { value:newUsername,isConfirmed }  = await Swal.fire({
+        const barcode = target.attributes.barcode.value
+        const { value,isConfirmed }  = await Swal.fire({
             title: 'Ten cuidado',
             input:'text',
             inputLabel: `Nuevo nombre para ${title}`,
@@ -43,13 +42,14 @@ const editBook = async(target) => {
             confirmButtonText: `Editar a ${title}`,
             inputValidator: (value) => {
                 if (!value) {
-                  return 'Necesitas ingresar un nombre nuevo!'
+                    return 'Necesitas ingresar un nombre nuevo!'
                 }
-              }
+            }
         })
         if(!isConfirmed){
             return
         }
+        const resp = await axios.put(`/books/${barcode}`,data)
     } catch (error) {
         spamAlert(error)
         
@@ -61,7 +61,6 @@ document.addEventListener('click', (e) => {
     if(!target){
         return
     }
-    console.log(target.attributes)
     switch(target.attributes.actionType.value){
         case 'delete':
             deleteBook(target)

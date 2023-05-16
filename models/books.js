@@ -55,7 +55,7 @@ const UpdateBook = (bookData, filter) => {
     return new Promise(async(resolve,reject) => {
         try {
             const {title, author, signature, barcode, collection, copies, available, img, borrowed, code} = bookData
-            const bookUpdate = await Book.updateOne({barcode,code: filter}, { $set: { title, author, signature, barcode, collection, copies, available, img, borrowed, code }})
+            const bookUpdate = await Book.updateOne({barcode: filter}, { $set: { title, author, signature, barcode, collection, copies, available, img, borrowed, code }})
             const { modifiedCount } = bookUpdate
             if (modifiedCount == 0 ) {
                 throw new Error(`The book can't be uptade`, {cause:'UserInput'})

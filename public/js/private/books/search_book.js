@@ -40,19 +40,20 @@ const createBooksHtml = (booksList) => {
         try {
             let allTemplates = ''
             for (const book of booksList) {
-                const { title,author,copies,available,signature,img,collectionType,barcode} = book
+                const { title,author,copies,available,signature,img,collectionType,barcode,borrowed,code} = book
                 const template = `<div class="bookResult">
                                     <div class="headerResult">
                                         <div class="img">
-                                            <img src="${img} crossorigin="">
+                                            <img src="${img}" crossorigin>
                                         </div>
                                         <div class="infoContainer">
                                             <h3 class="book-result-title">${title}</h3>
                                             <h4 class="book-result-author">${author}</h4>
                                             <h3 class="book-result-copies">${copies} - Ejemplares</h3>
-                                            <div class="actions">
-                                                <button class="button-book-result deleteBook" actionType="delete" barcode="${barcode}" title="${title}" class="ri-delete-bin-line"></i></button>
                                             </div>
+                                        <div class="actions">
+                                            <button class="button-book-result deleteBook" actionType="delete" barcode="${barcode}" title="${title}"><i class="ri-delete-bin-line"></i></button>
+                                            <button class="button-book-result editBook" actionType="edit" barcode="${barcode}" title="${title}" author="${author}" code="${code}" img="${img}" collectionType="${collectionType}" borrowed="${borrowed}" available="${available}" signature="${signature}" copies="${copies}"><i class="ri-edit-line"></i></button>
                                         </div>
                                     </div>
                                     <div class="footer">
