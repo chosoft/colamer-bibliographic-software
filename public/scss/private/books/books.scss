@@ -359,6 +359,216 @@ main {
         justify-content: center;
         align-content: end;
     }
+    
+    // Pop up of Edit the book
+    
+    .popUpBg2{
+        //Sizes
+        width: 100vw;
+        height: 100vh;
+        //Overlaping
+        position: fixed;
+        z-index: 10;
+        //Styles
+        background: rgba($color: $black, $alpha: .6);
+        //Box Model
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        //Hidde State Props
+        top: 200%;
+        opacity: 0;
+        transition: all .6s ease;
+        .modal2{
+            //Sizes
+            min-width: 25%;
+            min-height: 15%;
+            width: 55%;
+            //Styles
+            background: $white;
+            padding: 25px;
+            //Box Model
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            //Position
+            position: relative;
+            .modalContentWp2{
+                flex-direction: column;
+                width: 100%;
+                .Bigform2 {
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    img {
+                        width: 25%;
+                        height: 240px;
+                        border: 2px solid black;
+                    }
+                    .forms2 {
+                        padding-left: 20px;
+                        width: 75%;
+                        #title2{
+                            font: $titleSmallBold;
+                            width: 80%;
+                            font-size: 20px;
+                        }
+                        #author2{
+                            font: $normalInputs;
+                            size: 2px;
+                            width: 80%;
+                        }
+                        .field2{
+                            display: flex;
+                            border: none;
+                            height: 25px;
+                            margin-top: 6px;
+                            width: auto;
+                            outline: 2px solid #EBEBEB;
+                            padding-left: 4px;
+                            font: $normalInputs;
+                        }
+                        .fieldLabel2{ 
+                            width: auto;
+                            //Defaults
+                            @include d-label;
+                        }
+                        i {
+                            font-size: 20px;
+                            padding-right: 5px;
+                        }
+                        .form2 {
+                            display: flex;
+                            justify-content: flex-start;
+                            font-size: 25px;
+                            align-items: end;
+                            .fieldLabel2 {
+                                margin-right: 10px;
+                            }
+                            .barcode2 {
+                                width: 43%;
+                            }
+                            #code2 {
+                                width: 31.5%;
+                            }
+                            #signature2 {
+                                width: 35%;
+                            }
+                            #collectionType2 {
+                                width: auto;
+                                border: 1px solid grey;
+                                background-color: white;
+    
+                            }
+                            #copies2 {
+                                width: 15%;
+                                -webkit-appearance: textfield;
+                                -moz-appearance:textfield;
+                            }
+                            #borrowed2 {
+                                width: 17%;
+                                -webkit-appearance: textfield;
+                                -moz-appearance:textfield;
+                            }
+                        }
+                    }
+                }
+                .end2 {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    padding-top: 5px;
+                    margin-top: 10px;
+                    .img2 {
+                        width: 25%;
+                        border: 2px solid $mainColor;
+                        padding: 4px;
+                        outline: none;
+                        font-size: 15px;
+                    }
+                    input.img2::placeholder { 
+                        text-align: center;
+                        color: $mainColor;
+                        font-size: 20px;
+                        font: $textBold;
+                    }
+                    .submitBtn2{
+                        display: flex;
+                        i {
+                            padding: 2px;
+                        }
+                        @include d-btn;
+                        justify-content: center;
+                        width: 25%;
+                        color: $white;
+                    }
+                }
+            }
+            .modalCloser2{
+                //Corner Location
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                //Box Model
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                //Styles
+                border: 0;
+                background: transparent;
+                transition: all .3s ease;
+                cursor: pointer;
+                //Font Styles
+                font-size: 25px;
+                //States Styles
+                &:hover{
+                    color: $errorColor;
+                    transform: rotate(90deg);
+                }
+                &:active{
+                    color: $errorColor;
+                    transform: rotate(90deg) scale(.9);
+                }
+            }
+            .modalTitleWp2{
+                //Sizes
+                width: 100%;
+                //Box Model
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: left;
+                margin-bottom: 15px;
+                h2{
+                    font: $titleSmallBold;
+                }
+            }
+            .modalContentWp2{
+                //Sizes
+                width: 100%;
+                //Styles
+                //Box Model
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+    .activer2{    
+        cursor: pointer;
+        transition: all .3s ease;
+        //States
+        &:hover{
+            transform: rotate(90deg);
+        }
+        &:active{
+            transform: rotate(90deg) scale(.9);
+        }
+    }
 
 .popUpBg{
     .modal{
@@ -366,10 +576,6 @@ main {
         .modalContentWp{
             flex-direction: column;
             width: 100%;
-            .error {
-                font: $textBold;
-                color: $errorColor;
-            }
             .Bigform {
                 width: 100%;
                 display: flex;
@@ -457,9 +663,6 @@ main {
                 flex-direction: row;
                 padding-top: 5px;
                 margin-top: 10px;
-                #eimg {
-                    display: flex;
-                }
                 .img {
                     width: 25%;
                     border: 2px solid $mainColor;

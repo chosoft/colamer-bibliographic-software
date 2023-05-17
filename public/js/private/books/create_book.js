@@ -6,6 +6,7 @@ var image = document.querySelector('.image');
 
 // Fuction of create the book
 const createBook = async (info) => {
+    return new Promise(async(resolve,reject) => {
     try {
         const { copies, borrowed } = info
         if (copies > borrowed) {
@@ -18,11 +19,14 @@ const createBook = async (info) => {
         const respuesta = await axios.post(`books`,info)
         // Print the answer
         console.log(respuesta)
+        resolve()
     } catch (error) {
         // Print the error
         const msg = error.response.data.msg
+        alert("Error al intentar subir, revise los campos nuevamente")
+        reject("Error al intentar subir el libro")
         console.log(msg)
-    }
+    }})
 }
 
 // Fuction of check the information

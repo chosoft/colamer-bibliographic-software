@@ -147,6 +147,45 @@ html(lang="en")
                     button.modalCloser
                         i(class="ri-close-line")
 
+        .popUpBg2
+            .modal2
+                .modalTitleWp2
+                    h2 Editar Libro
+                .modalContentWp2
+                    .BigForm2
+                        img.image2(src="", crossorigin, alt="")
+                        .forms2
+                            input.field2#title2(type="text" placeholder="Nuevo Titulo del Libro")
+                            input.field2#author2(type="text" placeholder="Nuevo Nombre de autor")
+                            .form2
+                                i(class="ri-barcode-line")
+                                label.fieldLabel2(for="Barcode")  Codigo de barras: 
+                                input.field2#barcode2(2type="text")
+                            .form2
+                                i(class="ri-barcode-box-fill")
+                                label.fieldLabel2(for="Code") Codigo Extra:
+                                input.field2#code2(type="text")
+                            .form2
+                                i(class="ri-map-pin-line")
+                                label.fieldLabel2(for="Signatura") Signatura:
+                                input.field2#signature2(type="text")
+                            .form2
+                                i(class="ri-t-box-line")
+                                label.fieldLabel2(for="Collection") Colección:
+                                select#collectionType2
+                                    option(value="Colección General") Colección general
+                                    option(value="Literatura") Literatura
+                                    option(value="Referencia") Referencia
+                                    option(value="Biblioteca Infantil") Biblioteca Infantil
+                                    option(value="Trabajo de Grado") Trabajo de Grado
+                    .end2
+                        input.img2#img2(placeholder="Link de caratula")
+                        button.submitBtn2 
+                            i(class="ri-save-3-line")
+                            span Editar Libro
+                    button.modalCloser2
+                        i(class="ri-close-line")
+
     script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
     script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
     script(src="/js/private/books/search_book_config.js")

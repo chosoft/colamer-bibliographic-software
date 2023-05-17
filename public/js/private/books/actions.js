@@ -33,23 +33,73 @@ const editBook = async(target) => {
     try {
         const title = target.attributes.title.value
         const barcode = target.attributes.barcode.value
-        const { value,isConfirmed }  = await Swal.fire({
-            title: 'Ten cuidado',
-            input:'text',
-            inputLabel: `Nuevo nombre para ${title}`,
-            showCancelButton: true,
-            cancelButtonText: 'Cancelar',
-            confirmButtonText: `Editar a ${title}`,
-            inputValidator: (value) => {
-                if (!value) {
-                    return 'Necesitas ingresar un nombre nuevo!'
+        const copies = target.attributes.copies.value
+        const img = target.attributes.img.value
+        const author = target.attributes.author.value
+        const collectionType = target.attributes.collectionType.value
+        const available = target.attributes.available.value
+        const signature = target.attributes.signature.value
+        const borrowed = target.attributes.borrowed.value
+        const code = parseInt(target.attributes.code.value)
+        const ititle = document.querySelector("#title2")
+        const ibarcode = document.querySelector("#barcode2")
+        const iimg = document.querySelector("#img2")
+        const iauthor = document.querySelector("#author2")
+        const icode = document.querySelector("#code2")
+        const isignature = document.querySelector("#signature2")
+        const image = document.querySelector(".image2")
+        const input = document.querySelector(".img2")
+        const bg = document.querySelector('.popUpBg2')
+        const modal = document.querySelector('.modal2')
+        const btnActiver = document.querySelector('.activer2')
+        const btnCloser = document.querySelector('.modalCloser2')
+        const btnSubmit = document.querySelector('.submitBtn2')
+        btnActiver.onclick = (e) => {
+            e.preventDefault()
+            bg.style.top = "0"
+            bg.style.opacity = "1"
+            ititle.value = title
+            iauthor.value = author
+            isignature.value = signature
+            ibarcode.value = barcode
+            icode.value = code
+            iimg.value = img
+            image.setAttribute("src", img)
+
+            input.addEventListener('paste', (e) => {
+                try {
+                    // Save the url in a variable
+                    var url = e.clipboardData.getData("text")
+                    console.log(url)
+                    // Change the attribute of the image for the url
+                    image.setAttribute('src', url)
+                } catch (error) {
+                    console.log("Error al colocar la imagen")
                 }
-            }
-        })
-        if(!isConfirmed){
-            return
+            })
         }
-        const resp = await axios.put(`/books/${barcode}`,data)
+        btnSubmit.addEventListener("click", (e) => {
+            e.preventDefault()
+            const data = {
+                title: document.querySelector("#title2").value,
+                author: document.querySelector("#author2").value,
+                barcode: document.querySelector("#barcode2").value,
+                code: parseInt(document.querySelector("#code2").value),
+                signature: document.querySelector("#signature2").value,
+                collectionType: document.querySelector("#collectionType").value,
+                img: document.querySelector("#img2"),
+                copies: parseInt(copies),
+                borrowed: parseInt(borrowed),
+                available: available
+
+            }
+            console.log(data)
+        })
+        btnCloser.onclick = (e) => {
+            e.preventDefault()
+            bg.style.top = "200%"
+            bg.style.opacity = "0"
+        }
     } catch (error) {
         spamAlert(error)
         
