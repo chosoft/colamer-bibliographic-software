@@ -29,6 +29,7 @@ const deleteBook = async(target) => {
         spamAlert(error)
     }
 }
+
 const editBook = async(target) => {
     try {
         const title = target.attributes.title.value
@@ -46,6 +47,7 @@ const editBook = async(target) => {
         const iimg = document.querySelector("#img2")
         const iauthor = document.querySelector("#author2")
         const icode = document.querySelector("#code2")
+        const icollectionType = document.querySelector("#collectionType2")
         const isignature = document.querySelector("#signature2")
         const image = document.querySelector(".image2")
         const input = document.querySelector(".img2")
@@ -64,13 +66,13 @@ const editBook = async(target) => {
             ibarcode.value = barcode
             icode.value = code
             iimg.value = img
+            icollectionType.value = collectionType
             image.setAttribute("src", img)
 
             input.addEventListener('paste', (e) => {
                 try {
                     // Save the url in a variable
                     var url = e.clipboardData.getData("text")
-                    console.log(url)
                     // Change the attribute of the image for the url
                     image.setAttribute('src', url)
                 } catch (error) {
@@ -78,22 +80,25 @@ const editBook = async(target) => {
                 }
             })
         }
-        btnSubmit.addEventListener("click", (e) => {
+        btnSubmit.addEventListener("click", async (e) => {
             e.preventDefault()
+            let boleano = (available === "true")
             const data = {
                 title: document.querySelector("#title2").value,
                 author: document.querySelector("#author2").value,
                 barcode: document.querySelector("#barcode2").value,
                 code: parseInt(document.querySelector("#code2").value),
                 signature: document.querySelector("#signature2").value,
-                collectionType: document.querySelector("#collectionType").value,
-                img: document.querySelector("#img2"),
+                collectionType: document.querySelector("#collectionType2").value,
+                img: document.querySelector("#img2").value,
                 copies: parseInt(copies),
                 borrowed: parseInt(borrowed),
-                available: available
+                available: boleano
 
             }
-            console.log(data)
+            await axios.put(`books/${barcode}`, data)
+            alert("El libro se ha actualizado correctamente")
+            window.location.reload()
         })
         btnCloser.onclick = (e) => {
             e.preventDefault()

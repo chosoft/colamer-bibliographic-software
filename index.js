@@ -24,7 +24,7 @@ server.use(express.static(path.join(__dirname,'public')))
 server.use(express.json())
 server.use(express.urlencoded({ extended:true }))
 //Put helmet to work
-// server.use(helmet(HELMET_CONFIG))
+server.use(helmet(HELMET_CONFIG))
 //Disable this header to made more secure the app
 server.disable('x-powered-by')
 //Running the passport Authentication Strategy

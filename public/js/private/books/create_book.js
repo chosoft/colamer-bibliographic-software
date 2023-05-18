@@ -12,8 +12,10 @@ const createBook = async (info) => {
         if (copies > borrowed) {
             info.available = true
         }
-        else if (copies <= borrowed) {
+        else if (copies == borrowed) {
             info.available = false
+        } else if (copies < borrowed) {
+            throw new Error("No puede haber mas libros prestados que los existentes")
         }
         // Save the answer of the peticion 
         const respuesta = await axios.post(`books`,info)
@@ -21,11 +23,15 @@ const createBook = async (info) => {
         console.log(respuesta)
         resolve()
     } catch (error) {
-        // Print the error
-        const msg = error.response.data.msg
-        alert("Error al intentar subir, revise los campos nuevamente")
-        reject("Error al intentar subir el libro")
-        console.log(msg)
+        const { copies, borrowed } = info
+            if (copies < borrowed) {
+                alert("No puede haber mas libros prestados que los existentes")
+            } else {
+                // Print the error
+                    alert("Error al intentar subir, revise los campos nuevamente")
+                    reject("Error al intentar subir el libro")
+            }
+        console.log(error)
     }})
 }
 

@@ -56,10 +56,6 @@ const UpdateBook = (bookData, filter) => {
         try {
             const {title, author, signature, barcode, collection, copies, available, img, borrowed, code} = bookData
             const bookUpdate = await Book.updateOne({barcode: filter}, { $set: { title, author, signature, barcode, collection, copies, available, img, borrowed, code }})
-            const { modifiedCount } = bookUpdate
-            if (modifiedCount == 0 ) {
-                throw new Error(`The book can't be uptade`, {cause:'UserInput'})
-            }
             resolve (bookUpdate)
         } catch (error) {
             reject(error)
