@@ -1,0 +1,125 @@
+Failed to lookup view "public/password_forget" in views directory "C:\Users\ACER\Projects\cbs\views" - 9:57 14-6-2023 
+ Error: Failed to lookup view "public/password_forget" in views directory "C:\Users\ACER\Projects\cbs\views"
+    at Function.render (C:\Users\ACER\Projects\cbs\node_modules\express\lib\application.js:597:17)
+    at ServerResponse.render (C:\Users\ACER\Projects\cbs\node_modules\express\lib\response.js:1039:7)
+    at C:\Users\ACER\Projects\cbs\routes\users\password_forget.js:7:13
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:280:10) 
+
+ -------------------- 
+Failed to lookup view "public/password_forget" in views directory "C:\Users\ACER\Projects\cbs\views" - 9:57 14-6-2023 
+ Error: Failed to lookup view "public/password_forget" in views directory "C:\Users\ACER\Projects\cbs\views"
+    at Function.render (C:\Users\ACER\Projects\cbs\node_modules\express\lib\application.js:597:17)
+    at ServerResponse.render (C:\Users\ACER\Projects\cbs\node_modules\express\lib\response.js:1039:7)
+    at C:\Users\ACER\Projects\cbs\routes\users\password_forget.js:7:13
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:280:10) 
+
+ -------------------- 
+Parameter "filter" to findOne() must be an object, got 63971e46415e79f34dea7367 - 11:10 14-6-2023 
+ ObjectParameterError: Parameter "filter" to findOne() must be an object, got 63971e46415e79f34dea7367
+    at Query.findOne (C:\Users\ACER\Projects\cbs\node_modules\mongoose\lib\query.js:2592:16)
+    at Function.findOne (C:\Users\ACER\Projects\cbs\node_modules\mongoose\lib\model.js:2352:13)
+    at C:\Users\ACER\Projects\cbs\models\users.js:63:42
+    at new Promise (<anonymous>)
+    at SearchUser (C:\Users\ACER\Projects\cbs\models\users.js:60:12)
+    at C:\Users\ACER\Projects\cbs\controllers\users\PasswordRecovery.js:18:37
+    at new Promise (<anonymous>)
+    at checkEmail (C:\Users\ACER\Projects\cbs\controllers\users\PasswordRecovery.js:16:12)
+    at C:\Users\ACER\Projects\cbs\controllers\users\PasswordRecovery.js:7:19
+    at new Promise (<anonymous>) 
+
+ -------------------- 
+undefined - 11:11 14-6-2023 
+ undefined 
+
+ -------------------- 
+undefined - 11:12 14-6-2023 
+ undefined 
+
+ -------------------- 
+undefined - 11:13 14-6-2023 
+ undefined 
+
+ -------------------- 
+undefined - 11:13 14-6-2023 
+ undefined 
+
+ -------------------- 
+Date.now is not a constructor - 11:54 14-6-2023 
+ TypeError: Date.now is not a constructor
+    at C:\Users\ACER\Projects\cbs\controllers\users\PasswordRecovery.js:53:28
+    at new Promise (<anonymous>)
+    at createToken (C:\Users\ACER\Projects\cbs\controllers\users\PasswordRecovery.js:48:12)
+    at C:\Users\ACER\Projects\cbs\controllers\users\PasswordRecovery.js:11:41
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+ -------------------- 
+Missing credentials for "PLAIN" - 11:54 14-6-2023 
+ Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:790:19)
+    at SMTPConnection.login (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:444:38)
+    at C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:213:17)
+    at Object.onceWrapper (node:events:627:28)
+    at SMTPConnection.emit (node:events:513:28)
+    at SMTPConnection.emit (node:domain:489:12)
+    at SMTPConnection._actionEHLO (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:1347:14)
+    at SMTPConnection._processResponse (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:969:20)
+    at SMTPConnection._onData (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:755:14) 
+
+ -------------------- 
+Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials x2-20020ab05782000000b0078cc4e0d7e3sm93843uaa.27 - gsmtp - 11:55 14-6-2023 
+ Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials x2-20020ab05782000000b0078cc4e0d7e3sm93843uaa.27 - gsmtp
+    at SMTPConnection._formatError (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:790:19)
+    at SMTPConnection._actionAUTHComplete (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:1564:34)
+    at SMTPConnection.<anonymous> (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:546:26)
+    at SMTPConnection._processResponse (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:969:20)
+    at SMTPConnection._onData (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:755:14)
+    at SMTPConnection._onSocketData (C:\Users\ACER\Projects\cbs\node_modules\nodemailer\lib\smtp-connection\index.js:193:44)
+    at TLSSocket.emit (node:events:513:28)
+    at TLSSocket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:324:12)
+    at readableAddChunk (node:internal/streams/readable:297:9) 
+
+ -------------------- 
+Operation `users.findOne()` buffering timed out after 10000ms - 12:13 14-6-2023 
+ MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (C:\Users\ACER\Projects\cbs\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:153:23)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7) 
+
+ -------------------- 
+Operation `users.findOne()` buffering timed out after 10000ms - 12:13 14-6-2023 
+ MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (C:\Users\ACER\Projects\cbs\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:153:23)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7) 
+
+ -------------------- 
+Operation `users.findOne()` buffering timed out after 10000ms - 12:13 14-6-2023 
+ MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (C:\Users\ACER\Projects\cbs\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:153:23)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7) 
+
+ -------------------- 
+Operation `users.findOne()` buffering timed out after 10000ms - 12:14 14-6-2023 
+ MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (C:\Users\ACER\Projects\cbs\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:153:23)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7) 
+
+ -------------------- 

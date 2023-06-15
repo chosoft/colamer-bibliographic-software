@@ -5,6 +5,7 @@ const logout = require('./logout/logout')
 const users = require('./users/users')
 const books = require('./books/books')
 const borrowings = require('./borrowings/borrowings')
+const password_forget = require('./users/password_forget')
 //Default not Found page router
 const NotFound = require('./http/404')
 const router = (server) => {
@@ -16,6 +17,7 @@ const router = (server) => {
     server.use('/users',users)
     server.use('/books', books)
     server.use('/borrowings', borrowings)
+    server.use('/password-forget', password_forget)
     //If the route not exists the Not Found router start working
     server.use('*',NotFound)
 }
