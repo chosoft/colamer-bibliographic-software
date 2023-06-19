@@ -2,11 +2,13 @@ const express = require('express')
 const router = express.Router()
 
 const PasswordRecover = require('./../../controllers/users/PasswordRecovery')
+const PasswordChange = require('./../../controllers/users/PasswordChange')
 
 router.get('/',async(req,res,next) => {
     try {
         const errors = req.flash('error')
-        res.render('public/password_forget',{errorList:errors})
+        const sucess = req.flash('success')
+        res.render('public/password_forget',{errorList:errors,successList:sucess})
     } catch (error) {
         next(error)
     }
@@ -14,20 +16,18 @@ router.get('/',async(req,res,next) => {
 router.get('/:changeToken', async(req,res,next) => {
     try {
         const changeToken = req.params.changeToken
+        await PasswordChange(changeToken)
+        res.send('Cambia tu contraseña')
     } catch (error) {
         next(error)
     }
 })
 router.post('/',async(req,res,next) =>{
     try {
-        /*
-            1 -> Check if email exists
-            2 -> Create the token, associate with user id
-            3 -> Send the link with the token
-        */
         const { email } = req.body
         await PasswordRecover(email)
-        res.send('El link fue enviado')
+        req.flash('success','El link fue enviado')
+        res.redirect('/password-forget')
     } catch (error) {
         next(error)
     }
