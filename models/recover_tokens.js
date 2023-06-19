@@ -22,6 +22,18 @@ const CreateToken = (tokenData) => {
     })
 }
 
+const SearchToken = (tokenHash) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            const tokenData = Token.findOne({tokenHash})
+            resolve(tokenData)
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
-    CreateToken
+    CreateToken,
+    SearchToken
 }
