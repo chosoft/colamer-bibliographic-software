@@ -247,10 +247,8 @@ main {
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        padding: 15px;
         flex-wrap: wrap;
-        gap: 5px;
+        gap: 50px;
         .bookResult{
             width: 45%;
             border: 2px solid $inputsColor;
@@ -269,12 +267,14 @@ main {
                     display: flex;
                     flex-direction: row;
                     max-width: 20%;
+                    max-height: 130px;
                     img {
                         width: 100%;
                         border-radius: 5px;
                     }
                 }
                 .infoContainer{
+                    width: 50%;
                     display: flex;
                     padding-left: 20px;
                     flex-direction: column;
@@ -283,6 +283,7 @@ main {
                         font: $titleSmallBold;
                         font-family: 'Poppins',sans-serif;
                         text-transform: capitalize;
+                        font-size: 20px;
                     }
                     .book-result-author{
                         font: $textBold;
@@ -300,7 +301,7 @@ main {
                     flex-wrap: wrap;
                     align-items: center;
                     justify-content: space-between;
-                    margin-left: 100px;
+                    margin-left: 50px;
                     .button-book-result{
                         display: flex;
                         flex-direction: row;
@@ -339,6 +340,12 @@ main {
                 .idInfo{
                     font: $text;
                     font-size: 14px;
+                }
+                #avaible {
+                    color: $successColor;
+                }
+                #notAvaible {
+                    color: $errorColor;
                 }
             }
         }
@@ -452,6 +459,8 @@ main {
                             }
                             #code2 {
                                 width: 31.5%;
+                                -webkit-appearance: textfield;
+                                -moz-appearance:textfield;
                             }
                             #signature2 {
                                 width: 35%;
@@ -633,6 +642,8 @@ main {
                         }
                         #code {
                             width: 31.5%;
+                            -webkit-appearance: textfield;
+                            -moz-appearance:textfield;
                         }
                         #signature {
                             width: 35%;

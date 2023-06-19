@@ -54,8 +54,7 @@ const SearchBook = (filter) => {
 const UpdateBook = (bookData, filter) => {
     return new Promise(async(resolve,reject) => {
         try {
-            const {title, author, signature, barcode, collection, copies, available, img, borrowed, code} = bookData
-            const bookUpdate = await Book.updateOne({barcode: filter}, { $set: { title, author, signature, barcode, collection, copies, available, img, borrowed, code }})
+            const bookUpdate = await Book.updateOne({barcode: filter}, { $set: {...bookData}})
             resolve (bookUpdate)
         } catch (error) {
             reject(error)

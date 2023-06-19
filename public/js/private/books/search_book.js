@@ -53,12 +53,12 @@ const createBooksHtml = (booksList) => {
                                             </div>
                                         <div class="actions">
                                             <button class="button-book-result deleteBook" actionType="delete" barcode="${barcode}" title="${title}"><i class="ri-delete-bin-line"></i></button>
-                                            <button class="button-book-result editBook activer2" actionType="edit" barcode="${barcode}" title="${title}" author="${author}" code="${code}" img="${img}" collectionType="${collectionType}" borrowed="${borrowed}" available="${available}" signature="${signature}" copies="${copies}"><i class="ri-edit-line"></i></button>
+                                            <button class="button-book-result editBook" actionType="edit" barcode="${barcode}" title="${title}" author="${author}" code="${code}" img="${img}" collectionType="${collectionType}" borrowed="${borrowed}" available="${available}" signature="${signature}" copies="${copies}"><i class="ri-edit-line"></i></button>
                                         </div>
                                     </div>
                                     <div class="footer">
                                         <span class="signature">${signature}</span>
-                                        <span class="avaible">${available ? 'Disponible':'No Disponible'}</span>
+                                        <span class="avaible" id="${available ? 'avaible':'notAvaible'}">${available ? 'Disponible':'No Disponible'}</span>
                                         <span class="collectionType">${collectionType}</span>
                                     </div>
                                 </div>`

@@ -56,30 +56,27 @@ const editBook = async(target) => {
         const btnActiver = document.querySelector('.activer2')
         const btnCloser = document.querySelector('.modalCloser2')
         const btnSubmit = document.querySelector('.submitBtn2')
-        btnActiver.onclick = (e) => {
-            e.preventDefault()
-            bg.style.top = "0"
-            bg.style.opacity = "1"
-            ititle.value = title
-            iauthor.value = author
-            isignature.value = signature
-            ibarcode.value = barcode
-            icode.value = code
-            iimg.value = img
-            icollectionType.value = collectionType
-            image.setAttribute("src", img)
+        bg.style.top = "0"
+        bg.style.opacity = "1"
+        ititle.value = title
+        iauthor.value = author
+        isignature.value = signature
+        ibarcode.value = barcode
+        icode.value = code
+        iimg.value = img
+        icollectionType.value = collectionType
+        image.setAttribute("src", img)
 
-            input.addEventListener('paste', (e) => {
-                try {
-                    // Save the url in a variable
-                    var url = e.clipboardData.getData("text")
-                    // Change the attribute of the image for the url
-                    image.setAttribute('src', url)
-                } catch (error) {
-                    console.log("Error al colocar la imagen")
-                }
-            })
-        }
+        input.addEventListener('paste', (e) => {
+            try {
+                // Save the url in a variable
+                var url = e.clipboardData.getData("text")
+                // Change the attribute of the image for the url
+                image.setAttribute('src', url)
+            } catch (error) {
+                console.log("Error al colocar la imagen")
+            }
+        })
         btnSubmit.addEventListener("click", async (e) => {
             e.preventDefault()
             let boleano = (available === "true")
@@ -94,7 +91,6 @@ const editBook = async(target) => {
                 copies: parseInt(copies),
                 borrowed: parseInt(borrowed),
                 available: boleano
-
             }
             await axios.put(`books/${barcode}`, data)
             alert("El libro se ha actualizado correctamente")
