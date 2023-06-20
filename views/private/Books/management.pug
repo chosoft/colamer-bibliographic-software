@@ -117,7 +117,7 @@ html(lang="en")
                             .form1
                                 i(class="ri-barcode-box-fill")
                                 label.fieldLabel(for="Code") Codigo Extra:
-                                input.field#code(type="number")
+                                input.field#code.number(type="number")
                             .form1
                                 i(class="ri-map-pin-line")
                                 label.fieldLabel(for="Signatura") Signatura:
@@ -134,11 +134,11 @@ html(lang="en")
                             .form1
                                 i(class="ri-hashtag")
                                 label.fieldLabel(for="Copies") Ejemplares:
-                                input.field#copies(type="number" inputmode="numeric")
+                                input.field#copies.number(type="number" inputmode="numeric")
                             .form1
                                 i(class="ri-book-mark-fill")
                                 label.fieldLabel(for="Borrowed") Prestados:
-                                input.field#borrowed(type="number")
+                                input.field#borrowed.number(type="number")
                     .end
                         input.img#img(placeholder="Link de caratula")
                         button.submitBtn 
@@ -164,7 +164,7 @@ html(lang="en")
                             .form2
                                 i(class="ri-barcode-box-fill")
                                 label.fieldLabel2(for="Code") Codigo Extra:
-                                input.field2#code2(type="number")
+                                input.field2#code2.number2(type="number")
                             .form2
                                 i(class="ri-map-pin-line")
                                 label.fieldLabel2(for="Signatura") Signatura:

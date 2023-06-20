@@ -3,6 +3,7 @@
 const saveBook = document.querySelector(".submitBtn")
 var input = document.querySelector('.img');
 var image = document.querySelector('.image');
+const number = document.querySelectorAll('.number');
 
 // Fuction of create the book
 const createBook = async (info) => {
@@ -88,8 +89,16 @@ saveBook.addEventListener('click', async(e) => {
     }
 })
 
-
-
+for (let i = 0; i < number.length; i++) {
+    const numbers = number[i];
+    numbers.addEventListener('keydown', (event) => {
+        var keyCode = event.which ? event.which : event.keyCode;
+        if ((keyCode < 48 || keyCode > 57) && keyCode !== 8) {
+          event.preventDefault();
+          return false;
+        }
+      });
+}
 
 // Fuction to preview the image
 input.addEventListener('paste', (e) => {

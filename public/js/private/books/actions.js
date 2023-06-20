@@ -56,6 +56,14 @@ const editBook = async(target) => {
         const btnActiver = document.querySelector('.activer2')
         const btnCloser = document.querySelector('.modalCloser2')
         const btnSubmit = document.querySelector('.submitBtn2')
+        const number = document.querySelector('.number2')
+        number.addEventListener('keydown', (event) => {
+            var keyCode = event.which ? event.which : event.keyCode;
+            if ((keyCode < 48 || keyCode > 57) && keyCode !== 8) {
+              event.preventDefault();
+              return false;
+            }
+        })
         bg.style.top = "0"
         bg.style.opacity = "1"
         ititle.value = title
