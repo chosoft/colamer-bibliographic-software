@@ -3,20 +3,20 @@ const back = document.querySelector(".back");
 const page = document.querySelector(".page");
 
 next.addEventListener("click", (e) => {
-    const min = page.getAttribute("min")
-    const actual = page.getAttribute("actual")
-    const max = page.getAttribute("max")
-    const oversteps = page.getAttribute("oversteps")
+    const min = parseInt(page.getAttribute("min"))
+    const actual = parseInt(page.getAttribute("actual"))
+    const max = parseInt(page.getAttribute("max"))
     let ms = actual + 1
     let mxs = ms + 3
-    let sk = actual
+    let sk = mxs
     if (mxs > max) {
-        oversteps = mxs - max
+        let oversteps = mxs - max
         if (oversteps > 0) {
             mxs = actual + oversteps
         }
+        page.setAttribute("oversteps", oversteps)
     }
     page.setAttribute("min", ms)
     page.setAttribute("actual", mxs)
-    page.setAttribute("oversteps", oversteps)
+    page.setAttribute("skipSteps", sk)
 })

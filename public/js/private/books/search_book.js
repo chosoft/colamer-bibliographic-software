@@ -1,5 +1,8 @@
 
 const searchBar = document.querySelector('.bookSearchbar')
+const changePage = document.querySelector(".page")
+const nextPage = document.querySelector(".next")
+const backPage = document.querySelector(".back")
 
 const getTheSearchMode = () => {
     return new Promise(async(resolve,reject) => {
@@ -85,6 +88,8 @@ const innerFoundBooks = (booksList) => {
 
 const searchBook = async(e) => {
     try {
+        const skip = changePage.getAttribute("skipSteps")
+        console.log(skip)
         const searchBar = e.target
         const queryValue = searchBar.value
         const searchMode = await getTheSearchMode()
@@ -93,18 +98,21 @@ const searchBook = async(e) => {
             mode:searchMode,
             query:queryValue,
             filters:searchFilters,
-            skipSteps:0
+            skipSteps:skip
         }
         const { data } = await axios.post('/books/search',searchParams)
-        await innerFoundBooks(data )
+        const { results, foundBooks } = data
+        changePage.setAttribute("max", results)
+        await innerFoundBooks(foundBooks)
 
     } catch (error) {
         defaultErrorSpam(error)
     }
 }
 
-const defaultErrorSpam = (error) => {
+function defaultErrorSpam(error) {
     console.log(error)
 }
 
 searchBar.onkeyup = searchBook
+nextPage.onclick = searchBook
