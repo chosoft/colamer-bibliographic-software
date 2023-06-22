@@ -1,0 +1,28 @@
+Operation `users.findOne()` buffering timed out after 10000ms - 8:45 21-6-2023 
+ MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (C:\Users\ACER\Projects\cbs\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:153:23)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7) 
+
+ -------------------- 
+Operation `users.findOne()` buffering timed out after 10000ms - 10:40 21-6-2023 
+ MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (C:\Users\ACER\Projects\cbs\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:153:23)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7) 
+
+ -------------------- 
+Cannot access 'changeToken' before initialization - 11:41 21-6-2023 
+ ReferenceError: Cannot access 'changeToken' before initialization
+    at C:\Users\ACER\Projects\cbs\routes\users\password_forget.js:20:21
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\ACER\Projects\cbs\node_modules\express\lib\router\index.js:280:10) 
+
+ -------------------- 

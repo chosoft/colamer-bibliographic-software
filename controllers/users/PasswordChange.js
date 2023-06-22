@@ -7,7 +7,7 @@ const validateUUIDToken = (token) => {
         try {
             const tokenIsValid = uuid.validate(token)
             if(!tokenIsValid){
-                reject(new Error('Este no es un Token Valido', { cause:'UserInput' }))
+                reject({page:'errorToken',renderData:{errorMsg:'Este token no existe o ha expirado'}})
                 return
             }
             await validateTokenUsability(token)
@@ -24,11 +24,12 @@ const validateTokenUsability = (token) => {
 
             const DBToken = await SearchToken(token)
             if(!DBToken){
-                reject(new Error('Este token no existe o ha expirado',{ cause:'UserInput' }))
+                reject({page:'errorToken',renderData:{errorMsg:'Este token no existe o ha expirado'}})
                 return
             }
             await tokenIsAlreadyUsed(DBToken)
             await tokenUsedInAInvalidTime(DBToken)
+            resolve()
         } catch (error) {
             reject(error)
         }
@@ -40,7 +41,7 @@ const tokenIsAlreadyUsed = (tokenData) => {
         try {
             const { available } = tokenData
             if(!available){
-                reject(new Error('Este token no existe o ha expirado', { cause:'UserInput' }))
+                reject({page:'errorToken',renderData:{errorMsg:'Este token no existe o ha expirado'}})
                 return
             }
             resolve()
@@ -58,7 +59,7 @@ const tokenUsedInAInvalidTime = (tokenData) => {
             const difference = actualDate - tokenDate
             const minutesDifference = Math.round(difference/60000)
             if(minutesDifference >= 10){
-                reject(new Error('Este token no existe o ha expirado', { cause:'UserInput' }))
+                reject({page:'errorToken',renderData:{errorMsg:'Este token no existe o ha expirado'}})
                 return
             }
             resolve()
@@ -73,8 +74,13 @@ const PasswordChange = (token) => {
         try {
             await validateUUIDToken(token)
             await validateTokenUsability(token)
-            resolve()
+            resolve({page:'changePassword',renderData:{token}})
         } catch (error) {
+            const hasPage = error.page  ? true:false
+            if(hasPage){
+                resolve(error)
+                return
+            }
             reject(error)
         }
     })

@@ -4,6 +4,7 @@ const router = express.Router()
 const PasswordRecover = require('./../../controllers/users/PasswordRecovery')
 const PasswordChange = require('./../../controllers/users/PasswordChange')
 
+//Display the main route
 router.get('/',async(req,res,next) => {
     try {
         const errors = req.flash('error')
@@ -13,21 +14,22 @@ router.get('/',async(req,res,next) => {
         next(error)
     }
 })
+//Display the link sent to the user mail
 router.get('/:changeToken', async(req,res,next) => {
     try {
         const changeToken = req.params.changeToken
-        await PasswordChange(changeToken)
-        res.send('Cambia tu contraseña')
+        const {page,renderData} = await PasswordChange(changeToken)
+        res.render(`public/${page}`,renderData)
     } catch (error) {
         next(error)
     }
 })
+//Endpoint to require the change link
 router.post('/',async(req,res,next) =>{
     try {
         const { email } = req.body
         await PasswordRecover(email)
-        req.flash('success','El link fue enviado')
-        res.redirect('/password-forget')
+        res.json({msg:'El link fue enviado'})
     } catch (error) {
         next(error)
     }
