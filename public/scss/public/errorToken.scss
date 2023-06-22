@@ -1,0 +1,125 @@
+//Colors Values
+$mainColor: #4180E2;
+$secondColor: #FFBA00;
+$inputsColor: #DADADA;
+$errorColor: #FA2828;
+$successColor: #48e015;
+$black: #161616;
+$white:#FAFAFA;
+//Titles Styles
+//Bold Titles
+$titleBigBold:700 45px 'Poppins', sans-serif  ;
+$titleMediumBold:700 35px  'Poppins',sans-serif;
+$titleSmallBold:700 25px 'Poppins', sans-serif;
+//Normal Titles
+$titleBigNormal:400 45px 'Poppins', sans-serif  ;
+$titleMediumNormal:400 35px 'Poppins',sans-serif  ;
+$titleSmallNormal:400 25px 'Poppins', sans-serif  ;
+//Light Titles
+$titleBigLight:200 45px 'Poppins', sans-serif  ;
+$titleMediumLight:200 35px 'Poppins',sans-serif  ;
+$titleSmallLight:200 25px 'Poppins', sans-serif  ;
+//Form Components Styles
+$btnTxt:700 18px 'Poppins',sans-serif  ;
+$labelTxt:700 16px 'Poppins', sans-serif  ;
+$bigInputs:400 25px 'Roboto', sans-serif  ;
+$normalInputs: 400 16px 'Roboto',sans-serif;
+$bigInputsBold:700 25px 'Roboto', sans-serif;
+//Texts Styles
+$text:400 16px 'Roboto', sans-serif  ;
+$textBold:700 16px 'Roboto', sans-serif  ;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.contextError{
+    display: inherit;
+    flex-direction: inherit;
+    .mainLabel{
+        display: inherit;
+        flex-direction: inherit;
+        justify-content: inherit;
+        .labelText{
+            font-family: 'Poppins',sans-serif;
+            font-weight: bold;
+            font-size: 6em;
+            line-height: 1em;
+            text-align: center;
+            margin: 5px 0;
+            .redText{
+                font-family: inherit;
+                font-weight: inherit;
+                color: $errorColor;
+            }
+        }
+        .subLabel{
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 1.5em;
+        }
+    }
+    .errorReasons{
+        .reasonsTitle{
+            color: rgba($color: $black, $alpha: .6);
+            margin-bottom: 12px;
+        }
+        .reasonsList{
+            padding:0 20px;
+            margin-bottom: 1.8em;
+            li{
+                color: rgba($color: $black, $alpha: .6);
+                margin-bottom: 6px;
+            }
+        }
+    }
+    .actions{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        a{
+            padding: 8px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all .3s ease;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+        .newLink{
+            background: $mainColor;
+            color: $white;
+        }
+        .goLogin{
+            color: $mainColor;
+        }
+    }
+}
+.projectStamp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6em;
+    img{
+        max-width: 6em;
+        margin-bottom: 1em;
+    }
+    .projectName{
+        font-family: 'Poppins' sans-serif;
+        font-weight: bold;
+    }
+}
