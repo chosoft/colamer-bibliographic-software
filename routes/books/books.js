@@ -26,6 +26,7 @@ router.post('/search',async(req,res,next) => {
     try {
         const searchParams = req.body
         const result = await Search(searchParams)
+        console.log(result)
         res.json(result)
     } catch (error) {
         next(error)

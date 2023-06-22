@@ -248,7 +248,7 @@ main {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 50px;
+        gap: 10px 50px;
         .bookResult{
             width: 45%;
             border: 2px solid $inputsColor;
