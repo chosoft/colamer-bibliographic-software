@@ -4,7 +4,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Gestion de Usuarios
+        title Gestión de Usuarios
         link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css")
         link(href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet")
         link(rel='preconnect' href='https://fonts.googleapis.com')
@@ -35,7 +35,7 @@ html(lang="en")
                     #passwordFeatureList
                         ul
                             li#digitFeature 1 Numero
-                            li#uppercaseFeature 1 Mayuscula
+                            li#uppercaseFeature 1 Mayúscula
                             li#charactersFeature 10 caracteres
                     label.fieldLabel#rolLabel(for="rol") Rol
                     select.field#rol(name="")
@@ -56,13 +56,13 @@ html(lang="en")
         include ../layout/sidebar/sidebar.pug
         main.users
             header.pageHeader
-                h1 Gestion de usuarios
+                h1 Gestión de usuarios
             .search
                 .searchUtils
                     input.userSearchbar(type="search", name="query" placeholder="Ingresa tu busqueda")
                     .searchConfig
                         .configTitle
-                            h3.headerConfig Configuracion de busqueda
+                            h3.headerConfig Configuración de busqueda
                             button#toggleConfig(isOpen="true")
                                 i(class="ri-arrow-down-s-line")
                         .configOptions
@@ -123,7 +123,7 @@ html(lang="en")
 
             .wpResults
                 header.titleResults
-                    h2 Resultados busqueda
+                    h2 Resultados búsqueda
                 .results
         script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")            
         script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" crossorigin) 
