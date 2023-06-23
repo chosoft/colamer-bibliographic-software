@@ -115,4 +115,13 @@ function defaultErrorSpam(error) {
 }
 
 searchBar.onkeyup = searchBook
-nextPage.onclick = searchBook
+nextPage.onclick = (e) => {
+    setTimeout(async () => {
+        await searchBook(e) 
+    }, 10)
+}
+backPage.onclick = (e) => {
+    setTimeout(async () => {
+        await searchBook(e)
+    }, 10)
+}

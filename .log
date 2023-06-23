@@ -13,3 +13,17 @@ skip is not defined - 14:40 22-6-2023
     at processTicksAndRejections (internal/process/task_queues.js:97:5) 
 
  -------------------- 
+BSON field 'skip' value must be >= 0, actual value '-3' - 17:56 22-6-2023 
+ MongoServerError: BSON field 'skip' value must be >= 0, actual value '-3'
+    at Connection.onMessage (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongodb/lib/cmap/connection.js:231:30)
+    at MessageStream.<anonymous> (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongodb/lib/cmap/connection.js:61:60)
+    at MessageStream.emit (events.js:314:20)
+    at MessageStream.EventEmitter.emit (domain.js:483:12)
+    at processIncomingData (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongodb/lib/cmap/message_stream.js:125:16)
+    at MessageStream._write (/home/jorgepruebas/Desktop/Proyecto/colamer-bibliographic-software/node_modules/mongodb/lib/cmap/message_stream.js:33:9)
+    at doWrite (_stream_writable.js:403:12)
+    at writeOrBuffer (_stream_writable.js:387:5)
+    at MessageStream.Writable.write (_stream_writable.js:318:11)
+    at TLSSocket.ondata (_stream_readable.js:718:22) 
+
+ -------------------- 
