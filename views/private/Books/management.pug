@@ -98,9 +98,11 @@ html(lang="en")
                 .results
                 
             .nav
-                button.next >
+                button.back
+                    i(class="ri-arrow-left-line")
                 button.page(min=1, actual=4, max=0, oversteps=0, skipSteps=0)
-                button.back < 
+                button.next
+                    i(class="ri-arrow-right-line")
                 button.createBook#addB.activer
                     i(class="ri-add-line")
         .popUpBg

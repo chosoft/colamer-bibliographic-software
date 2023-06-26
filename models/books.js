@@ -31,7 +31,6 @@ const CreateBook = (bookData) => {
 const SearchBooks = (filter,config,projection={hash:0}) => {
     return new Promise(async(resolve,reject) => {
         try {
-            console.log(config)
             let skip = parseInt(config.skipSteps)
             //Need to put the limit and skip functions
             const results = await Book.find(filter,projection).sort({_id:-1}).count()

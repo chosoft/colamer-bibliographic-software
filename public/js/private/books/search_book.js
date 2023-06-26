@@ -89,7 +89,6 @@ const innerFoundBooks = (booksList) => {
 const searchBook = async(e) => {
     try {
         const skip = changePage.getAttribute("skipSteps")
-        console.log(skip)
         const searchBar = e.target
         const queryValue = searchBar.value
         const searchMode = await getTheSearchMode()
