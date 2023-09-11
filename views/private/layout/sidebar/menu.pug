@@ -40,3 +40,16 @@ case page.name
         a.m-item(href="/profile")
             i(class="ri-settings-line")
             span Perfil
+    when 'profile'
+        a.m-item(href="/books")
+            i(class="ri-book-open-line")
+            span Libros
+        a.m-item(href="/borrowings")
+            i(class="ri-calendar-event-line")
+            span Prestamos
+        a.m-item(href="/users")
+            i(class="ri-group-line")
+            span Usuarios
+        a.m-item.actualPage(href="/profile")
+            i(class="ri-settings-line")
+            span Perfil
