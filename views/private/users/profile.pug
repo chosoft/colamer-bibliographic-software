@@ -23,14 +23,13 @@ html(lang="en")
                     label(for="pwdToChange") Cambia tu contraseña
                     .pwdFieldWp
                         input.changerPwd#pwdToChange(type="password", name="")
-                        button.alterView(asdF="#pwdToChange" state="notSee")
-                            i(class="ri-eye-close-line notsee")
+                        button.alterView(asdF="#pwdToChange" state="0")
                             i(class="ri-eye-2-line see")
                     .pwdFieldWp
                         input.changerPwd#pwdToChangeConf(type="password", name="")
-                        button.alterView(asdF="#pwdToChangeConf" state="notSee")
-                            i(class="ri-eye-close-line notsee")
+                        button.alterView(asdF="#pwdToChangeConf" state="0")
                             i(class="ri-eye-2-line see")
+
                     button#uploadPwd(uId=user._id) Actualizar 
 
-        script(src="")         
+        script(src="/js/private/users/toggleField.js")         
