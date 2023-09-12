@@ -1,0 +1,429 @@
+@import '../defaults/pallete';
+@import '../defaults/userlayout';
+
+
+main {
+    margin-left: 20%;
+    .logo{
+        display: flex;
+        position: fixed;
+        margin-left: -18.5%;
+        margin-top: 5%;
+        img{
+            width: 200px;
+        }
+    }
+    .pageHeader {
+        display: flex;
+        width: 100%;
+        h1 {
+            font: $titleMediumBold;
+        }
+    }
+    .search{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        .searchUtils{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            .bookSearchbar{
+                @include d-input;
+                min-width: 100%;
+                margin-bottom: 25px;
+            }
+            .searchConfig{
+                min-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                .configTitle{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: left;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    .headerConfig{
+                        font: $titleSmallBold;
+                        font-size: 20px;
+                        margin-right: 5px;
+                    }
+                    #toggleConfig{
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        font-size: 1.3rem;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        border: 0;
+                        background: transparent;
+                        cursor: pointer;
+                        transition: all .3s ease;
+                        &:hover{
+                            color: $mainColor;
+                        }
+                        &:active{
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+                .configOptions{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    .option{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 10px;
+                        .optLabel{
+                            font: $textBold;
+                            color: rgba($color: $black, $alpha: .5);
+                        }
+                        .tagsSelectCont{
+                            .tag{
+                                cursor: pointer;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                font: $textBold;
+                                color: rgba($color: $black, $alpha: .5);
+                                padding:8px;
+                                position: relative;
+                                background: $inputsColor;
+                                border: 0;
+                                transition: all .3s ease;
+                                &:active{
+                                    transform: scale(.9);
+                                }
+                                i{
+                                    margin-right: 5px;
+                                }
+    
+                            }
+                            .modesTagsContainer{
+                                position: absolute;
+                                margin-top: 10px;
+                                display: none;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                background: rgba($color: $black, $alpha: .5);
+                                padding: 5px;
+                                backdrop-filter: blur(5px);
+                                .tag{
+                                    margin-top: 10px;
+                                    &:first-child{
+                                        margin-top: 0;
+                                    }
+                                }
+                            }
+                        }
+                        .addedOpts{
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            gap: 10px;
+                            .selectedOpt{
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: space-between;
+                                font: $textBold;
+                                color: rgba($color: $black, $alpha: .5);
+                                padding:8px;
+                                background: $inputsColor;
+                                border: 0;
+                                gap: 5px;
+                                &[selected="false"]{
+                                    display: none;
+                                }
+                                .selectFilter{
+                                    font: inherit;
+                                    background: transparent;
+                                    border: 0;
+                                    color: inherit;
+                                    cursor: pointer;
+                                    font-size: .95rem;
+                                    option{
+                                        cursor: pointer;
+                                        color: $black;
+                                    }
+                                }
+                                .deleteOpt{
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border: 0;
+                                    background: transparent;
+                                    color: inherit;
+                                    font: inherit;
+                                    cursor: pointer;
+                                    transition: all .3s ease;
+                                    &:hover,&:active{
+                                        color: $errorColor;
+                                    }
+                                    &:active{
+                                        transform: scale(.9);
+                                    }
+                                    i{
+                                        font: inherit;
+                                        color: inherit;
+    
+                                    }
+                                }
+                            }
+                        }
+                        .addOptsCont{
+    
+                            #addFilter{
+                                width: 1.5rem;
+                                position: relative;
+                                height: 1.5rem;
+                                font: $text;
+                                font-size: 1.3rem;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+                                cursor: pointer;
+                                color: rgba($color: $black, $alpha: .5);
+                                border: 2px dotted rgba($color: $black, $alpha: .5);
+                                transition: all .3s ease;
+                                &:hover{
+                                    color: $successColor;
+                                    border-color: $successColor;
+                                }
+                                &:active{
+                                    color: $successColor;
+                                    border-color: $successColor;
+                                    transform: scale(.9);
+                                }
+                            }
+                            .addOpts{
+                                position: absolute;
+                                display: none;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                .optFilter{
+                                    cursor: pointer;
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    font: $textBold;
+                                    color: rgba($color: $black, $alpha: .5);
+                                    padding:8px;
+                                    background: $inputsColor;
+                                    border: 0;
+                                    margin-top: 10px;
+                                    transition: all .3s ease;
+                                    &:active{
+                                        transform: scale(.9);
+                                    }
+                                    i{
+                                        margin-right: 5px;
+                                    }
+                                    &[selected="true"]{
+                                        display: none;
+                                    }
+                                }
+                            }
+    
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.wpResults{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    .titleResults{
+        width: 100%;
+        h2{
+            font: $titleSmallBold
+        }
+    }
+    .results{
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px 50px;
+        .bookResult{
+            width: 45%;
+            border: 2px solid $inputsColor;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            .headerResult,.footer{
+                width: 100%;
+            }
+            .headerResult{
+                width: 100%;
+                display: flex;
+                padding-bottom: 5px;
+                border-bottom: 2px dotted rgba($color: $black, $alpha: .5);
+                .img{
+                    display: flex;
+                    flex-direction: row;
+                    max-width: 20%;
+                    max-height: 130px;
+                    img {
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+                }
+                .infoContainer{
+                    width: 50%;
+                    display: flex;
+                    padding-left: 20px;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    .book-result-title{
+                        font: $titleSmallBold;
+                        font-family: 'Poppins',sans-serif;
+                        text-transform: capitalize;
+                        font-size: 20px;
+                    }
+                    .book-result-author{
+                        font: $textBold;
+                        color: grey;
+                        
+                    }
+                    .book-result-copies{
+                        font:$titleSmallBold;
+                        margin: 10px 0 0 0;
+                    }
+                }
+                .actions{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-left: 50px;
+                    .button-book-result{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 5px;
+                        border: 0;
+                        font: $text;
+                        color: $white;
+                        cursor: pointer;
+                        transition: all .3s ease;
+                        &:active{
+                            transform: scale(.9);
+                        }
+                    }
+                    .deleteBook{
+                        background: $errorColor;
+                        border-radius: 5px;
+                        font-size: 20px;
+                        margin-right: 10px;
+                    }
+                    .editBook{
+                        background: $secondColor;
+                        margin-left: 10px;
+                        font-size: 20px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+            .footer{
+                padding-top: 5px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                .idInfo{
+                    font: $text;
+                    font-size: 14px;
+                }
+                #avaible {
+                    color: $successColor;
+                }
+                #notAvaible {
+                    color: $errorColor;
+                }
+            }
+        }
+    }
+}
+
+    .table {
+        display: flex;
+        width: 100%;
+        height: 35%;
+        margin-top: 20px;
+    }
+
+    .nav {
+        .next {
+            background-color: #FAFAFA;
+            color: #4180E2;
+            font-size: 30px;
+            border: none;
+            position: fixed;
+            bottom: 13%;
+            right: 38%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .next:hover {
+            transform: translateY(-5px);
+        }
+        .back {
+            background-color: #FAFAFA;
+            color: #4180E2;
+            font-size: 30px;
+            border: none;
+            position: fixed;
+            bottom: 13%;
+            right: 45%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .back:hover {
+            transform: translateY(-5px);
+        }
+    }
+            .end {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                padding-top: 5px;
+                margin-top: 10px;
+                .img {
+                    width: 25%;
+                    border: 2px solid $mainColor;
+                    padding: 4px;
+                    outline: none;
+                    font-size: 15px;
+                }
+                input.img::placeholder { 
+                    text-align: center;
+                    color: $mainColor;
+                    font-size: 20px;
+                    font: $textBold;
+                }
+            }

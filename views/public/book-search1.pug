@@ -1,0 +1,112 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet")
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css")
+        link(href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,700;1,200;1,400;1,500;1,700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap' rel='stylesheet')
+        link(rel="stylesheet", href="/css/public/index.css")
+        title Consulta de libros Biblioteca - Colegio Americano de Cali
+    body
+        main
+            picture.logo
+                img(src="/assets/logo-colamer.svg", alt="Logo Colegio Americano de Cali")
+            header.pageHeader
+                h1 Consulta de libros Biblioteca
+            .search
+                .searchUtils
+                    input.bookSearchbar(type="search", name="query" placeholder="Ingresa tu busqueda")
+                    .searchConfig
+                        .configTitle
+                            h3.headerConfig Configuracion de busqueda
+                            button#toggleConfig(isOpen="true")
+                                i(class="ri-arrow-down-s-line")
+                        .configOptions
+                            .option#searchMode
+                                label.optLabel(for="searchMode") Buscar mediante
+                                .tagsSelectCont
+                                    button.tag#titleTag(active="true" mode="title")
+                                        i(class="ri-font-size")
+                                        .
+                                            Titulo
+                                    .modesTagsContainer(isOpen="false")
+                                        button.tag#authorTag(active="false" mode="author")
+                                            i(class="ri-mail-line")
+                                            .
+                                                Autor
+                                        button.tag#signatureTag(active="false" mode="signature")
+                                            i(class="ri-mail-line")
+                                            .
+                                                Firma
+                                        button.tag#barcodeTag(active="false" mode="barcode")
+                                            i(class="ri-mail-line")
+                                            .
+                                                Codigo de Barras
+                                        button.tag#codeTag(active="false" mode="code")
+                                            i(class="ri-mail-line")
+                                            .
+                                                Codigo
+                            //Here the tags of the filter element lives
+                            //Main container of the filters
+                            .option#filters
+                                //This is the label
+                                label.optLabel(for="addFilter") Filtrar por
+                                //This container have inside the posible options that can be disaplyed after using the #addFilter Button
+                                .addedOpts()
+                                        //The selected optios works as the follows
+                                        //The element have the attribute of "idWord" this have the task to work like a bridge between the other elements
+                                        //elements that belongs to the filter
+                                        //The attribute selected have the task to display or hide the selectedOption
+                                        .selectedOpt#collectionTypeOpt(selected="false" filterValue="" idWord="collectionType")
+                                            i(class="ri-profile-line")
+                                            .
+                                                Tipo de Coleccion
+                                            //this is the value selector of the filter
+                                            select#collectionTypeSelectOpt.selectFilter()
+                                                option(value="Colección General") Colección General
+                                                option(value="Literatura") Literatura
+                                                option(value="Referencia") Referencia
+                                                option(value="Biblioteca Infantil") Biblioteca Infantil
+                                                option(value="Trabajo de Grado") Trabajo de Grado
+                                            //This is the button to unselect the filter option
+                                            button.deleteOpt(idWord="collectionType")
+                                                i(class="ri-close-line" idWord="collectionType")
+                                //This container have inside the add button and the posible options to select
+                                .addOptsCont
+                                    //The famous add button
+                                    //the "isselecting" prop is key because this prop allows the code to identify if the button is active or not
+                                    button#addFilter(isselecting="false")
+                                        //Simply -> The icon +
+                                        i( class="ri-add-line")
+                                    //This container have inside the options that can be added
+                                    .addOpts
+                                        //The option structure work by the as the follow way
+                                        //His ID start with the name of the filter
+                                        //Also have an attribute called "idWord" the value is only the name of the filter
+                                        //This idWord have the task of be a bridge to manipulate the other elements that belongs to the filter
+                                        //The selected attribute is key, because in case that the value of this will false the filter will displayed
+                                        //Otherwise the filter display wont be display
+                                        button.optFilter#collectionTypeFilter(selected="false" idWord="collectionType")
+                                            i(class="ri-profile-line" idWord="collectionType")
+                                            .
+                                                Tipo de Coleccion
+            .wpResults
+                header.titleResults
+                    h2 Resultados busqueda
+                .results
+                
+            .nav
+                button.back
+                    i(class="ri-arrow-left-line")
+                button.page(min=1, actual=4, max=0, oversteps=0, skipSteps=0)
+                button.next
+                    i(class="ri-arrow-right-line")
+
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+    script(src="/js/public/index/search_book_config.js")
+    script(src="/js/public/index/search_book.js")
+    script(src="/js/public/index/navegation.js")
