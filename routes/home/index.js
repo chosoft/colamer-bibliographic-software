@@ -5,7 +5,7 @@ const router = express.Router()
 //This render the main page of the app
 router.get('/',(req,res,next) => {
     try {
-        res.render('public/book-search1')
+        res.render('public/book-search')
     } catch (error) {
         next(error)
     }
