@@ -21,6 +21,10 @@ html(lang="en")
                     h2 Cambio de contraseña
                 .fields
                     label(for="pwdToChange") Cambia tu contraseña
+                    ul.pwdRequirements
+                        li.requirement Una Letra Mayuscula
+                        li.requirement Un Digito
+                        li.requirement Minimo 10 Caracteres
                     .pwdFieldWp
                         input.changerPwd#pwdToChange(type="password", name="")
                         button.alterView(asdF="#pwdToChange" state="0")
@@ -31,5 +35,8 @@ html(lang="en")
                             i(class="ri-eye-2-line see")
 
                     button#uploadPwd(uId=user._id) Actualizar 
+                    p#errorSpam
 
-        script(src="/js/private/users/toggleField.js")         
+        script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+        script(src="/js/private/users/toggleField.js")
+        script(src="/js/private/users/change_password.js")         
